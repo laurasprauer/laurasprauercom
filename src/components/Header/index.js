@@ -4,7 +4,7 @@ import './styles.css';
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className="headerContainer">
         <h1>MY HEADER!!</h1>
       </div>
     );
