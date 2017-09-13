@@ -32,8 +32,13 @@
   100% {transform:scaleX(1)}
 }
 
-.svg-row1{
-  .svg1{
+.svg-row1, .svg-row2{
+  >div{
+    display: inline-block;
+    margin-right: 6px;
+    &:last-child{
+      padding: 0;
+    }
     svg{
       transform:scale(1);
       animation: flipped-from 0.3s;
@@ -45,4 +50,8 @@
       }
     }
   }
+}
+
+.svg-row2{
+  margin-top:5px;
 }
