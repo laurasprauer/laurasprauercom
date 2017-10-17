@@ -12,35 +12,45 @@ class Home extends Component {
           <div className="svg-row1">
             <Letters
               letter="LA"
+              percent={23.35}
             />
             <Letters
               letter="U"
+              percent={13.02}
             />
             <Letters
               letter="R"
+              percent={13.26}
             />
             <Letters
               letter="A"
+              percent={14.85}
             />
           </div>
           <div className="svg-row2">
             <Letters
               letter="S"
+              percent={12.09}
             />
             <Letters
               letter="P"
+              percent={12.79}
             />
             <Letters
               letter="R"
+              percent={13.26}
             />
             <Letters
               letter="A"
+              percent={15.35}
             />
             <Letters
               letter="U"
+              percent={13.02}
             />
             <Letters
               letter="ER"
+              percent={23.55}
             />
           </div>
         </div>
