@@ -12,8 +12,8 @@ class Entry extends Component {
   render() {
     return (
       <div>
-        <Header></Header>
-        <Main></Main>
+        <Header/>
+        <Main/>
       </div>
     );
   }
