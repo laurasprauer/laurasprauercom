@@ -24,49 +24,13 @@
   transition:width 0.3s;
 }
 
-.SVGRow1, .SVGRow2{
-  svg{
-    width:100%;
-    height:100%;
-    .letterContainer{
-      path{
-        transition: all 0.3s;
-        fill-opacity: 1;
-        stroke: white;
-        stroke-width: 0px;
-      }
-      &:hover{
-        path{
-          fill-opacity: 0;
-          stroke: white;
-          stroke-width: 4px;
-        }
-      }
-    }
-  }
-}
-
-.SVGRow1{
-  width:70%;
-  max-width: 140px;
-}
-
-.SVGRow2{
-  width:100%;
-  margin-top:5px;
-  max-width: 200px;
+.social{
+  display:flex;
 }
 
 @media (min-width: 650px) {
   .homeBlock{
     right: 10%;
     width:45%;
-  }
-  .SVGRow1{
-    max-width: none;
-  }
-
-  .SVGRow2{
-    max-width: none;
   }
 }
