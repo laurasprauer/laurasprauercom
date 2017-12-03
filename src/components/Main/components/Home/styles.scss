@@ -8,30 +8,65 @@
   top: 0;
   left: 0;
   z-index:1;
+
+  h2{
+    color:white;
+  }
 }
 
 .homeBlock{
   background-color:$black;
   position: absolute;
   bottom: 0;
-  right: 10%;
-  width:45%;
+  width:100%;
   padding:30px;
   perspective: 1000px;
+  transition:width 0.3s;
 }
 
-@keyframes flipped-to {
-  0% {transform:scaleX(1)}
-  50% {transform:scaleX(0)}
-  100% {transform:scaleX(-1)}
+.homeBlock-SVG-Row1, .homeBlock-SVG-Row2{
+  svg{
+    width:100%;
+    height:100%;
+    .letterContainer{
+      path{
+        transition: all 0.3s;
+        fill-opacity: 1;
+        stroke: white;
+        stroke-width: 0px;
+      }
+      &:hover{
+        path{
+          fill-opacity: 0;
+          stroke: white;
+          stroke-width: 4px;
+        }
+      }
+    }
+  }
 }
 
-@keyframes flipped-from {
-  0% {transform:scaleX(-1)}
-  50% {transform:scaleX(0)}
-  100% {transform:scaleX(1)}
+.homeBlock-SVG-Row1{
+  width:70%;
+  max-width: 140px;
 }
 
-.svg-row2{
+.homeBlock-SVG-Row2{
+  width:100%;
   margin-top:5px;
+  max-width: 200px;
+}
+
+@media (min-width: 650px) {
+  .homeBlock{
+    right: 10%;
+    width:45%;
+  }
+  .homeBlock-SVG-Row1{
+    max-width: none;
+  }
+
+  .homeBlock-SVG-Row2{
+    max-width: none;
+  }
 }
