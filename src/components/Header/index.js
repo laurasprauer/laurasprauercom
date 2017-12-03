@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.css';
+import styles from "./styles.css";
 
 class Header extends Component {
   render() {
     return (
-      <div className="headerContainer">
+      <div className={styles.headerContainer}>
         <ul>
           <li><Link to="/">HOME</Link></li>
           <li><Link to="/about">ABOUT</Link></li>
