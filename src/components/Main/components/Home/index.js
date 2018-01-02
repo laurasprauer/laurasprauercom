@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from "./styles.css";
+import styles from './styles.module.scss';
 
 //import components
 import Name from './components/Name';
