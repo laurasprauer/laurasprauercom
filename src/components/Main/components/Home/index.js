@@ -1,46 +1,33 @@
 import React, { Component } from 'react';
-import './styles.css';
+import styles from './styles.module.scss';
 
 //import components
-import Letters from './components/Letters';
+import Name from './components/Name';
+import Social from './components/Social';
 
 class Home extends Component {
   render() {
     return (
-      <div className="homeContainer">
-        <div className="homeBlock">
-          <div className="svg-row1">
-            <Letters
-              letter="LA"
+      <div className={styles.homeContainer}>
+        <div className={styles.homeBlock}>
+          <Name/>
+          <h2>Designer & Developer</h2>
+          <div className={styles.social}>
+            <Social
+              icon="twitter"
+              link="https://twitter.com/lspraue"
             />
-            <Letters
-              letter="U"
+            <Social
+              icon="github"
+              link="https://github.com/laurasprauer"
             />
-            <Letters
-              letter="R"
+            <Social
+              icon="dribbble"
+              link="https://dribbble.com/laurasprauer"
             />
-            <Letters
-              letter="A"
-            />
-          </div>
-          <div className="svg-row2">
-            <Letters
-              letter="S"
-            />
-            <Letters
-              letter="P"
-            />
-            <Letters
-              letter="R"
-            />
-            <Letters
-              letter="A"
-            />
-            <Letters
-              letter="U"
-            />
-            <Letters
-              letter="ER"
+            <Social
+              icon="linkedin"
+              link="https://www.linkedin.com/in/laurasprauer/"
             />
           </div>
         </div>
