@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 //import styles
-import styles from './styles.module.scss';
+// import styles from './styles.module.scss';
 
 //import components
 import Home from './components/Home';

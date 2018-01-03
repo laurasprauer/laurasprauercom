@@ -1,21 +1,34 @@
 {
+  "author": "Laura Sprauer",
   "name": "laurasprauercom",
+  "description": "Laura Sprauer - Designer & Developer",
   "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "http://laurasprauer.com/",
   "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laurasprauer/laurasprauercom"
+  },
+  "bugs": {
+    "url": "https://github.com/laurasprauer/laurasprauercom/issues"
+  },
   "dependencies": {
+    "custom-react-scripts": "^0.2.1",
     "link-react": "^3.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
-    "custom-react-scripts": "^0.2.1",
     "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "rm node_modules/.bin/react-scripts && npm install --scripts-version custom-react-scripts"
   }
 }
