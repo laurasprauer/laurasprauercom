@@ -1,0 +1,20 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
+    'max-len': [2, {
+      'code': 100,
+      'tabWidth': 2,
+      'ignoreUrls': true,
+      'ignorePattern': "<path([^;]*?)/>",
+      'ignoreComments': true,
+    }],
+  }
+}
