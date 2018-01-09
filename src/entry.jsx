@@ -11,8 +11,10 @@ import Header from './components/Header';
 function Entry() {
   return (
     <BrowserRouter>
-      <Header />
-      <Main />
+      <div>
+        <Header />
+        <Main />
+      </div>
     </BrowserRouter>
   );
 }
