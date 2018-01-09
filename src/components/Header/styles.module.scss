@@ -1,23 +1,27 @@
-@import "./src/shared/styles/variables.scss";
+@import './src/shared/styles/variables';
 
-.headerContainer{
-  position:relative;
-  z-index:2;
-  ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    li{
-      display: inline-block;
-      padding:15px;
-      margin:0px 0px 0px 20px;
-      a{
-        color:$black;
-        font-family:$fontSaira;
-        text-decoration: none;
-        &:hover{
-          color:white;
-        }
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.headerLinks {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    padding: 15px;
+
+    a {
+      color: $black;
+      font-family: $fontSaira;
+      text-decoration: none;
+
+      &:hover {
+        color: $white;
       }
     }
   }

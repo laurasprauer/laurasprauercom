@@ -1,36 +1,36 @@
-@import "./src/shared/styles/variables.scss";
+@import './src/shared/styles/variables';
 
-.homeContainer{
-  width:100vw;
-  height:100vh;
-  background-color:$teal;
+.homeContainer {
+  background-color: $teal;
+  height: 100vh;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  z-index:1;
+  width: 100vw;
+  z-index: 1;
 
-  h2{
-    color:white;
+  h2 {
+    color: $white;
   }
 }
 
-.homeBlock{
-  background-color:$black;
-  position: absolute;
+.homeBlock {
+  background-color: $black;
   bottom: 0;
-  width:100%;
-  padding:30px;
+  padding: 30px;
   perspective: 1000px;
-  transition:width 0.3s;
+  position: absolute;
+  transition: width 0.3s;
+  width: 100%;
 }
 
-.social{
-  display:flex;
+.social {
+  display: flex;
 }
 
 @media (min-width: 650px) {
-  .homeBlock{
+  .homeBlock {
     right: 10%;
-    width:45%;
+    width: 45%;
   }
 }
