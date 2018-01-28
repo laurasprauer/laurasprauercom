@@ -4,15 +4,15 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 // import components
-import Name from './components/Name';
-import Social from './components/Social';
+import Name from '../Name';
+import Social from '../Social';
 
 function Home() {
   return (
     <div className={styles.homeContainer}>
       <div className={styles.homeBlock}>
         <Name />
-        <h2>Designer & Developer</h2>
+        <h2>Developer & Designer</h2>
         <div className={styles.social}>
           <Social
             icon="twitter"
