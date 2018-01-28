@@ -2394,7 +2394,7 @@ var _laurasprauercom2 = _interopRequireDefault(_laurasprauercom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-render(_react2.default.createElement(_laurasprauercom2.default, null), document.getElementById('website'));
+_reactDom2.default.render(_react2.default.createElement(_laurasprauercom2.default, null), document.getElementById('website'));
 
 // import components
 
@@ -19716,6 +19716,8 @@ var _Header2 = _interopRequireDefault(_Header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import imageName from '../assets/image-name.png'; // Importing image
+
 // import components
 function Entry() {
   return _react2.default.createElement(
@@ -23383,7 +23385,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 /* 76 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected character '@' (1:0)\nYou may need an appropriate loader to handle this file type.\n| @import './src/shared/styles/variables';\n| \n| body {");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 77 */
@@ -23510,7 +23512,8 @@ exports.default = Home;
 /* 79 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected character '@' (1:0)\nYou may need an appropriate loader to handle this file type.\n| @import './src/shared/styles/variables';\n| \n| .homeContainer {");
+// removed by extract-text-webpack-plugin
+module.exports = {"homeContainer":"styles-module__homeContainer__2_C6p","homeBlock":"styles-module__homeBlock__XfUhR","social":"styles-module__social__2tirs"};
 
 /***/ }),
 /* 80 */
@@ -23631,7 +23634,8 @@ exports.default = Name;
 /* 81 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected character '@' (1:0)\nYou may need an appropriate loader to handle this file type.\n| @import './src/shared/styles/variables';\n| \n| .SVGRow1, .SVGRow2 {");
+// removed by extract-text-webpack-plugin
+module.exports = {"SVGRow1":"styles-module__SVGRow1__1got8","SVGRow2":"styles-module__SVGRow2__1hEqG","letterContainer":"styles-module__letterContainer__EFVKN"};
 
 /***/ }),
 /* 82 */
@@ -23757,7 +23761,8 @@ Social.propTypes = {
 /* 83 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| .container {\n|   margin-right: 5px;\n|   opacity: 0.5;");
+// removed by extract-text-webpack-plugin
+module.exports = {"container":"styles-module__container__6fQxZ"};
 
 /***/ }),
 /* 84 */
@@ -23791,8 +23796,7 @@ exports.default = About;
 /* 85 */
 /***/ (function(module, exports) {
 
-
-
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 86 */
@@ -23834,7 +23838,7 @@ exports.default = NotFound;
 /* 87 */
 /***/ (function(module, exports) {
 
-
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 88 */
@@ -23895,7 +23899,8 @@ exports.default = Header;
 /* 89 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected character '@' (1:0)\nYou may need an appropriate loader to handle this file type.\n| @import './src/shared/styles/variables';\n| \n| .container {");
+// removed by extract-text-webpack-plugin
+module.exports = {"container":"styles-module__container__3mhDs","headerLinks":"styles-module__headerLinks__1HbrS"};
 
 /***/ })
 /******/ ]);

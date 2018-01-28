@@ -2,31 +2,40 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 // Constant with our paths
 const paths = {
   DIST: path.resolve(__dirname, 'public'),
-  SRC: path.resolve(__dirname, 'src'), // source folder path -> ADDED IN THIS STEP
+  SRC: path.resolve(__dirname, 'src'),
   JS: path.resolve(__dirname, 'src'),
 };
 
 // Webpack configuration
 module.exports = {
-  entry: path.join(paths.JS, 'website.js'),
+  entry: path.join(paths.JS, 'website.jsx'),
   output: {
     path: paths.DIST,
     filename: 'bundle.js',
   },
-  // Tell webpack to use html plugin
-  // index.html is used as a template in which it'll inject bundled app.
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    open: true,
+    openPage: '',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),
     }),
-    new ExtractTextPlugin('styles.css'), // CSS will be extracted to this bundle file
+    new ExtractTextPlugin('styles.css'),
+    new StyleLintPlugin({
+      configFile: '.stylelintrc.json',
+      context: 'src',
+      syntax: 'scss',
+      files: '**/*.scss',
+    })
   ],
-  // Loaders configuration
-  // We are telling webpack to use "babel-loader" for .js and .jsx files
   module: {
     rules: [
       {
@@ -70,36 +79,21 @@ module.exports = {
         ],
       },
       {
+        enforce: 'pre',
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        // options: {
+        //   cache: './.eslint-loader-cache',
+        // }
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           'babel-loader',
         ],
       },
-      // CSS loader to CSS files
-      // Files will get handled by css loader and then passed to the extract text plugin
-      // which will write it to the file we defined above
-      // {
-      //   test: /\.css$/,
-      //   loader: ExtractTextPlugin.extract({
-      //     use: 'css-loader',
-      //   }),
-      // },
-      // {
-      //   test: /\.scss$/,
-      //   use: ExtractTextPlugin.extract({
-      //     use: ['style-loader','css-loader','sass-loader']
-      //   })
-      // },
-
-      // File loader for image assets
-      // We'll add only image extensions, but you can things like svgs, fonts and videos
-      // {
-      //   test: /\.(png|jpg|gif)$/,
-      //   use: [
-      //     'file-loader',
-      //   ],
-      // },
     ],
   },
   // Enable importing JS files without specifying their's extenstion
