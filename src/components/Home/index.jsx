@@ -4,15 +4,20 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 // import components
+import MorseCode from '../MorseCode';
 import Name from '../Name';
 import Social from '../Social';
 
 function Home() {
   return (
-    <div className={styles.homeContainer}>
-      <div className={styles.homeBlock}>
+    <div className={styles.container}>
+      <MorseCode
+        size={30}
+        bgColor="#000"
+      />
+      <div className={styles.block}>
         <Name />
-        <h2>Developer & Designer</h2>
+        <h2>Creative Developer</h2>
         <div className={styles.social}>
           <Social
             icon="twitter"

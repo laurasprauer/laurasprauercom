@@ -1,6 +1,6 @@
 @import './src/shared/styles/variables';
 
-.homeContainer {
+.container {
   background-color: $teal;
   height: 100vh;
   left: 0;
@@ -14,7 +14,7 @@
   }
 }
 
-.homeBlock {
+.block {
   background-color: $black;
   bottom: 0;
   padding: 30px;
@@ -29,7 +29,7 @@
 }
 
 @media (min-width: 650px) {
-  .homeBlock {
+  .block {
     right: 10%;
     width: 45%;
   }
