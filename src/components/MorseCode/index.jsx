@@ -24,22 +24,23 @@ export default class MorseCode extends React.Component {
   }
 
   componentDidMount() {
-    // this.updateWindowDimensions();
-    // window.addEventListener('resize', this.updateWindowDimensions);
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
-    // window.removeEventListener('resize', this.updateWindowDimensions);
+    window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-  // updateWindowDimensions = () => {
-  //   this.setState({
-  //     windowHeight: window.innerHeight,
-  //     windowWidth: window.innerWidth
-  //   });
-  // }
+  updateWindowDimensions = () => {
+    this.setState({
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth,
+    });
+  }
 
   render() {
+    console.log(this.state.windowHeight);
+    console.log(this.state.windowWidth);
     return (
       <div className={styles.container}>
         <LetterL size={this.state.size} />

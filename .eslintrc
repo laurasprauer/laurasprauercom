@@ -3,6 +3,7 @@
   "env": {
     "browser": true,
   },
+  "parser": 'babel-eslint',
   "rules": {
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],
@@ -16,6 +17,7 @@
       "ignorePattern": "<path([^;]*?)/>",
       "ignoreComments": true,
     }],
-    "import/no-named-as-default": 0
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
   }
 }
