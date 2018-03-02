@@ -5,19 +5,20 @@ import PropTypes from 'prop-types';
 import Dot from '../../Dot';
 import Dash from '../../Dash';
 
-function LetterA({ size, bgColor }) {
+function LetterL({ size }) {
   // render
   return (
     <div>
-      <Dot size={size} bgColor={bgColor} />
-      <Dash size={size} bgColor={bgColor} />
+      <Dot size={size} />
+      <Dash size={size} />
+      <Dot size={size} />
+      <Dot size={size} />
     </div>
   );
 }
 
-LetterA.propTypes = {
+LetterL.propTypes = {
   size: PropTypes.number.isRequired,
-  bgColor: PropTypes.string.isRequired,
 };
 
-export default LetterA;
+export default LetterL;

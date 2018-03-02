@@ -1,42 +1,61 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // import styles
 import styles from './styles.module.scss';
 
 // import components
-import LetterL from './Letters/LetterL';
-import LetterA from './Letters/LetterA';
-import LetterU from './Letters/LetterU';
-import LetterR from './Letters/LetterR';
-import LetterS from './Letters/LetterS';
-import LetterP from './Letters/LetterP';
-import LetterE from './Letters/LetterE';
+import LetterL from './components/LetterL';
+import LetterA from './components/LetterA';
+import LetterU from './components/LetterU';
+import LetterR from './components/LetterR';
+import LetterS from './components/LetterS';
+import LetterP from './components/LetterP';
+import LetterE from './components/LetterE';
 
-function MorseCode({ size, bgColor }) {
-  // render
-  return (
-    <div className={styles.container}>
-      <LetterL size={size} bgColor={bgColor} />
-      <LetterA size={size} bgColor={bgColor} />
-      <LetterU size={size} bgColor={bgColor} />
-      <LetterR size={size} bgColor={bgColor} />
-      <LetterA size={size} bgColor={bgColor} />
+export default class MorseCode extends React.Component {
+  constructor(props) {
+    super(props);
 
-      <LetterS size={size} bgColor={bgColor} />
-      <LetterP size={size} bgColor={bgColor} />
-      <LetterR size={size} bgColor={bgColor} />
-      <LetterA size={size} bgColor={bgColor} />
-      <LetterU size={size} bgColor={bgColor} />
-      <LetterE size={size} bgColor={bgColor} />
-      <LetterR size={size} bgColor={bgColor} />
-    </div>
-  );
+    this.state = {
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth,
+      size: 30,
+    };
+  }
+
+  componentDidMount() {
+    // this.updateWindowDimensions();
+    // window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    // window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  // updateWindowDimensions = () => {
+  //   this.setState({
+  //     windowHeight: window.innerHeight,
+  //     windowWidth: window.innerWidth
+  //   });
+  // }
+
+  render() {
+    return (
+      <div className={styles.container}>
+        <LetterL size={this.state.size} />
+        <LetterA size={this.state.size} />
+        <LetterU size={this.state.size} />
+        <LetterR size={this.state.size} />
+        <LetterA size={this.state.size} />
+
+        <LetterS size={this.state.size} />
+        <LetterP size={this.state.size} />
+        <LetterR size={this.state.size} />
+        <LetterA size={this.state.size} />
+        <LetterU size={this.state.size} />
+        <LetterE size={this.state.size} />
+        <LetterR size={this.state.size} />
+      </div>
+    );
+  }
 }
-
-MorseCode.propTypes = {
-  size: PropTypes.number.isRequired,
-  bgColor: PropTypes.string.isRequired,
-};
-
-export default MorseCode;

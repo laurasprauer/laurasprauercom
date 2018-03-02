@@ -5,20 +5,19 @@ import PropTypes from 'prop-types';
 import Dot from '../../Dot';
 import Dash from '../../Dash';
 
-function LetterU({ size, bgColor }) {
+function LetterU({ size }) {
   // render
   return (
     <div>
-      <Dot size={size} bgColor={bgColor} />
-      <Dot size={size} bgColor={bgColor} />
-      <Dash size={size} bgColor={bgColor} />
+      <Dot size={size} />
+      <Dot size={size} />
+      <Dash size={size} />
     </div>
   );
 }
 
 LetterU.propTypes = {
   size: PropTypes.number.isRequired,
-  bgColor: PropTypes.string.isRequired,
 };
 
 export default LetterU;

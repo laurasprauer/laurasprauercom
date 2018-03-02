@@ -11,10 +11,7 @@ import Social from '../Social';
 function Home() {
   return (
     <div className={styles.container}>
-      <MorseCode
-        size={30}
-        bgColor="#000"
-      />
+      <MorseCode />
       <div className={styles.block}>
         <Name />
         <h2>Creative Developer</h2>
