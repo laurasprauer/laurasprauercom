@@ -1,13 +1,13 @@
 @import './src/shared/styles/variables';
 
-.dot {
-  .circleFill {
+.dash {
+  .dashFill {
     fill: $black;
     fill-opacity: 1;
     transition: fill-opacity 0.3s;
   }
 
-  .circleStroke {
+  .dashStroke {
     fill: $white;
     opacity: 0;
     stroke: $white;
@@ -15,11 +15,11 @@
   }
 
   &:hover {
-    .circleFill {
+    .dashFill {
       fill-opacity: 0;
     }
 
-    .circleStroke {
+    .dashStroke {
       opacity: 1;
     }
   }

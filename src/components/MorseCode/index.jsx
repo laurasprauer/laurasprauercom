@@ -4,26 +4,21 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 // import components
-import LetterL from './components/LetterL';
-import LetterA from './components/LetterA';
-import LetterU from './components/LetterU';
-import LetterR from './components/LetterR';
-import LetterS from './components/LetterS';
-import LetterP from './components/LetterP';
-import LetterE from './components/LetterE';
+import MorseCodeLetter from './MorseCodeLetter';
 
 export default class MorseCode extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      windowHeight: window.innerHeight,
-      windowWidth: window.innerWidth,
       size: 30,
+      rowPadding: 10,
+      inbetweenMargin: 2,
     };
   }
 
   componentDidMount() {
+    this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
 
@@ -32,30 +27,89 @@ export default class MorseCode extends React.Component {
   }
 
   updateWindowDimensions = () => {
+    const rowSize = window.innerHeight / 14;
     this.setState({
-      windowHeight: window.innerHeight,
-      windowWidth: window.innerWidth,
+      size: (rowSize / 4) * 3,
+      rowPadding: rowSize / 4,
     });
   }
 
   render() {
-    console.log(this.state.windowHeight);
-    console.log(this.state.windowWidth);
     return (
       <div className={styles.container}>
-        <LetterL size={this.state.size} />
-        <LetterA size={this.state.size} />
-        <LetterU size={this.state.size} />
-        <LetterR size={this.state.size} />
-        <LetterA size={this.state.size} />
+        <MorseCodeLetter
+          letter="L"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="A"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="U"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="R"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="A"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
 
-        <LetterS size={this.state.size} />
-        <LetterP size={this.state.size} />
-        <LetterR size={this.state.size} />
-        <LetterA size={this.state.size} />
-        <LetterU size={this.state.size} />
-        <LetterE size={this.state.size} />
-        <LetterR size={this.state.size} />
+        <MorseCodeLetter
+          letter="S"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="P"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="R"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="A"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="U"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="E"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
+        <MorseCodeLetter
+          letter="R"
+          size={this.state.size}
+          rowPadding={this.state.rowPadding}
+          inbetweenMargin={this.state.inbetweenMargin}
+        />
       </div>
     );
   }

@@ -54,6 +54,10 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline",
+    "jslint": "./node_modules/.bin/eslint --ext .js --ext .jsx src",
+    "jslint-fix": "./node_modules/.bin/eslint --ext .js --ext .jsx src --fix",
+    "stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss'",
+    "stylelint-fix": "./node_modules/.bin/stylelint 'src/**/*.scss' --fix"
   }
 }
