@@ -5,13 +5,8 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 function Dash({
-  size, margin,
+  size,
 }) {
-  // define the inline styles
-  const inlineMargin = {
-    margin: `0 ${margin}px 0 ${margin}px`,
-  };
-
   // define the dot svg
   const displayDash = (
     <svg
@@ -20,7 +15,6 @@ function Dash({
       viewBox="0 0 110 61"
       xmlns="http://www.w3.org/2000/svg"
       className={styles.dash}
-      style={inlineMargin}
     >
       <g fillRule="evenodd">
         <path d="M29.5 0h51C96.792 0 110 13.544 110 30.25S96.792 60.5 80.5 60.5h-51C13.208 60.5 0 46.956 0 30.25S13.208 0 29.5 0z" fill="#000" className={styles.dashFill} />
@@ -34,7 +28,6 @@ function Dash({
 
 Dash.propTypes = {
   size: PropTypes.number.isRequired,
-  margin: PropTypes.number.isRequired,
 };
 
 export default Dash;

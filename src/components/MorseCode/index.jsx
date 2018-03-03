@@ -11,14 +11,12 @@ export default class MorseCode extends React.Component {
     super(props);
 
     this.state = {
-      size: 30,
-      rowPadding: 10,
-      inbetweenMargin: 2,
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
     };
   }
 
   componentDidMount() {
-    this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
 
@@ -27,89 +25,34 @@ export default class MorseCode extends React.Component {
   }
 
   updateWindowDimensions = () => {
-    const rowSize = window.innerHeight / 14;
     this.setState({
-      size: (rowSize / 4) * 3,
-      rowPadding: rowSize / 4,
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
     });
   }
 
   render() {
+    const displayMorseCode = [];
+    let fullName = 'LAURASPRAUER';
+    // if the windowHeight is smaller than 500, then only display last name
+    if (this.state.windowHeight < 500) {
+      fullName = 'SPRAUER';
+    }
+
+    // loop through name string
+    for (let i = 0; i < fullName.length; i += 1) {
+      displayMorseCode.push(<MorseCodeLetter
+        key={`${i}-${fullName.charAt(i)}`}
+        letter={fullName.charAt(i)}
+        order={i}
+        total={fullName.length}
+        {...this.state}
+      />);
+    }
+
     return (
       <div className={styles.container}>
-        <MorseCodeLetter
-          letter="L"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="A"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="U"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="R"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="A"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-
-        <MorseCodeLetter
-          letter="S"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="P"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="R"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="A"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="U"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="E"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
-        <MorseCodeLetter
-          letter="R"
-          size={this.state.size}
-          rowPadding={this.state.rowPadding}
-          inbetweenMargin={this.state.inbetweenMargin}
-        />
+        {displayMorseCode}
       </div>
     );
   }

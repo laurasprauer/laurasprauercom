@@ -1,3 +1,17 @@
 .container {
   display: block;
+  position: relative;
 }
+
+.letter {
+  padding: 5px;
+  position: absolute;
+}
+
+// .animateRight {
+//   left: 100vw;
+// }
+
+// .animateLeft {
+//   right: 100vw;
+// }

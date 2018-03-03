@@ -1,6 +1,8 @@
 @import './src/shared/styles/variables';
 
 .dot {
+  margin: 0 2px;
+  
   .circleFill {
     fill: $black;
     fill-opacity: 1;

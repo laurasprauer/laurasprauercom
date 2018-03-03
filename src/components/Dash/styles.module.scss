@@ -1,6 +1,8 @@
 @import './src/shared/styles/variables';
 
 .dash {
+  margin: 0 2px;
+  
   .dashFill {
     fill: $black;
     fill-opacity: 1;

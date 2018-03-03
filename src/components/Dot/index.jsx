@@ -5,16 +5,11 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 function Dot({
-  size, margin,
+  size,
 }) {
-  // define the inline styles
-  const inlineMargin = {
-    margin: `0 ${margin}px 0 ${margin}px`,
-  };
-
   // define the dot svg
   const displayDot = (
-    <svg height={size} width={size} viewBox={`0 0 ${size * 2} ${size * 2}`} xmlns="http://www.w3.org/2000/svg" className={styles.dot} style={inlineMargin}>
+    <svg height={size} width={size} viewBox={`0 0 ${size * 2} ${size * 2}`} xmlns="http://www.w3.org/2000/svg" className={styles.dot} >
       <circle
         cx={size}
         cy={size}
@@ -40,7 +35,6 @@ function Dot({
 
 Dot.propTypes = {
   size: PropTypes.number.isRequired,
-  margin: PropTypes.number.isRequired,
 };
 
 export default Dot;
