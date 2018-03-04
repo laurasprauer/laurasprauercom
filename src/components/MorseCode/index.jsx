@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 // import components
-import MorseCodeLetter from './MorseCodeLetter';
+import MorseCodeAnimate from './MorseCodeAnimate';
 
 export default class MorseCode extends React.Component {
   constructor(props) {
@@ -33,15 +33,11 @@ export default class MorseCode extends React.Component {
 
   render() {
     const displayMorseCode = [];
-    let fullName = 'LAURASPRAUER';
-    // if the windowHeight is smaller than 500, then only display last name
-    if (this.state.windowHeight < 500) {
-      fullName = 'SPRAUER';
-    }
+    const fullName = 'LAURASPRAUER';
 
     // loop through name string
     for (let i = 0; i < fullName.length; i += 1) {
-      displayMorseCode.push(<MorseCodeLetter
+      displayMorseCode.push(<MorseCodeAnimate
         key={`${i}-${fullName.charAt(i)}`}
         letter={fullName.charAt(i)}
         order={i}

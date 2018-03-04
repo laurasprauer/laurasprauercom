@@ -8,6 +8,24 @@
   position: absolute;
 }
 
+.animateLetter-enter {
+  opacity: 0.01;
+}
+
+.animateLetter-enter.animateLetter-enter-active {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.animateLetter-leave {
+  opacity: 1;
+}
+
+.animateLetter-leave.animateLetter-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 // .animateRight {
 //   left: 100vw;
 // }
