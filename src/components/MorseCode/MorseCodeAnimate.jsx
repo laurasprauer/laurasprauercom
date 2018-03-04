@@ -8,6 +8,8 @@ import styles from './styles.module.scss';
 // import components
 import MorseCodeLetter from './MorseCodeLetter';
 
+CSSTransition.childContextTypes = {};
+
 export default class MorseCodeAnimate extends React.Component {
   constructor(props) {
     super(props);
@@ -21,22 +23,35 @@ export default class MorseCodeAnimate extends React.Component {
     // define the value for the letterCode
     const letterValues = this.defineLetterValues();
 
-    //get a random default starting position
+    // get a random default starting position
     const defaultPos = Math.floor(Math.random() * this.props.windowWidth) + 1;
+
+    // figure out the distance the letter will travel on load
+    // if the letter is moving right, distance traveled is the window width minus the default pos
+    let distanceTraveled = this.props.windowWidth - defaultPos;
+    if (direction === 'left') {
+      // if the letter is moving left, distance traveled is the default pos plus the width of the letter
+      distanceTraveled = defaultPos + letterValues.letterWidth;
+    }
+
+    // figure out the speed based on the percent of the distance being traveled
+    const percentTraveled = distanceTraveled / (this.props.windowWidth + defaultPos);
+    const speed = (Math.round((Math.floor(Math.random() * 6000) + 4000) * percentTraveled));
 
     this.state = {
       direction,
-      defaultPos: defaultPos,
-      speed: (Math.floor(Math.random() * 6000) + 4000) * (defaultPos / this.props.windowWidth),
+      defaultPos,
+      speed,
       size: letterValues.size,
       letterCode: letterValues.letterCode,
       letterWidth: letterValues.letterWidth,
       mounted: false,
+      active: false,
     };
   }
 
   componentDidMount() {
-    this.toggleDisplayLetter();
+    this.didMountUpdateState();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -54,14 +69,23 @@ export default class MorseCodeAnimate extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     // check if the letter should be reMounted
-    if (prevState.mounted && !this.state.mounted) {
+    if (
+      (prevState.active && !this.state.active) ||
+      (!prevState.mounted && this.state.mounted && !this.state.active)
+    ) {
       this.toggleDisplayLetter();
     }
   }
 
-  toggleDisplayLetter = () => {
+  didMountUpdateState = () => {
     this.setState({
       mounted: true,
+    });
+  }
+
+  toggleDisplayLetter = () => {
+    this.setState({
+      active: true,
     });
     this.checkForReRender();
   }
@@ -77,7 +101,7 @@ export default class MorseCodeAnimate extends React.Component {
     }
 
     this.setState({
-      mounted: false,
+      active: false,
       defaultPos,
       speed: (Math.floor(Math.random() * 6000) + 4000),
     });
@@ -141,6 +165,15 @@ export default class MorseCodeAnimate extends React.Component {
   }
 
   render() {
+    if (this.props.letter === 'L') {
+      console.log(`direction: ${this.state.direction}`);
+      console.log(`speed: ${this.state.speed}`);
+      console.log(`defaultPos: ${this.state.defaultPos}`);
+      console.log(`mounted: ${this.state.mounted}`);
+      console.log(`active: ${this.state.active}`);
+      console.log('---------------------------------------------------');
+    }
+
     // define the inline styles
     const letterStyle = {
       top: `${(this.props.windowHeight / this.props.total) * this.props.order}px`,
@@ -161,10 +194,10 @@ export default class MorseCodeAnimate extends React.Component {
       <CSSTransition
         defaultStyle={{ transform: `translate(${this.state.defaultPos}px, 0)` }}
         enterStyle={{
-          transform: transit(`translate(${transitionTo}, 0)`, this.state.speed, "linear"),
+          transform: transit(`translate(${transitionTo}, 0)`, this.state.speed, 'linear'),
         }}
         activeStyle={{ transform: `translate(${transitionTo}, 0)` }}
-        active={this.state.mounted}
+        active={this.state.active}
       >
         <MorseCodeLetter
           key={`${this.props.order}-${this.props.letter}`}
