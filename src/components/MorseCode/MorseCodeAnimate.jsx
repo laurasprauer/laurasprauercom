@@ -14,39 +14,17 @@ export default class MorseCodeAnimate extends React.Component {
   constructor(props) {
     super(props);
 
-    // if order is an even number, direction is left, if odd it's right
-    let direction = 'right';
-    if (this.props.order % 2 === 0) {
-      direction = 'left';
-    }
-
-    // define the value for the letterCode
-    const letterValues = this.defineLetterValues();
-
-    // get a random default starting position
-    const defaultPos = Math.floor(Math.random() * this.props.windowWidth) + 1;
-
-    // figure out the distance the letter will travel on load
-    // if the letter is moving right, distance traveled is the window width minus the default pos
-    let distanceTraveled = this.props.windowWidth - defaultPos;
-    if (direction === 'left') {
-      // if the letter is moving left, distance traveled is the default pos plus the width of the letter
-      distanceTraveled = defaultPos + letterValues.letterWidth;
-    }
-
-    // figure out the speed based on the percent of the distance being traveled
-    const percentTraveled = distanceTraveled / (this.props.windowWidth + defaultPos);
-    const speed = (Math.round((Math.floor(Math.random() * 6000) + 4000) * percentTraveled));
+    const initialState = this.setInitialState(false);
 
     this.state = {
-      direction,
-      defaultPos,
-      speed,
-      size: letterValues.size,
-      letterCode: letterValues.letterCode,
-      letterWidth: letterValues.letterWidth,
-      mounted: false,
-      active: false,
+      direction: initialState.direction,
+      defaultPos: initialState.defaultPos,
+      speed: initialState.speed,
+      size: initialState.size,
+      letterCode: initialState.letterCode,
+      letterWidth: initialState.letterWidth,
+      mounted: initialState.mounted,
+      active: initialState.active,
     };
   }
 
@@ -57,12 +35,20 @@ export default class MorseCodeAnimate extends React.Component {
   componentWillReceiveProps(nextProps) {
     // check if the browser width was updated
     if (this.props.windowWidth !== nextProps.windowWidth) {
-      // get new letter width and size values and save to state
-      const letterValues = this.defineLetterValues();
+      // when someone resizes the browser reset the values in state
+      const initialState = this.setInitialState(true);
+
+      // clear the timeouts
 
       this.setState({
-        letterWidth: letterValues.letterWidth,
-        size: letterValues.size,
+        direction: initialState.direction,
+        defaultPos: initialState.defaultPos,
+        speed: initialState.speed,
+        size: initialState.size,
+        letterCode: initialState.letterCode,
+        letterWidth: initialState.letterWidth,
+        mounted: initialState.mounted,
+        active: initialState.active,
       });
     }
   }
@@ -75,6 +61,51 @@ export default class MorseCodeAnimate extends React.Component {
     ) {
       this.toggleDisplayLetter();
     }
+  }
+
+  setInitialState = (isMounted) => {
+    let initialState = {};
+
+    // if order is an even number, direction is left, if odd it's right
+    let direction = 'right';
+    if (this.props.order % 2 === 0) {
+      direction = 'left';
+    }
+
+    // define the value for the letterCode
+    const letterValues = this.defineLetterValues();
+
+    // get a random default starting position
+    const defaultPos = Math.floor(Math.random() * (this.props.windowWidth - 20)) + 1;
+
+    // figure out the distance the letter will travel on load
+    // if the letter is moving right, distance traveled is the window width minus the default pos
+    const totalDistancePossible = this.props.windowWidth + letterValues.letterWidth;
+    let distanceToTravel = totalDistancePossible - defaultPos - letterValues.letterWidth;
+    if (direction === 'left') {
+      // if the letter is moving left, distance traveled is the default pos plus the width of the letter
+      distanceToTravel = defaultPos + letterValues.letterWidth;
+    }
+
+    // figure out the speed based on the percent of the distance being traveled
+    const percentToTravel = distanceToTravel / totalDistancePossible;
+    const speed = Math.round((Math.floor(Math.random() * 6000) + 4000) * percentToTravel);
+
+    // has the component been mounted already?
+    const mounted = isMounted;
+
+    initialState = {
+      direction,
+      defaultPos,
+      speed,
+      size: letterValues.size,
+      letterCode: letterValues.letterCode,
+      letterWidth: letterValues.letterWidth,
+      mounted,
+      active: false,
+    };
+
+    return initialState;
   }
 
   didMountUpdateState = () => {
@@ -91,7 +122,7 @@ export default class MorseCodeAnimate extends React.Component {
   }
 
   checkForReRender = () => {
-    setTimeout(this.resetLetter, this.state.speed);
+    setTimeout(this.resetLetter, (this.state.speed / 10));
   }
 
   resetLetter = () => {
@@ -165,15 +196,6 @@ export default class MorseCodeAnimate extends React.Component {
   }
 
   render() {
-    if (this.props.letter === 'L') {
-      console.log(`direction: ${this.state.direction}`);
-      console.log(`speed: ${this.state.speed}`);
-      console.log(`defaultPos: ${this.state.defaultPos}`);
-      console.log(`mounted: ${this.state.mounted}`);
-      console.log(`active: ${this.state.active}`);
-      console.log('---------------------------------------------------');
-    }
-
     // define the inline styles
     const letterStyle = {
       top: `${(this.props.windowHeight / this.props.total) * this.props.order}px`,

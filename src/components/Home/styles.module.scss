@@ -1,9 +1,14 @@
 @import './src/shared/styles/variables';
 
 .container {
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+
+  animation-name: fade-in;
   background-color: $teal;
   height: 100vh;
   left: 0;
+  opacity: 1;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -16,6 +21,9 @@
 }
 
 .block {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: slide-in;
   background-color: $black;
   bottom: 0;
   padding: 30px;
@@ -34,4 +42,15 @@
     right: 10%;
     width: 45%;
   }
+}
+
+@keyframes slide-in {
+  0%   { bottom: -100%; }
+  50%  { bottom: -100%; }
+  100% { bottom: 0; }
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0 }
+  100% { opacity: 1; }
 }

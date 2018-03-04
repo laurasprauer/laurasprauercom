@@ -1,5 +1,9 @@
 .container {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: fade-in;
   display: block;
+  opacity:1;
   position: relative;
 }
 
@@ -8,28 +12,8 @@
   position: absolute;
 }
 
-.animateLetter-enter {
-  opacity: 0.01;
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  50%   { opacity: 0; }
+  100% { opacity: 1; }
 }
-
-.animateLetter-enter.animateLetter-enter-active {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
-.animateLetter-leave {
-  opacity: 1;
-}
-
-.animateLetter-leave.animateLetter-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
-// .animateRight {
-//   left: 100vw;
-// }
-
-// .animateLeft {
-//   right: 100vw;
-// }
