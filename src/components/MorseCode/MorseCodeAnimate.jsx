@@ -118,11 +118,6 @@ export default class MorseCodeAnimate extends React.Component {
     this.setState({
       active: true,
     });
-    this.checkForReRender();
-  }
-
-  checkForReRender = () => {
-    setTimeout(this.resetLetter, (this.state.speed / 10));
   }
 
   resetLetter = () => {
@@ -220,6 +215,7 @@ export default class MorseCodeAnimate extends React.Component {
         }}
         activeStyle={{ transform: `translate(${transitionTo}, 0)` }}
         active={this.state.active}
+        onTransitionComplete={this.resetLetter}
       >
         <MorseCodeLetter
           key={`${this.props.order}-${this.props.letter}`}

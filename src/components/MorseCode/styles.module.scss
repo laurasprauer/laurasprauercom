@@ -3,7 +3,7 @@
   animation-iteration-count: 1;
   animation-name: fade-in;
   display: block;
-  opacity:1;
+  opacity: 1;
   position: relative;
 }
 
@@ -13,7 +13,7 @@
 }
 
 @keyframes fade-in {
-  0%   { opacity: 0; }
-  50%   { opacity: 0; }
+  0% { opacity: 0; }
+  50% { opacity: 0; }
   100% { opacity: 1; }
 }
