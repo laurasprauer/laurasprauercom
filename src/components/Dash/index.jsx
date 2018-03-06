@@ -8,7 +8,7 @@ export default class Dash extends React.Component {
   constructor(props) {
     super(props);
 
-    //get a random number between 0 and 1, this will determine if the dot/dash is white or black
+    // get a random number between 0 and 1, this will determine if the dot/dash is white or black
     this.state = {
       classStyle: Math.floor(Math.random() * 2),
     };

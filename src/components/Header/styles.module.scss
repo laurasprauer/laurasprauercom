@@ -6,14 +6,21 @@
 }
 
 .headerLinks {
+  left: 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 0;
 
   li {
+    background-color: $white;
     display: inline-block;
-    margin: 0 0 0 20px;
-    padding: 15px;
+    font-size: 18px;
+    margin: 0;
+    padding: 5px 10px;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
 
     a {
       color: $black;
