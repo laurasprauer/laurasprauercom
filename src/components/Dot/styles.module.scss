@@ -1,8 +1,8 @@
 @import './src/shared/styles/variables';
 
-.dot {
+.dotBlack {
   margin: 0 2px;
-  
+
   .circleFill {
     fill: $black;
     fill-opacity: 1;
@@ -23,6 +23,33 @@
 
     .circleStroke {
       opacity: 1;
+    }
+  }
+}
+
+.dotWhite {
+  margin: 0 2px;
+
+  .circleFill {
+    fill: $black;
+    fill-opacity: 0;
+    transition: fill-opacity 0.3s;
+  }
+
+  .circleStroke {
+    fill: $white;
+    opacity: 1;
+    stroke: $white;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    .circleFill {
+      fill-opacity: 1;
+    }
+
+    .circleStroke {
+      opacity: 0;
     }
   }
 }

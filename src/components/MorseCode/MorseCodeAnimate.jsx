@@ -32,27 +32,6 @@ export default class MorseCodeAnimate extends React.Component {
     this.didMountUpdateState();
   }
 
-  componentWillReceiveProps(nextProps) {
-    // check if the browser width was updated
-    if (this.props.windowWidth !== nextProps.windowWidth) {
-      // when someone resizes the browser reset the values in state
-      const initialState = this.setInitialState(true);
-
-      // clear the timeouts
-
-      this.setState({
-        direction: initialState.direction,
-        defaultPos: initialState.defaultPos,
-        speed: initialState.speed,
-        size: initialState.size,
-        letterCode: initialState.letterCode,
-        letterWidth: initialState.letterWidth,
-        mounted: initialState.mounted,
-        active: initialState.active,
-      });
-    }
-  }
-
   componentDidUpdate(prevProps, prevState) {
     // check if the letter should be reMounted
     if (

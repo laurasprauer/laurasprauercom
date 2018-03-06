@@ -1,8 +1,8 @@
 @import './src/shared/styles/variables';
 
-.dash {
+.dashBlack {
   margin: 0 2px;
-  
+
   .dashFill {
     fill: $black;
     fill-opacity: 1;
@@ -23,6 +23,33 @@
 
     .dashStroke {
       opacity: 1;
+    }
+  }
+}
+
+.dashWhite {
+  margin: 0 2px;
+
+  .dashFill {
+    fill: $black;
+    fill-opacity: 0;
+    transition: fill-opacity 0.3s;
+  }
+
+  .dashStroke {
+    fill: $white;
+    opacity: 1;
+    stroke: $white;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    .dashFill {
+      fill-opacity: 1;
+    }
+
+    .dashStroke {
+      opacity: 0;
     }
   }
 }
