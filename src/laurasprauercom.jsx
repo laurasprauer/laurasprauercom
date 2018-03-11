@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import history from './history';
 
 // import styles
 import './styles.scss';
@@ -12,12 +12,10 @@ import Header from './components/Header';
 
 function Entry() {
   return (
-    <BrowserRouter>
-      <div>
-        <Header />
-        <Main />
-      </div>
-    </BrowserRouter>
+    <div>
+      <Header pathname={history.location.pathname} />
+      <Main />
+    </div>
   );
 }
 
