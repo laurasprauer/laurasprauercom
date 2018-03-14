@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 function About() {
   return (
-    <div className={styles.aboutContainer} />
+    <div className={styles.container} />
   );
 }
 

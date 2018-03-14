@@ -1,1 +1,22 @@
+@import './src/variables';
 
+.container {
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+
+  animation-name: fade-in;
+  background-color: $peach;
+  height: 100vh;
+  left: 0;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

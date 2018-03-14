@@ -36,6 +36,10 @@ function Header({
         <li className={aboutClasses}>
           <Link className={styles.item2} to="/about">
             ABOUT
+            <svg width="80" height="90" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="39.5" cy="22.5" r="22.5" fill="#000" />
+              <path d="M29 54h22c16.016 0 29 12.984 29 29v7H0v-7c0-16.016 12.984-29 29-29z" fill="#000" fillRule="evenodd" />
+            </svg>
           </Link>
         </li>
       </ul>
