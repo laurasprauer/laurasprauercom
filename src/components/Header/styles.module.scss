@@ -1,24 +1,93 @@
-@import "./src/shared/styles/variables.scss";
+@import './src/variables';
 
-.headerContainer{
-  position:relative;
-  z-index:2;
-  ul{
+.container {
+  position: relative;
+  z-index: 2;
+
+  ul {
+    left: 0;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    li{
-      display: inline-block;
-      padding:15px;
-      margin:0px 0px 0px 20px;
-      a{
-        color:$black;
-        font-family:$fontSaira;
-        text-decoration: none;
-        &:hover{
-          color:white;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.links {
+  position: relative;
+
+  a {
+    background-color: $white;
+    color: $black;
+    display: inline-block;
+    font-family: $fontSaira;
+    font-size: 18px;
+    height: 40px;
+    margin: 0;
+    padding: 5px 16px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none;
+    top: 0;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    transition: background-color 0.3s, color 0.3s, width 0.3s;
+    width: 80px;
+
+    svg {
+      height: 18px;
+      opacity: 0;
+      position: absolute;
+      right: 10px;
+      top: 29px;
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+      transition: opacity 0.3s;
+      width: 18px;
+
+      path, circle {
+        fill: $white;
+        transition: fill 0.3s;
+      }
+    }
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+      width: 100px;
+
+      svg {
+        opacity: 1;
+
+        path, circle {
+          fill: $white;
         }
       }
     }
   }
+}
+
+.selected {
+  a {
+    background-color: $black;
+    color: $white;
+    width: 100px;
+
+    svg {
+      opacity: 1;
+
+      path, circle {
+        fill: $white;
+      }
+    }
+  }
+}
+
+.item1 {
+  left: 50px;
+}
+
+.item2 {
+  left: 100px;
 }
