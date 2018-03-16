@@ -1,12 +1,15 @@
 @import './src/variables';
 
 .container {
+  align-items: center;
   animation-duration: 0.8s;
   animation-iteration-count: 1;
-
   animation-name: fade-in;
   background-color: $peach;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  justify-content: center;
   left: 0;
   opacity: 1;
   overflow: hidden;
@@ -16,7 +19,51 @@
   z-index: 1;
 }
 
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.wrapper {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: fade-in-delay;
+  position: relative;
+  text-align: center;
+  transition: width 0.3s;
+  width: 80%;
+}
+
+.content {
+  background-color: $white;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.blackBox {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: slide-up-left;
+  border: 5px solid $black;
+  height: 100%;
+  left: -20px;
+  position: absolute;
+  top: -20px;
+  width: 100%;
+  z-index: 1;
+}
+
+.whiteBox {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: slide-down-right;
+  border: 5px solid $white;
+  height: 100%;
+  left: 20px;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 750px) {
+  .wrapper {
+    width: 50%;
+  }
 }

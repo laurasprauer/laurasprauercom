@@ -11,9 +11,26 @@ body {
   box-sizing: border-box;
 }
 
+h1 {
+  color: $black;
+  font-family: $fontSaira;
+  font-size: 30px;
+  margin: 5px 0;
+  text-transform: uppercase;
+}
+
 h2 {
   color: $black;
+  font-family: $fontLato;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 3px;
+  margin: 5px 0;
+}
+
+p {
+  font-family: $fontLato;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 150%;
 }
