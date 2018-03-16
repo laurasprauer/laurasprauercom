@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);body {
+@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);@import url(https://fonts.googleapis.com/css?family=Saira+Condensed:500,700);@import url(https://fonts.googleapis.com/css?family=Lato:300,400);body {
+  background-color: #343434;
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0; }
@@ -11,18 +12,26 @@ h2 {
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 3px; }
-.styles-module__homeContainer__2_C6p {
+.styles-module__container__3_Y8f {
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+  animation-name: styles-module__fade-in__3YRAk;
   background-color: #28ffb2;
   height: 100vh;
   left: 0;
+  opacity: 1;
+  overflow: hidden;
   position: absolute;
   top: 0;
   width: 100vw;
   z-index: 1; }
-  .styles-module__homeContainer__2_C6p h2 {
+  .styles-module__container__3_Y8f h2 {
     color: #fff; }
 
-.styles-module__homeBlock__XfUhR {
+.styles-module__block__1a8OQ {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: styles-module__slide-in__2RKDp;
   background-color: #343434;
   bottom: 0;
   padding: 30px;
@@ -35,9 +44,104 @@ h2 {
   display: flex; }
 
 @media (min-width: 650px) {
-  .styles-module__homeBlock__XfUhR {
+  .styles-module__block__1a8OQ {
     right: 10%;
     width: 45%; } }
+
+@keyframes styles-module__slide-in__2RKDp {
+  0% {
+    bottom: -100%; }
+  50% {
+    bottom: -100%; }
+  100% {
+    bottom: 0; } }
+
+@keyframes styles-module__fade-in__3YRAk {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.styles-module__container__yUoD7 {
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: styles-module__fade-in__3AudF;
+  display: block;
+  opacity: 1;
+  position: relative; }
+
+.styles-module__letter__2jyV8 {
+  padding: 5px;
+  position: absolute; }
+
+@keyframes styles-module__fade-in__3AudF {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.styles-module__dotBlack__1bLJp {
+  margin: 0 2px; }
+  .styles-module__dotBlack__1bLJp .styles-module__circleFill__1pZ_J {
+    fill: #343434;
+    fill-opacity: 1;
+    transition: fill-opacity 0.3s; }
+  .styles-module__dotBlack__1bLJp .styles-module__circleStroke__htRrT {
+    fill: #fff;
+    opacity: 0;
+    stroke: #fff;
+    transition: opacity 0.3s; }
+  .styles-module__dotBlack__1bLJp:hover .styles-module__circleFill__1pZ_J {
+    fill-opacity: 0; }
+  .styles-module__dotBlack__1bLJp:hover .styles-module__circleStroke__htRrT {
+    opacity: 1; }
+
+.styles-module__dotWhite__10Ct7 {
+  margin: 0 2px; }
+  .styles-module__dotWhite__10Ct7 .styles-module__circleFill__1pZ_J {
+    fill: #343434;
+    fill-opacity: 0;
+    transition: fill-opacity 0.3s; }
+  .styles-module__dotWhite__10Ct7 .styles-module__circleStroke__htRrT {
+    fill: #fff;
+    opacity: 1;
+    stroke: #fff;
+    transition: opacity 0.3s; }
+  .styles-module__dotWhite__10Ct7:hover .styles-module__circleFill__1pZ_J {
+    fill-opacity: 1; }
+  .styles-module__dotWhite__10Ct7:hover .styles-module__circleStroke__htRrT {
+    opacity: 0; }
+.styles-module__dashBlack__L6UOJ {
+  margin: 0 2px; }
+  .styles-module__dashBlack__L6UOJ .styles-module__dashFill__1f6KR {
+    fill: #343434;
+    fill-opacity: 1;
+    transition: fill-opacity 0.3s; }
+  .styles-module__dashBlack__L6UOJ .styles-module__dashStroke__QO9De {
+    fill: #fff;
+    opacity: 0;
+    stroke: #fff;
+    transition: opacity 0.3s; }
+  .styles-module__dashBlack__L6UOJ:hover .styles-module__dashFill__1f6KR {
+    fill-opacity: 0; }
+  .styles-module__dashBlack__L6UOJ:hover .styles-module__dashStroke__QO9De {
+    opacity: 1; }
+
+.styles-module__dashWhite__1uHjc {
+  margin: 0 2px; }
+  .styles-module__dashWhite__1uHjc .styles-module__dashFill__1f6KR {
+    fill: #343434;
+    fill-opacity: 0;
+    transition: fill-opacity 0.3s; }
+  .styles-module__dashWhite__1uHjc .styles-module__dashStroke__QO9De {
+    fill: #fff;
+    opacity: 1;
+    stroke: #fff;
+    transition: opacity 0.3s; }
+  .styles-module__dashWhite__1uHjc:hover .styles-module__dashFill__1f6KR {
+    fill-opacity: 1; }
+  .styles-module__dashWhite__1uHjc:hover .styles-module__dashStroke__QO9De {
+    opacity: 0; }
 .styles-module__SVGRow1__1got8 svg, .styles-module__SVGRow2__1hEqG svg {
   height: 100%;
   width: 100%; }
@@ -73,21 +177,88 @@ h2 {
   transition: opacity 0.3s; }
   .styles-module__container__6fQxZ:hover {
     opacity: 1; }
+.styles-module__container__26rmK {
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+  animation-name: styles-module__fade-in__i_5IK;
+  background-color: #ff7f50;
+  height: 100vh;
+  left: 0;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 1; }
+
+@keyframes styles-module__fade-in__i_5IK {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .styles-module__container__3mhDs {
   position: relative;
   z-index: 2; }
+  .styles-module__container__3mhDs ul {
+    left: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0; }
 
-.styles-module__headerLinks__1HbrS {
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
-  .styles-module__headerLinks__1HbrS li {
+.styles-module__links__3hEv_ {
+  position: relative; }
+  .styles-module__links__3hEv_ a {
+    background-color: #fff;
+    color: #343434;
     display: inline-block;
-    margin: 0 0 0 20px;
-    padding: 15px; }
-    .styles-module__headerLinks__1HbrS li a {
-      color: #343434;
-      font-family: "Saira Condensed", sans-serif;
-      text-decoration: none; }
-      .styles-module__headerLinks__1HbrS li a:hover {
-        color: #fff; }
+    font-family: "Saira Condensed", sans-serif;
+    font-size: 18px;
+    height: 40px;
+    margin: 0;
+    padding: 5px 16px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none;
+    top: 0;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    transition: background-color 0.3s, color 0.3s, width 0.3s;
+    width: 80px; }
+    .styles-module__links__3hEv_ a svg {
+      height: 18px;
+      opacity: 0;
+      position: absolute;
+      right: 10px;
+      top: 29px;
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+      transition: opacity 0.3s;
+      width: 18px; }
+      .styles-module__links__3hEv_ a svg path, .styles-module__links__3hEv_ a svg circle {
+        fill: #fff;
+        transition: fill 0.3s; }
+    .styles-module__links__3hEv_ a:hover {
+      background-color: #343434;
+      color: #fff;
+      width: 100px; }
+      .styles-module__links__3hEv_ a:hover svg {
+        opacity: 1; }
+        .styles-module__links__3hEv_ a:hover svg path, .styles-module__links__3hEv_ a:hover svg circle {
+          fill: #fff; }
+
+.styles-module__selected__2YK9J a {
+  background-color: #343434;
+  color: #fff;
+  width: 100px; }
+  .styles-module__selected__2YK9J a svg {
+    opacity: 1; }
+    .styles-module__selected__2YK9J a svg path, .styles-module__selected__2YK9J a svg circle {
+      fill: #fff; }
+
+.styles-module__item1__Pfw90 {
+  left: 50px; }
+
+.styles-module__item2__2vKEg {
+  left: 100px; }
