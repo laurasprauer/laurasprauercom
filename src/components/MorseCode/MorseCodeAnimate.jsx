@@ -32,6 +32,20 @@ export default class MorseCodeAnimate extends React.Component {
     this.didMountUpdateState();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.windowWidth !== this.props.windowWidth ||
+      nextProps.windowHeight !== this.props.windowHeight
+    ) {
+      // reset the initialState size and letterWidth
+      const initialState = this.setInitialState(false);
+      this.setState({
+        size: initialState.size,
+        letterWidth: initialState.letterWidth,
+      });
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     // check if the letter should be reMounted
     if (
@@ -42,7 +56,7 @@ export default class MorseCodeAnimate extends React.Component {
     }
   }
 
-  setInitialState = (isMounted) => {
+  setInitialState = (isMounted = true) => {
     let initialState = {};
 
     // if order is an even number, direction is left, if odd it's right
@@ -205,6 +219,7 @@ export default class MorseCodeAnimate extends React.Component {
         />
       </CSSTransition>
     );
+
 
     return (
       <div className={styles.letter} style={letterStyle}>
