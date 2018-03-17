@@ -14,7 +14,7 @@ function Entry() {
   return (
     <div>
       <Header pathname={history.location.pathname} />
-      <Main />
+      <Main pathname={history.location.pathname} />
     </div>
   );
 }

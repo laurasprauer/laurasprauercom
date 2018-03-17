@@ -1,0 +1,19 @@
+@import './src/variables';
+
+.container {
+  align-items: center;
+  animation-duration: 0.8s;
+  animation-iteration-count: 1;
+  animation-name: fade-in;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
