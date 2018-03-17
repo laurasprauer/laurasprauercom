@@ -23,24 +23,31 @@ export default class Dot extends React.Component {
 
     // define the dot svg
     const displayDot = (
-      <svg height={this.props.size} width={this.props.size} viewBox={`0 0 ${this.props.size * 2} ${this.props.size * 2}`} xmlns="http://www.w3.org/2000/svg" className={dotClassName} >
-        <circle
-          cx={this.props.size}
-          cy={this.props.size}
-          r={this.props.size}
-          fill="#000"
-          className={styles.circleFill}
-        />
-        <circle
-          cx={this.props.size}
-          cy={this.props.size}
-          r={this.props.size * 0.8}
-          fill="#000"
-          fillOpacity={0}
-          stroke="#fff"
-          strokeWidth={this.props.size * 0.2}
-          className={styles.circleStroke}
-        />
+      <svg
+        width={this.props.size}
+        height={this.props.size}
+        viewBox={`0 0 ${this.props.size} ${this.props.size}`}
+        xmlns="http://www.w3.org/2000/svg"
+        className={dotClassName}
+      >
+        <g fillRule="nonzero" fill="none">
+          <circle
+            cx={this.props.size / 2}
+            cy={this.props.size / 2}
+            r={this.props.size / 2}
+            fill="#000"
+            className={styles.circleFill}
+          />
+          <circle
+            cx={this.props.size / 2}
+            cy={this.props.size / 2}
+            r={(this.props.size / 2) * 0.8}
+            fill="#000"
+            stroke="#fff"
+            strokeWidth={4}
+            className={styles.circleStroke}
+          />
+        </g>
       </svg>
     );
     // render

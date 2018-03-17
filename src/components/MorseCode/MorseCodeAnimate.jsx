@@ -23,13 +23,16 @@ export default class MorseCodeAnimate extends React.Component {
       size: initialState.size,
       letterCode: initialState.letterCode,
       letterWidth: initialState.letterWidth,
-      mounted: initialState.mounted,
       active: initialState.active,
     };
   }
 
   componentDidMount() {
-    this.didMountUpdateState();
+    // set animation active to true once it has mounted
+    this.toggleDisplayLetter();
+
+    // when the tab is focused again, remount the animation
+    window.addEventListener('focus', this.resetLetter, false);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,15 +51,12 @@ export default class MorseCodeAnimate extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     // check if the letter should be reMounted
-    if (
-      (prevState.active && !this.state.active) ||
-      (!prevState.mounted && this.state.mounted && !this.state.active)
-    ) {
+    if (prevState.active && !this.state.active) {
       this.toggleDisplayLetter();
     }
   }
 
-  setInitialState = (isMounted = true) => {
+  setInitialState = () => {
     let initialState = {};
 
     // if order is an even number, direction is left, if odd it's right
@@ -84,9 +84,6 @@ export default class MorseCodeAnimate extends React.Component {
     const percentToTravel = distanceToTravel / totalDistancePossible;
     const speed = Math.round((Math.floor(Math.random() * 6000) + 4000) * percentToTravel);
 
-    // has the component been mounted already?
-    const mounted = isMounted;
-
     initialState = {
       direction,
       defaultPos,
@@ -94,17 +91,10 @@ export default class MorseCodeAnimate extends React.Component {
       size: letterValues.size,
       letterCode: letterValues.letterCode,
       letterWidth: letterValues.letterWidth,
-      mounted,
       active: false,
     };
 
     return initialState;
-  }
-
-  didMountUpdateState = () => {
-    this.setState({
-      mounted: true,
-    });
   }
 
   toggleDisplayLetter = () => {
@@ -219,7 +209,6 @@ export default class MorseCodeAnimate extends React.Component {
         />
       </CSSTransition>
     );
-
 
     return (
       <div className={styles.letter} style={letterStyle}>

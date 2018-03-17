@@ -11,6 +11,7 @@
 
   .circleStroke {
     fill: $white;
+    fill-opacity: 0;
     opacity: 0;
     stroke: $white;
     transition: opacity 0.3s;
@@ -39,6 +40,7 @@
   .circleStroke {
     fill: $white;
     opacity: 1;
+    fill-opacity: 0;
     stroke: $white;
     transition: opacity 0.3s;
   }
