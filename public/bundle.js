@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 57);
@@ -3131,7 +3131,7 @@ exports.default = (0, _createBrowserHistory2.default)({
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"container":"styles-module__container__yUoD7","fade-in":"styles-module__fade-in__3AudF","letter":"styles-module__letter__2jyV8"};
+module.exports = {"container":"styles-module__container__yUoD7","fade-in-delay":"styles-module__fade-in-delay__1Zgmp","letter":"styles-module__letter__2jyV8","fade-in":"styles-module__fade-in__3AudF","slide-in":"styles-module__slide-in__3UyF4","slide-up-left":"styles-module__slide-up-left__2pLHL","slide-down-right":"styles-module__slide-down-right__3fMck"};
 
 /***/ }),
 /* 50 */
@@ -24639,6 +24639,7 @@ exports.default = Entry;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+module.exports = {"fade-in":"styles__fade-in__2ObS9","fade-in-delay":"styles__fade-in-delay__1jSoj","slide-in":"styles__slide-in__3sLHF","slide-up-left":"styles__slide-up-left__33v-q","slide-down-right":"styles__slide-down-right__1HXjr"};
 
 /***/ }),
 /* 98 */
@@ -24771,7 +24772,7 @@ exports.default = Home;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"container":"styles-module__container__3_Y8f","fade-in":"styles-module__fade-in__3YRAk","block":"styles-module__block__1a8OQ","slide-in":"styles-module__slide-in__2RKDp","social":"styles-module__social__2tirs"};
+module.exports = {"container":"styles-module__container__3_Y8f","fade-in":"styles-module__fade-in__3YRAk","block":"styles-module__block__1a8OQ","slide-in":"styles-module__slide-in__2RKDp","social":"styles-module__social__2tirs","fade-in-delay":"styles-module__fade-in-delay__McWMk","slide-up-left":"styles-module__slide-up-left__3Mhr6","slide-down-right":"styles-module__slide-down-right__1Mo24"};
 
 /***/ }),
 /* 101 */
@@ -27404,7 +27405,7 @@ Dot.propTypes = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"dotBlack":"styles-module__dotBlack__1bLJp","circleFill":"styles-module__circleFill__1pZ_J","circleStroke":"styles-module__circleStroke__htRrT","dotWhite":"styles-module__dotWhite__10Ct7"};
+module.exports = {"dotBlack":"styles-module__dotBlack__1bLJp","circleFill":"styles-module__circleFill__1pZ_J","circleStroke":"styles-module__circleStroke__htRrT","dotWhite":"styles-module__dotWhite__10Ct7","fade-in":"styles-module__fade-in__3MNDA","fade-in-delay":"styles-module__fade-in-delay__5s54B","slide-in":"styles-module__slide-in__1ds-Z","slide-up-left":"styles-module__slide-up-left__16pz_","slide-down-right":"styles-module__slide-down-right__2uMMm"};
 
 /***/ }),
 /* 163 */
@@ -27503,7 +27504,7 @@ Dash.propTypes = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"dashBlack":"styles-module__dashBlack__L6UOJ","dashFill":"styles-module__dashFill__1f6KR","dashStroke":"styles-module__dashStroke__QO9De","dashWhite":"styles-module__dashWhite__1uHjc"};
+module.exports = {"dashBlack":"styles-module__dashBlack__L6UOJ","dashFill":"styles-module__dashFill__1f6KR","dashStroke":"styles-module__dashStroke__QO9De","dashWhite":"styles-module__dashWhite__1uHjc","fade-in":"styles-module__fade-in__BjCrM","fade-in-delay":"styles-module__fade-in-delay__2IVQa","slide-in":"styles-module__slide-in__1cD_y","slide-up-left":"styles-module__slide-up-left__1dMfL","slide-down-right":"styles-module__slide-down-right__pBC93"};
 
 /***/ }),
 /* 165 */
@@ -27625,7 +27626,7 @@ exports.default = Name;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"SVGRow1":"styles-module__SVGRow1__1got8","SVGRow2":"styles-module__SVGRow2__1hEqG","letterContainer":"styles-module__letterContainer__EFVKN"};
+module.exports = {"SVGRow1":"styles-module__SVGRow1__1got8","SVGRow2":"styles-module__SVGRow2__1hEqG","letterContainer":"styles-module__letterContainer__EFVKN","fade-in":"styles-module__fade-in__3YKy8","fade-in-delay":"styles-module__fade-in-delay__3ktZ6","slide-in":"styles-module__slide-in__3_u5v","slide-up-left":"styles-module__slide-up-left__2H2DS","slide-down-right":"styles-module__slide-down-right__1V3E5"};
 
 /***/ }),
 /* 167 */
@@ -27776,6 +27777,8 @@ var _stylesModule2 = _interopRequireDefault(_stylesModule);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function About() {
+  var date = new Date();
+  var exp = date.getFullYear() - 2014;
   return _react2.default.createElement(
     'div',
     { className: _stylesModule2.default.container },
@@ -27783,10 +27786,28 @@ function About() {
       'div',
       { className: _stylesModule2.default.wrapper },
       _react2.default.createElement(
-        'h1',
-        null,
-        'About Me'
-      )
+        'div',
+        { className: _stylesModule2.default.content },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Hello'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'My name is Laura Sprauer, and I\'ve been creatively developing for the past ',
+          exp,
+          ' years. Starting off my career as an interactive designer before fully transitioning to a front end developer has given me a unique perspective - and I love it!'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'I\'m also a nerd and pet lover who calls Cincinnati home. Interested in connecting? Let\'s talk!'
+        )
+      ),
+      _react2.default.createElement('div', { className: _stylesModule2.default.blackBox }),
+      _react2.default.createElement('div', { className: _stylesModule2.default.whiteBox })
     )
   );
 }
@@ -27799,7 +27820,7 @@ exports.default = About;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"container":"styles-module__container__26rmK","fade-in":"styles-module__fade-in__i_5IK"};
+module.exports = {"container":"styles-module__container__26rmK","fade-in":"styles-module__fade-in__i_5IK","wrapper":"styles-module__wrapper__B3338","fade-in-delay":"styles-module__fade-in-delay__pB7te","content":"styles-module__content__3y6zJ","blackBox":"styles-module__blackBox__3JRd4","slide-up-left":"styles-module__slide-up-left__2g2s3","whiteBox":"styles-module__whiteBox__KYJwS","slide-down-right":"styles-module__slide-down-right__3i7eq","slide-in":"styles-module__slide-in__dhdSs"};
 
 /***/ }),
 /* 171 */
@@ -27940,7 +27961,7 @@ exports.default = Header;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"container":"styles-module__container__3mhDs","links":"styles-module__links__3hEv_","selected":"styles-module__selected__2YK9J","item1":"styles-module__item1__Pfw90","item2":"styles-module__item2__2vKEg"};
+module.exports = {"container":"styles-module__container__3mhDs","links":"styles-module__links__3hEv_","selected":"styles-module__selected__2YK9J","item1":"styles-module__item1__Pfw90","item2":"styles-module__item2__2vKEg","fade-in":"styles-module__fade-in__3EAnL","fade-in-delay":"styles-module__fade-in-delay__2VICt","slide-in":"styles-module__slide-in__2G3E2","slide-up-left":"styles-module__slide-up-left__2h2gK","slide-down-right":"styles-module__slide-down-right__1HJRj"};
 
 /***/ })
 /******/ ]);

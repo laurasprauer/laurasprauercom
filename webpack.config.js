@@ -17,12 +17,12 @@ module.exports = {
   output: {
     path: paths.DIST,
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     host: 'localhost',
     port: 3000,
-    open: true,
-    openPage: '',
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -10,13 +10,7 @@
       "specialLink": [ "to", "hrefLeft", "hrefRight" ],
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
     }],
-    "max-len": [2, {
-      "code": 100,
-      "tabWidth": 2,
-      "ignoreUrls": true,
-      "ignorePattern": "<path([^;]*?)/>",
-      "ignoreComments": true,
-    }],
+    "max-len": 0,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
   }
