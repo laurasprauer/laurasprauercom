@@ -5,13 +5,13 @@
   animation-iteration-count: 1;
   animation-name: fade-in;
   background-color: $teal;
-  height: 100vh;
+  height: 100%;
   left: 0;
   opacity: 1;
   overflow: hidden;
   position: absolute;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
 
   h2 {
