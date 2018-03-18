@@ -23,16 +23,17 @@
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fade-in-delay;
-  position: relative;
-  text-align: center;
-  transition: width 0.3s;
-  width: 250px;
-  height: 250px;
   background-color: $white;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
+  height: 250px;
   justify-content: center;
+  position: relative;
+  text-align: center;
+  transition: width 0.3s;
+  width: 250px;
+
   h1, p {
     width: 200px;
   }
