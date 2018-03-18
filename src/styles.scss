@@ -34,3 +34,12 @@ p {
   font-weight: 300;
   line-height: 150%;
 }
+
+input, textarea {
+  background-color: $white;
+  border: 0;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 15px;
+  width: 100%;
+}
