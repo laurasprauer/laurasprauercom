@@ -17,7 +17,7 @@ export default class Contact extends React.Component {
     return (
       <div className={styles.container} >
         <div className={styles.wrapper} >
-          <h1>Let's Talk!</h1>
+          <h1>Let&#39;s Talk!</h1>
           <form>
             {/* <label for="who">Your Name</label> */}
             <input type="text" id="who" name="who" placeholder="Your Name..." />
