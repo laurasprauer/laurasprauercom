@@ -85,3 +85,17 @@ $fontLato: 'Lato', sans-serif;
     top: 20px;
   }
 }
+
+@keyframes twist {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
+  }
+}

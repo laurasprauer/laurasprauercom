@@ -17,12 +17,14 @@ export default class Contact extends React.Component {
     return (
       <div className={styles.container} >
         <div className={styles.wrapper} >
-          <h1>Contact</h1>
+          <h1>Let's Talk!</h1>
           <form>
-            {/* <label for="who">Who Are You?</label> */}
-            <input type="text" id="who" name="who" placeholder="Name" />
-            {/* <label for="message">What Would You Like To Talk About</label> */}
-            <textarea id="message" name="message" placeholder="Your message..." />
+            {/* <label for="who">Your Name</label> */}
+            <input type="text" id="who" name="who" placeholder="Your Name..." />
+            {/* <label for="who">Your Email</label> */}
+            <input type="text" id="who" name="who" placeholder="Your Email..." />
+            {/* <label for="message">Your Message</label> */}
+            <textarea id="message" name="message" placeholder="Your Message..." />
             <input type="submit" value="Send Message" className={styles.btn} onClick={this.sendMessage} />
           </form>
         </div>
