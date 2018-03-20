@@ -5,8 +5,11 @@
   animation-iteration-count: 1;
   animation-name: fade-in-delay;
   display: block;
+  height: 100%;
   opacity: 1;
+  overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .letter {

@@ -11,6 +11,7 @@
 
   .dashStroke {
     fill: $white;
+    fill-opacity: 0;
     opacity: 0;
     stroke: $white;
     transition: opacity 0.3s;
@@ -38,6 +39,7 @@
 
   .dashStroke {
     fill: $white;
+    fill-opacity: 0;
     opacity: 1;
     stroke: $white;
     transition: opacity 0.3s;

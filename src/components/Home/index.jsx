@@ -4,14 +4,12 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 // import components
-import MorseCode from '../MorseCode';
 import Name from '../Name';
 import Social from '../Social';
 
 function Home() {
   return (
     <div className={styles.container}>
-      <MorseCode />
       <div className={styles.block}>
         <Name />
         <h2>Creative Developer</h2>

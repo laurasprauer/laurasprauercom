@@ -3,6 +3,8 @@ $black: #343434;
 $white: #fff;
 $teal: #28ffb2;
 $peach: #ff7f50;
+$purple: #9e42f4;
+$yellow: #f4e541;
 
 // fonts
 @import url('https://fonts.googleapis.com/css?family=Saira+Condensed:500,700');
@@ -81,5 +83,19 @@ $fontLato: 'Lato', sans-serif;
   100% {
     left: 20px;
     top: 20px;
+  }
+}
+
+@keyframes twist {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
   }
 }

@@ -24,15 +24,25 @@ export default class Dash extends React.Component {
     // define the dot svg
     const displayDash = (
       <svg
-        width={`${this.props.size / 0.554545}`}
+        width={this.props.size * 1.75}
         height={this.props.size}
-        viewBox="0 0 110 61"
         xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 350 200"
         className={dashClassName}
       >
-        <g fillRule="evenodd">
-          <path d="M29.5 0h51C96.792 0 110 13.544 110 30.25S96.792 60.5 80.5 60.5h-51C13.208 60.5 0 46.956 0 30.25S13.208 0 29.5 0z" fill="#000" className={styles.dashFill} />
-          <path d="M29.5 6.05c-12.916 0-23.45 10.802-23.45 24.2s10.534 24.2 23.45 24.2h51c12.916 0 23.45-10.802 23.45-24.2S93.416 6.05 80.5 6.05h-51z" fill="#000" fillOpacity={0} stroke="#fff" strokeWidth={this.props.size * 0.2} className={styles.dashStroke} />
+        <g fillRule="nonzero" fill="none">
+          <path
+            d="M100 200c.699 0 151.344-.007 152.04-.021C306.303 198.865 350 154.529 350 100c0-54.495-43.746-98.808-97.96-99.976C251.31.008 100.734 0 100 0 44.772 0 0 44.772 0 100s44.772 100 100 100z"
+            fill="#000"
+            className={styles.dashFill}
+          />
+          <path
+            d="M100 180c.63 0 151.414-.007 152.04-.022 43.312-1 77.96-36.425 77.96-79.978 0-43.532-34.677-78.943-77.96-79.977C251.393 20.008 100.65 20 100 20c-44.183 0-80 35.817-80 80s35.817 80 80 80z"
+            fill="#000"
+            strokeWidth={20}
+            stroke="#fff"
+            className={styles.dashStroke}
+          />
         </g>
       </svg>
     );
