@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 // import components
 import Home from '../Home';
 import About from '../About';
-import Contact from '../Contact';
+// import Contact from '../Contact';
 import NotFound from '../NotFound';
 import MorseCode from '../MorseCode';
 

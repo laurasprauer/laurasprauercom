@@ -23,10 +23,10 @@ function Header({
   }
 
   // CONTACT
-  let contactClasses = `${styles.links}`;
-  if (pathname === '/contact') {
-    contactClasses = `${styles.links} ${styles.selected}`;
-  }
+  // let contactClasses = `${styles.links}`;
+  // if (pathname === '/contact') {
+  //   contactClasses = `${styles.links} ${styles.selected}`;
+  // }
 
   return (
     <div className={styles.container}>
