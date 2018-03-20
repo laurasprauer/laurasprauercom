@@ -29,11 +29,12 @@ function Main({
     backgroundColor = {
       backgroundColor: '#ff7f50', // peach
     };
-  } else if (pathname === '/contact') { // contact page
-    backgroundColor = {
-      backgroundColor: '#9e42f4', // purple
-    };
   }
+  // else if (pathname === '/contact') { // contact page
+  //   backgroundColor = {
+  //     backgroundColor: '#9e42f4', // purple
+  //   };
+  // }
 
   return (
     <div className={styles.container} style={backgroundColor}>
@@ -41,7 +42,7 @@ function Main({
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/contact" component={Contact} />
+        {/* <Route exact path="/contact" component={Contact} /> */}
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -13,7 +13,7 @@ function About() {
         <div className={styles.content} >
           <h1>Hello</h1>
           <p>My name is Laura Sprauer, and I&#39;ve been creatively developing for the past {exp} years. Starting off my career as an interactive designer before fully transitioning to a front end developer has given me a unique perspective - and I love it!</p>
-          <p>I&#39;m also a nerd and pet lover who calls Cincinnati home. Interested in connecting? <Link to="/contact">Let&#39;s talk!</Link></p>
+          <p>Feel free to check out my <a href="https://github.com/laurasprauer">GitHub</a> or send me an email at <a href="mailto:lspraue@gmail.com">lspraue@gmail.com</a> if you would like to connect!</p>
         </div>
         <div className={styles.blackBox} />
         <div className={styles.whiteBox} />
