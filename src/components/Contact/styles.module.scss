@@ -60,6 +60,8 @@
 }
 
 .btn {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
   background-color: $black;
   color: $white;

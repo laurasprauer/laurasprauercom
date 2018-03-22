@@ -504,6 +504,9 @@ a {
   padding: 10px 0; }
 
 .styles-module__btn__2I3U3 {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
   background-color: #343434;
   color: #fff;
   cursor: pointer;

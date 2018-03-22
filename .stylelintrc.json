@@ -5,6 +5,7 @@
     "max-nesting-depth": 4,
     "selector-max-compound-selectors": 4,
     "selector-list-comma-newline-after": "never-multi-line",
-    "scss/dollar-variable-pattern": "[a-z]*"
+    "scss/dollar-variable-pattern": "[a-z]*",
+    "property-no-vendor-prefix": null
   }
 }
