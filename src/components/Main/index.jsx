@@ -8,7 +8,8 @@ import styles from './styles.module.scss';
 // import components
 import Home from '../Home';
 import About from '../About';
-// import Contact from '../Contact';
+import Contact from '../Contact';
+import Thanks from '../Thanks';
 import NotFound from '../NotFound';
 import MorseCode from '../MorseCode';
 
@@ -29,12 +30,15 @@ function Main({
     backgroundColor = {
       backgroundColor: '#ff7f50', // peach
     };
+  } else if (pathname === '/contact') { // contact page
+    backgroundColor = {
+      backgroundColor: '#9e42f4', // purple
+    };
+  } else if (pathname === '/thanks') { // thanks page
+    backgroundColor = {
+      backgroundColor: '#f142f4', // purple
+    };
   }
-  // else if (pathname === '/contact') { // contact page
-  //   backgroundColor = {
-  //     backgroundColor: '#9e42f4', // purple
-  //   };
-  // }
 
   return (
     <div className={styles.container} style={backgroundColor}>
@@ -42,7 +46,8 @@ function Main({
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
-        {/* <Route exact path="/contact" component={Contact} /> */}
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/thanks" component={Thanks} />
         <Route component={NotFound} />
       </Switch>
     </div>

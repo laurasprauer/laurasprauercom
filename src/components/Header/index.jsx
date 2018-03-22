@@ -23,10 +23,10 @@ function Header({
   }
 
   // CONTACT
-  // let contactClasses = `${styles.links}`;
-  // if (pathname === '/contact') {
-  //   contactClasses = `${styles.links} ${styles.selected}`;
-  // }
+  let contactClasses = `${styles.links}`;
+  if (pathname === '/contact') {
+    contactClasses = `${styles.links} ${styles.selected}`;
+  }
 
   return (
     <div className={styles.container}>
@@ -48,14 +48,14 @@ function Header({
             </svg>
           </Link>
         </li>
-        {/* <li className={contactClasses}>
+        <li className={contactClasses}>
           <Link className={styles.item3} to="/contact">
             CONTACT
             <svg width="97" height="85" viewBox="0 0 97 85" xmlns="http://www.w3.org/2000/svg">
               <path d="M35 71L5 85l3.86-14H0V0h97v71H35zM11 20v12h75V20H11zm0 20v12h62V40H11z" fill="#000" fillRule="evenodd" />
             </svg>
           </Link>
-        </li> */}
+        </li>
       </ul>
     </div>
   );

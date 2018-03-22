@@ -12,7 +12,7 @@ function Home() {
     <div className={styles.container}>
       <div className={styles.block}>
         <Name />
-        <h2>Creative Developer</h2>
+        <h2>Developer</h2>
         <div className={styles.social}>
           <Social
             icon="twitter"
@@ -21,6 +21,10 @@ function Home() {
           <Social
             icon="github"
             link="https://github.com/laurasprauer"
+          />
+          <Social
+            icon="codepen"
+            link="https://codepen.io/lspraue/"
           />
           <Social
             icon="dribbble"

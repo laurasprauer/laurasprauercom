@@ -26,25 +26,25 @@ export default class Dot extends React.Component {
       <svg
         width={this.props.size}
         height={this.props.size}
-        viewBox={`0 0 ${this.props.size} ${this.props.size}`}
+        viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
         className={dotClassName}
       >
         <g fillRule="nonzero" fill="none">
           <circle
-            cx={this.props.size / 2}
-            cy={this.props.size / 2}
-            r={this.props.size / 2}
+            cx="100"
+            cy="100"
+            r="100"
             fill="#000"
             className={styles.circleFill}
           />
           <circle
-            cx={this.props.size / 2}
-            cy={this.props.size / 2}
-            r={(this.props.size / 2) * 0.8}
+            cx="100"
+            cy="100"
+            r="80"
             fill="#000"
             stroke="#fff"
-            strokeWidth={4}
+            strokeWidth={20}
             className={styles.circleStroke}
           />
         </g>

@@ -31,6 +31,13 @@ export default class Social extends React.Component {
           </svg>
         );
         break;
+      case 'codepen':
+        icon = (
+          <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.78 4.752L7.778.084a.5.5 0 0 0-.555 0L.222 4.752A.499.499 0 0 0 0 5.168v4.668c0 .167.084.323.222.416l7 4.668a.495.495 0 0 0 .555 0l7-4.668A.499.499 0 0 0 15 9.836V5.168a.49.49 0 0 0-.22-.416zM7.5 9.234L4.902 7.501l2.6-1.733 2.597 1.733-2.598 1.733zm.5-4.334V1.434l5.6 3.734L11 6.901l-3-2zm-1 0L4 6.901 1.4 5.168 7 1.434V4.9zM3.099 7.501l-2.1 1.4V6.1l2.1 1.4zM4 8.103l3 2v3.467L1.4 9.836 4 8.103zm4 2L11.002 8.1l2.6 1.733L8 13.568v-3.466zM11.904 7.5l2.099-1.4v2.8l-2.1-1.4z" fill="white" fillRule="nonzero" />
+          </svg>
+        );
+        break;
       case 'linkedin':
         icon = (
           <svg width="15" height="14" viewBox="0 0 15 14" xmlns="http://www.w3.org/2000/svg">
