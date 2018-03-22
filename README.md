@@ -1,1 +1,3 @@
-Thanks for visiting my website repository! This project is in progress, but it was created using [Create React App](https://github.com/facebookincubator/create-react-app) and relies on [Custom React Scripts](https://github.com/kitze/custom-react-scripts) for custom configuration.
+Thanks for visiting my website repository!
+
+Check out the live website [here](https://laurasprauer.com/).
