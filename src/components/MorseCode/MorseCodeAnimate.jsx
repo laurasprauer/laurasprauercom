@@ -16,6 +16,9 @@ export default class MorseCodeAnimate extends React.Component {
 
     const initialState = this.setInitialState(false);
 
+    // we need to save the setInitialState function in state
+    // so we can call it from getDerivedStateFromProps
+
     this.state = {
       direction: initialState.direction,
       defaultPos: initialState.defaultPos,
@@ -24,6 +27,7 @@ export default class MorseCodeAnimate extends React.Component {
       letterCode: initialState.letterCode,
       letterWidth: initialState.letterWidth,
       active: initialState.active,
+      setInitialState: this.setInitialState.bind(this),
     };
   }
 
@@ -35,13 +39,13 @@ export default class MorseCodeAnimate extends React.Component {
     window.addEventListener('focus', this.resetLetter, false);
   }
 
-  static getDerivedStateFromProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (
-      nextProps.windowWidth !== this.props.windowWidth
-      || nextProps.windowHeight !== this.props.windowHeight
+      nextProps.windowWidth !== prevState.windowWidth
+      || nextProps.windowHeight !== prevState.windowHeight
     ) {
       // reset the initialState size and letterWidth
-      const initialState = this.setInitialState(false);
+      const initialState = prevState.setInitialState(false);
       return {
         size: initialState.size,
         letterWidth: initialState.letterWidth,
