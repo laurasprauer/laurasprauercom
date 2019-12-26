@@ -15,5 +15,9 @@
     "import/no-named-as-default-member": 0,
     "no-useless-escape": 0,
     "react/forbid-prop-types": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-tag-spacing": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-props-no-spreading": 0,
   }
 }

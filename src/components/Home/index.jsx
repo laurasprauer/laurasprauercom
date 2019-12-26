@@ -12,23 +12,11 @@ function Home() {
     <div className={styles.container}>
       <div className={styles.block}>
         <Name />
-        <h2>Developer</h2>
+        <h2>Front End Engineer</h2>
         <div className={styles.social}>
-          <Social
-            icon="twitter"
-            link="https://twitter.com/lspraue"
-          />
           <Social
             icon="github"
             link="https://github.com/laurasprauer"
-          />
-          <Social
-            icon="codepen"
-            link="https://codepen.io/lspraue/"
-          />
-          <Social
-            icon="dribbble"
-            link="https://dribbble.com/laurasprauer"
           />
           <Social
             icon="linkedin"
