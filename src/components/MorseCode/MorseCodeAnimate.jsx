@@ -16,6 +16,9 @@ export default class MorseCodeAnimate extends React.Component {
 
     const initialState = this.setInitialState(false);
 
+    // we need to save the setInitialState function in state
+    // so we can call it from getDerivedStateFromProps
+
     this.state = {
       direction: initialState.direction,
       defaultPos: initialState.defaultPos,
@@ -24,6 +27,7 @@ export default class MorseCodeAnimate extends React.Component {
       letterCode: initialState.letterCode,
       letterWidth: initialState.letterWidth,
       active: initialState.active,
+      setInitialState: this.setInitialState.bind(this),
     };
   }
 
@@ -35,18 +39,20 @@ export default class MorseCodeAnimate extends React.Component {
     window.addEventListener('focus', this.resetLetter, false);
   }
 
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (
-      nextProps.windowWidth !== this.props.windowWidth ||
-      nextProps.windowHeight !== this.props.windowHeight
+      nextProps.windowWidth !== prevState.windowWidth
+      || nextProps.windowHeight !== prevState.windowHeight
     ) {
       // reset the initialState size and letterWidth
-      const initialState = this.setInitialState(false);
-      this.setState({
+      const initialState = prevState.setInitialState(false);
+      return {
         size: initialState.size,
         letterWidth: initialState.letterWidth,
-      });
+      };
     }
+
+    return null;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -104,16 +110,11 @@ export default class MorseCodeAnimate extends React.Component {
   }
 
   resetLetter = () => {
-    let defaultPos = this.state.letterWidth * -1;
-    if (this.state.direction === 'left') {
-      defaultPos = this.props.windowWidth;
-    }
-
-    this.setState({
+    this.setState((prevState) => ({
       active: false,
-      defaultPos,
+      defaultPos: ((prevState.direction === 'left') ? this.props.windowWidth : prevState.letterWidth * -1),
       speed: (Math.floor(Math.random() * 6000) + 4000),
-    });
+    }));
   }
 
   defineLetterValues = () => {

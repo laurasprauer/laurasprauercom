@@ -12,7 +12,7 @@ export default class Social extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // determine which social media icon to display
     let icon = null;
 
@@ -65,7 +65,7 @@ export default class Social extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <a href={this.props.link} target="_blank">
+        <a href={this.props.link} target="_blank" rel="noopener noreferrer">
           {this.state.icon}
         </a>
       </div>
