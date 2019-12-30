@@ -14,7 +14,7 @@ function About() {
           <h1>Hello</h1>
           <p>
 My name is Laura Sprauer, and I&#39;ve been developing on the web for the past
-{' '}{exp}{' '}
+            {' '}{exp}{' '}
 years. Starting off my career as an interactive designer before fully transitioning to a front end engineer has given me a unique perspective - and I love it!
           </p>
           <p>
