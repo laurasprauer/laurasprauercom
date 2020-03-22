@@ -1,10 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AWS from 'aws-sdk';
 import { withRouter } from 'react-router-dom';
-import $ from 'jquery';
 
 // import styles
 import styles from './styles.module.scss';
+
+// Initialize the Amazon Cognito credentials provider
+AWS.config.update({
+  region: 'us-east-1',
+  credentials: new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-east-1:158b53a7-e63d-4a83-bf24-d46f748f2ba7',
+  }),
+});
+
+const docClient = new AWS.DynamoDB.DocumentClient();
 
 class Contact extends React.Component {
   constructor(props) {
@@ -54,24 +64,23 @@ class Contact extends React.Component {
       const today = new Date();
       const date = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
 
-      const API_URL = 'https://dvgubrw32d.execute-api.us-east-1.amazonaws.com/default/serverless-dev-sendEmail/sendEmail';
-
       const payload = {
-        name,
-        email,
-        message,
-        date,
+        TableName: 'laurasprauer-contact',
+        Item: {
+          name,
+          email,
+          message,
+          date,
+        },
       };
 
-      $.ajax({
-        contentType: 'application/json',
-        data: JSON.stringify(payload),
-        dataType: 'json',
-        type: 'POST',
-        url: API_URL,
-      })
-        .done(() => this.handleSuccess())
-        .fail(() => this.handleError());
+      docClient.put(payload, (err) => {
+        if (err) {
+          this.handleError();
+        } else {
+          this.handleSuccess();
+        }
+      });
     }
   }
 

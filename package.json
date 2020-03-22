@@ -2,7 +2,7 @@
   "name": "laurasprauercom",
   "version": "0.1.0",
   "private": true,
-  "description": "Laura Sprauer - Designer & Developer",
+  "description": "Laura Sprauer - Front End Engineer",
   "homepage": "http://laurasprauer.com/",
   "bugs": {
     "url": "https://github.com/laurasprauer/laurasprauercom/issues"
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "ajv": "^6.10.2",
+    "aws-sdk": "^2.643.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^7.1.3",
