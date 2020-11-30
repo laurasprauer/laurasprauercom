@@ -13,7 +13,8 @@ const paths = {
 
 // Webpack configuration
 module.exports = {
-  mode: 'none',
+  mode: 'production',
+  performance: { hints: false },
   entry: path.join(paths.JS, 'website.jsx'),
   output: {
     filename: '[name].bundle.js',
