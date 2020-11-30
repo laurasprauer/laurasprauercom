@@ -100,3 +100,17 @@ $fontLato: 'Lato', sans-serif;
     transform: rotate(-10deg);
   }
 }
+
+@keyframes text-slide-out {
+  0% {
+    width: 0;
+  }
+
+  75% {
+    width: 0;
+  }
+
+  100% {
+    width: auto;
+  }
+}

@@ -7,11 +7,15 @@ import styles from './styles.module.scss';
 function About() {
   const date = new Date();
   const exp = date.getFullYear() - 2013;
+  const imageSrc = `/public/images/laura-img-${Math.floor(Math.random() * 3) + 1}.jpg`;
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.content}>
-          <h1>Hello</h1>
+          <div className={styles.aboutHeader}>
+            <img src={imageSrc} alt="Laura Sprauer" />
+            <h1>Hey&nbsp;&nbsp;There</h1>
+          </div>
           <p>
             My name is Laura Sprauer, and I&#39;ve been developing on the web for the past
             {' '}{exp}{' '}
