@@ -10,9 +10,9 @@ function NotFound() {
       <div className={styles.wrapper}>
         <h1>Oops!</h1>
         <p>
-Looks like this page doesn&#39;t exist.
+          Looks like this page doesn&#39;t exist.
           <Link to="/">Go Home</Link>
-.
+          .
         </p>
       </div>
     </div>

@@ -13,12 +13,12 @@ function About() {
         <div className={styles.content}>
           <h1>Hello</h1>
           <p>
-My name is Laura Sprauer, and I&#39;ve been developing on the web for the past
+            My name is Laura Sprauer, and I&#39;ve been developing on the web for the past
             {' '}{exp}{' '}
-years. Starting off my career as an interactive designer before fully transitioning to a front end engineer has given me a unique perspective - and I love it!
+            years. Starting off my career as an interactive designer before fully transitioning to a front end engineer has given me a unique perspective - and I love it!
           </p>
           <p>
-Interested in connecting? &nbsp;
+            Interested in connecting? &nbsp;
             <Link to="/contact">Let&#39;s Talk!</Link>
           </p>
         </div>
