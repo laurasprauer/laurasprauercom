@@ -13,11 +13,12 @@ const paths = {
 
 // Webpack configuration
 module.exports = {
+  mode: 'none',
   entry: path.join(paths.JS, 'website.jsx'),
   output: {
-    path: paths.DIST,
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     host: 'localhost',
