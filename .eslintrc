@@ -11,6 +11,7 @@
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
     }],
     "max-len": 0,
+    "no-plusplus": 0,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
     "no-useless-escape": 0,

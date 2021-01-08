@@ -10,6 +10,7 @@ import Home from '../Home';
 import About from '../About';
 import Contact from '../Contact';
 import Thanks from '../Thanks';
+import Resume from '../Resume';
 import NotFound from '../NotFound';
 import MorseCode from '../MorseCode';
 
@@ -36,18 +37,29 @@ function Main({
     };
   } else if (pathname === '/thanks') { // thanks page
     backgroundColor = {
-      backgroundColor: '#f142f4', // purple
+      backgroundColor: '#f142f4', // pink
     };
+  } else if (pathname === '/resume') { // resume page
+    backgroundColor = {
+      backgroundColor: '#ffffff', // white
+    };
+  }
+
+  // decides which pages have the MorseCode animation and which do not
+  let showMorseCode = <MorseCode />;
+  if (pathname === '/resume') {
+    showMorseCode = null;
   }
 
   return (
     <div className={styles.container} style={backgroundColor}>
-      <MorseCode />
+      {showMorseCode}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/thanks" component={Thanks} />
+        <Route exact path="/resume" component={Resume} />
         <Route component={NotFound} />
       </Switch>
     </div>

@@ -20,7 +20,8 @@
     "jslint-fix": "./node_modules/.bin/eslint --ext .js --ext .jsx src --fix",
     "start": "webpack-dev-server --hot --inline",
     "stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss'",
-    "stylelint-fix": "./node_modules/.bin/stylelint 'src/**/*.scss' --fix"
+    "stylelint-fix": "./node_modules/.bin/stylelint 'src/**/*.scss' --fix",
+    "set-node": "nvm install 10.20.1"
   },
   "dependencies": {
     "ajv": "^6.12.6",

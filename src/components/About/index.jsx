@@ -30,7 +30,7 @@ function About() {
           </p>
           <p>
             Want to learn more about my professional experience? &nbsp;
-            <Link to="/contact">View My Resume</Link> &nbsp;
+            <Link to="/resume">View My Resume</Link> &nbsp;
             or connect with me on &nbsp;
             <a href="https://www.linkedin.com/in/laurasprauer/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
           </p>

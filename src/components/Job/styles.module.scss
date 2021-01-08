@@ -1,0 +1,98 @@
+@import './src/variables';
+
+.job {
+  position: relative;
+
+  .jobTitle {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .jobInfo {
+    font-weight: bold;
+  }
+
+  .jobDescription {
+    margin-top: 20px;
+  }
+
+  .years {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .start, .end {
+      align-items: center;
+      background-color: $black;
+      border-radius: 50px;
+      display: flex;
+      height: 60px;
+      justify-content: center;
+      width: 60px;
+
+      >div {
+        align-items: center;
+        background-color: $black;
+        border: 5px solid $white;
+        border-radius: 50px;
+        color: $white;
+        display: flex;
+        font-family: 'Saira Condensed', sans-serif;
+        font-weight: bold;
+        height: 50px;
+        justify-content: center;
+        width: 50px;
+        z-index: 2;
+      }
+    }
+
+    .end {
+      position: absolute;
+      right: -110px;
+      top: 20px;
+    }
+
+    .start {
+      position: absolute;
+      right: -110px;
+    }
+
+    .yearLine {
+      border: 3px dashed $black;
+      position: absolute;
+      right: -84px;
+      top: 40px;
+      width: 0;
+      z-index: 1;
+    }
+  }
+}
+
+@media (min-width: 450px) {
+  .job {
+    .years {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 650px) {
+  .job {
+    .years {
+      .end {
+        right: -210px;
+      }
+
+      .start {
+        right: -210px;
+      }
+
+      .yearLine {
+        right: -184px;
+      }
+    }
+  }
+}
