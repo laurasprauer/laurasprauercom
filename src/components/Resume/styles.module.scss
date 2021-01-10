@@ -27,14 +27,18 @@
   width: 100%;
 
   h1 {
+    color: $black;
     font-size: 50px;
     margin-top: 80px;
     padding: 50px 0 0;
+    transition: color 0.3s;
   }
 
   h2 {
+    color: $black;
     margin: -5px 0 5px;
     text-transform: uppercase;
+    transition: color 0.3s;
   }
 
   .timelineContainer {
@@ -55,7 +59,26 @@
       .line {
         background-color: $black;
         height: 100%;
+        transition: background-color 0.3s;
         width: 10px;
+      }
+    }
+  }
+}
+
+.darkMode {
+  h1 {
+    color: $white;
+  }
+
+  h2 {
+    color: $white;
+  }
+
+  .timelineContainer {
+    .timelineLine {
+      .line {
+        background-color: $white;
       }
     }
   }

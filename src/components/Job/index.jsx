@@ -4,55 +4,75 @@ import PropTypes from 'prop-types';
 // import styles
 import styles from './styles.module.scss';
 
+const YEAR_HEIGHT = 100;
+
 export default class Job extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      jobTitle: props.jobTitle,
-      companyName: props.companyName,
-      companyLink: props.companyLink,
-      jobDescription: props.jobDescription,
-      start: props.start,
-      end: props.end,
+      yearHeightDashed: '0',
     };
+  }
+
+  componentDidMount() {
+    // we want to wait 1 second before triggering this height in order to create an animation
+    setTimeout(() => {
+      const date = new Date();
+      const presentYear = date.getFullYear();
+      let years = 1;
+
+      if (this.props.end === 'Present') {
+        years = presentYear - parseFloat(this.props.start);
+      } else {
+        years = parseFloat(this.props.end) - parseFloat(this.props.start);
+      }
+
+      this.setState({
+        yearHeightDashed: `${YEAR_HEIGHT * years}px`,
+      });
+    }, 1000);
   }
 
   render() {
     let years = 1;
     const date = new Date();
     const presentYear = date.getFullYear();
-    let circleEndYear = this.state.end;
-    if (this.state.end === 'Present') {
+    let circleEndYear = this.props.end;
+    if (this.props.end === 'Present') {
       circleEndYear = presentYear;
-      years = presentYear - parseFloat(this.state.start);
+      years = presentYear - parseFloat(this.props.start);
     } else {
-      years = parseFloat(this.state.end) - parseFloat(this.state.start);
+      years = parseFloat(this.props.end) - parseFloat(this.props.start);
     }
 
-    const yearHeight = 100;
-    const yearHeightDashed = `${yearHeight * years}px`;
-    const yearTopStart = `${(yearHeight * years) + 20}px`;
-    const minJobHeight = `${(yearHeight * years) + 100}px`;
+    const yearTopStart = `${(YEAR_HEIGHT * years) + 20}px`;
+    const minJobHeight = `${(YEAR_HEIGHT * years) + 100}px`;
+
+    // add darkMode class if darkMode is true
+    let containerClasses = `${styles.job}`;
+    if (this.props.darkMode) {
+      containerClasses = `${styles.job} ${styles.darkMode}`;
+    }
+
+    let company = <a className={styles.companyName} href={this.props.companyLink} target="_blank" rel="noopener noreferrer">{this.props.companyName}</a>;
+    if (this.props.companyLink === 'null') {
+      company = <span className={styles.companyName}>{this.props.companyName}</span>;
+    }
 
     return (
-      <div className={styles.job} style={{ minHeight: minJobHeight }}>
+      <div className={containerClasses} style={{ minHeight: minJobHeight }}>
         <div className={styles.jobTitle}>
-          {this.state.jobTitle}
+          {this.props.jobTitle}
         </div>
         <div className={styles.jobInfo}>
-          <a className={styles.companyName} href={this.state.companyLink} target="_blank" rel="noopener noreferrer">
-            {this.state.companyName}
-          </a>
-          &nbsp;&nbsp;|&nbsp;&nbsp;{this.state.start} - {this.state.end}
+          {company}
+          &nbsp;&nbsp;|&nbsp;&nbsp;{this.props.start} - {this.props.end}
         </div>
-        <div className={styles.jobDescription}>
-          {this.state.jobDescription}
-        </div>
-
+        <div className={styles.jobDescription} dangerouslySetInnerHTML={{ __html: this.props.jobDescription }} />
         <div className={styles.years}>
-          <div className={styles.start} style={{ top: yearTopStart }}><div>{this.state.start}</div></div>
+          <div className={styles.start} style={{ top: yearTopStart }}><div>{this.props.start}</div></div>
           <div className={styles.end}><div>{circleEndYear}</div></div>
-          <div className={styles.yearLine} style={{ height: yearHeightDashed }} />
+          <div className={styles.yearLine} style={{ height: this.state.yearHeightDashed }} />
         </div>
       </div>
     );
@@ -60,6 +80,7 @@ export default class Job extends React.Component {
 }
 
 Job.propTypes = {
+  darkMode: PropTypes.string.isRequired,
   jobTitle: PropTypes.string.isRequired,
   companyName: PropTypes.string.isRequired,
   companyLink: PropTypes.string.isRequired,
