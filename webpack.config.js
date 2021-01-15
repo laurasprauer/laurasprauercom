@@ -1,7 +1,7 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 // Constant with our paths
@@ -13,11 +13,13 @@ const paths = {
 
 // Webpack configuration
 module.exports = {
+  mode: 'production',
+  performance: { hints: false },
   entry: path.join(paths.JS, 'website.jsx'),
   output: {
-    path: paths.DIST,
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     host: 'localhost',
@@ -28,7 +30,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),
     }),
-    new ExtractTextPlugin('styles.css'),
+    new MiniCssExtractPlugin({ filename: "style.css" }),
     new StyleLintPlugin({
       configFile: '.stylelintrc.json',
       context: 'src',
@@ -40,37 +42,41 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader:'css-loader',
-              options: {
-                modules: true,
-                localIdentName: '[name]__[local]__[hash:base64:5]'
-              }
-            },
-            'postcss-loader'
-          ]
-        })
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              import: false,
+              modules: true
+            }
+          }
+        ],
+        include: /\.module\.css$/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+        exclude: /\.module\.css$/
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader:'css-loader',
-              options: {
-                modules: true,
-                sourceMAp: true,
-                importLoaders: 2,
-                localIdentName: '[name]__[local]__[hash:base64:5]'
-              }
-            },
-            'sass-loader'
-          ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              import: false,
+              modules: true,
+              camelCase: true,
+              localIdentName: '[name]__[local]__[hash:base64:5]'
+            }
+          },
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|jpg|gif)$/,

@@ -1,6 +1,64 @@
+@import './src/variables';
+
 .container {
   height: 100%;
   position: absolute;
   transition: background-color 0.3s;
   width: 100%;
+}
+
+.darkMode, .lightMode {
+  border-radius: 30px;
+  cursor: pointer;
+  height: 35px;
+  outline: 0;
+  padding: 7px;
+  position: fixed;
+  right: 25px;
+  top: 15px;
+  transition: background-color 0.3s;
+  width: 35px;
+  z-index: 2;
+}
+
+.darkMode {
+  background-color: $black;
+  border: 2px solid $white;
+
+  svg {
+    fill: $white;
+    height: 100%;
+    transition: fill 0.3s;
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: $white;
+    border: 2px solid $black;
+
+    svg {
+      fill: $black;
+    }
+  }
+}
+
+.lightMode {
+  background-color: $white;
+  border: 2px solid $black;
+
+  svg {
+    fill: $black;
+    height: 100%;
+    transition: fill 0.3s;
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: $black;
+    border: 2px solid $white;
+
+    svg {
+      fill: $white;
+    }
+  }
 }

@@ -100,3 +100,82 @@ $fontLato: 'Lato', sans-serif;
     transform: rotate(-10deg);
   }
 }
+
+@keyframes text-slide-out-120 {
+  0% {
+    padding: 0;
+    width: 0;
+  }
+
+  50% {
+    padding: 0;
+    width: 0;
+  }
+
+  75% {
+    padding: 0 30px;
+    width: calc(100% - 120px);
+  }
+}
+
+@keyframes text-slide-out-90 {
+  0% {
+    padding: 0;
+    width: 0;
+  }
+
+  50% {
+    padding: 0;
+    width: 0;
+  }
+
+  75% {
+    padding: 0 30px;
+    width: calc(100% - 90px);
+  }
+}
+
+@keyframes text-slide-out-full {
+  0% {
+    padding: 0;
+    width: 0;
+  }
+
+  50% {
+    padding: 0;
+    width: 0;
+  }
+
+  75% {
+    padding: 0 30px;
+    width: 100%;
+  }
+}
+
+@keyframes text-fade-in-1 {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-fade-in-2 {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -10,7 +10,11 @@
       "specialLink": [ "to", "hrefLeft", "hrefRight" ],
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
     }],
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/interactive-supports-focus": 0,
     "max-len": 0,
+    "new-cap": 0,
+    "no-plusplus": 0,
     "import/no-named-as-default": 0,
     "import/no-named-as-default-member": 0,
     "no-useless-escape": 0,

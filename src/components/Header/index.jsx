@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 
 function Header({
   pathname,
+  darkMode,
 }) {
   // define the class names for the header links
 
@@ -28,8 +29,14 @@ function Header({
     contactClasses = `${styles.links} ${styles.selected}`;
   }
 
+  // if darkMode and this is the resume page
+  let containerClasses = `${styles.container}`;
+  if (pathname === '/resume' && !darkMode) {
+    containerClasses = `${styles.container} ${styles.darkMode}`;
+  }
+
   return (
-    <div className={styles.container}>
+    <div className={containerClasses}>
       <ul>
         <li className={homeClasses}>
           <Link className={styles.item1} to="/">
@@ -63,6 +70,7 @@ function Header({
 
 Header.propTypes = {
   pathname: PropTypes.string.isRequired,
+  darkMode: PropTypes.string.isRequired,
 };
 
 export default Header;

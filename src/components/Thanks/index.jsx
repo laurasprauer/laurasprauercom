@@ -10,9 +10,9 @@ function Thanks() {
       <div className={styles.wrapper}>
         <h1>Thanks!</h1>
         <p>
-I received your message and will get back to you as soon as I can.
+          I received your message and will get back to you as soon as I can.
           {' '}<Link to="/">Go Back Home</Link>
-.
+          .
         </p>
       </div>
     </div>

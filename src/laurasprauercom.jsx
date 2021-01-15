@@ -10,13 +10,26 @@ import './styles.scss';
 import Main from './components/Main';
 import Header from './components/Header';
 
-function Entry() {
-  return (
-    <div>
-      <Header pathname={history.location.pathname} />
-      <Main pathname={history.location.pathname} />
-    </div>
-  );
-}
+export default class Entry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      darkMode: false,
+    };
+  }
 
-export default Entry;
+  toggleDarkMode= () => {
+    this.setState((prevState) => ({
+      darkMode: !prevState.darkMode,
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <Header pathname={history.location.pathname} darkMode={this.state.darkMode}/>
+        <Main pathname={history.location.pathname} darkMode={this.state.darkMode} toggleDarkMode={this.toggleDarkMode}/>
+      </div>
+    );
+  }
+}
