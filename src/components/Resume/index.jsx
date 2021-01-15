@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 import Job from '../Job';
+import DownloadResume from '../DownloadResume';
 
 export default class Resume extends React.Component {
   constructor(props) {
@@ -35,7 +36,10 @@ export default class Resume extends React.Component {
       <div className={containerClasses}>
         <div className={styles.wrapper}>
           <h1>Laura Sprauer</h1>
-          <h2>Resume</h2>
+          <h2>
+            Resume
+            <DownloadResume darkMode={this.props.darkMode} />
+          </h2>
 
           <div className={styles.timelineContainer}>
             <div id="timeline-content" className={styles.timelineContent}>
@@ -101,7 +105,7 @@ export default class Resume extends React.Component {
 
           <div className={styles.skills}>
             <div className={styles.skillsTitle}>Known Technologies</div>
-            <div className={styles.skillsDescription}>
+            <div id="known-technologies" className={styles.skillsDescription}>
               <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>,&ensp;
               <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">Redux</a>,&ensp;
               <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular</a>,&ensp;

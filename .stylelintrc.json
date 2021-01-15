@@ -6,6 +6,7 @@
     "selector-max-compound-selectors": 5,
     "selector-list-comma-newline-after": "never-multi-line",
     "scss/dollar-variable-pattern": "[a-z]*",
-    "property-no-vendor-prefix": null
+    "property-no-vendor-prefix": null,
+    "selector-max-id": 2
   }
 }
