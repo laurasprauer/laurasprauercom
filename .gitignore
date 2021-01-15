@@ -7,7 +7,10 @@
 /coverage
 
 # production
-/dist
+/public/index.html
+/public/main.bundle.js
+/public/main.bundle.js.LICENSE.txt
+/public/style.css
 
 # misc
 .DS_Store
