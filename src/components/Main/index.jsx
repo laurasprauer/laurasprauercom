@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
 
 // import styles
 import styles from './styles.module.scss';
@@ -14,46 +15,56 @@ import Resume from '../Resume';
 import NotFound from '../NotFound';
 import MorseCode from '../MorseCode';
 
+const YELLOW = '#28ffb2';
+const TEAL = '#28ffb2';
+const PEACH = '#ff7f50';
+const PURPLE = '#9e42f4';
+const PINK = '#f142f4';
+const BLACK = '#343434';
+const WHITE = '#ffffff';
+
 export default class Main extends React.Component {
+  componentDidMount() {
+    // update the background color manually on start
+    $('body').css('background-color', `${this.getBackgroundColor()}`);
+  }
+
+  componentDidUpdate() {
+    // update the background color manually on change
+    $('body').css('background-color', `${this.getBackgroundColor()}`);
+  }
+
   toggleDarkMode = () => {
     this.props.toggleDarkMode();
   }
 
-  render() {
+  getBackgroundColor = () => {
     // let's figure out what the background color should be based on the path name
     // the default color is yellow
-    let backgroundColor = {
-      backgroundColor: '#f4e541', // yellow
-    };
-
     if (this.props.pathname === '/') { // home page
-      backgroundColor = {
-        backgroundColor: '#28ffb2', // teal
-      };
-    } else if (this.props.pathname === '/about') { // about page
-      backgroundColor = {
-        backgroundColor: '#ff7f50', // peach
-      };
-    } else if (this.props.pathname === '/contact') { // contact page
-      backgroundColor = {
-        backgroundColor: '#9e42f4', // purple
-      };
-    } else if (this.props.pathname === '/thanks') { // thanks page
-      backgroundColor = {
-        backgroundColor: '#f142f4', // pink
-      };
-    } else if (this.props.pathname === '/resume') { // resume page
+      return TEAL;
+    } if (this.props.pathname === '/about') { // about page
+      return PEACH;
+    } if (this.props.pathname === '/contact') { // contact page
+      return PURPLE;
+    } if (this.props.pathname === '/thanks') { // thanks page
+      return PINK;
+    } if (this.props.pathname === '/resume') { // resume page
       // check for darkMode
       if (this.props.darkMode) {
-        backgroundColor = {
-          backgroundColor: '#343434', // black
-        };
-      } else {
-        backgroundColor = {
-          backgroundColor: '#ffffff', // white
-        };
+        return BLACK;
       }
+
+      return WHITE;
     }
+
+    return YELLOW;
+  }
+
+  render() {
+    const backgroundColor = {
+      backgroundColor: `${this.getBackgroundColor()}`,
+    };
 
     // decides which pages have the MorseCode animation and which do not
     // you can also only toggle darkMode on the resume page

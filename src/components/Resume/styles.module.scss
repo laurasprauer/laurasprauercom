@@ -48,10 +48,11 @@
     padding: 60px 0;
     position: relative;
     text-align: left;
-    width: calc(100vw - 15px);
+    width: calc(100vw);
 
     @media (min-width: 914px) {
       margin-left: calc(100vw / 2 * -1 + 417px);
+      width: calc(100vw - 15px);
     }
   }
 
