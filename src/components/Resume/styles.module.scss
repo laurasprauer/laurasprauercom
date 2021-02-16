@@ -43,12 +43,16 @@
 
   .skills {
     background-color: $black;
-    margin-left: calc(100vw / 2 * -1 + 417px);
+    margin-left: -40px;
     margin-top: 60px;
     padding: 60px 0;
     position: relative;
     text-align: left;
     width: calc(100vw - 15px);
+
+    @media (min-width: 914px) {
+      margin-left: calc(100vw / 2 * -1 + 417px);
+    }
   }
 
   .skillsTitle {
