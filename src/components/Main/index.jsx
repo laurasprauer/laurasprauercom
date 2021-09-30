@@ -12,6 +12,7 @@ import About from '../About';
 import Contact from '../Contact';
 import Thanks from '../Thanks';
 import Resume from '../Resume';
+import Resources from '../Resources';
 import NotFound from '../NotFound';
 import MorseCode from '../MorseCode';
 
@@ -49,7 +50,7 @@ export default class Main extends React.Component {
       return PURPLE;
     } if (this.props.pathname === '/thanks') { // thanks page
       return PINK;
-    } if (this.props.pathname === '/resume') { // resume page
+    } if (this.props.pathname === '/resume' || this.props.pathname === '/resources') { // resources pages
       // check for darkMode
       if (this.props.darkMode) {
         return BLACK;
@@ -67,10 +68,10 @@ export default class Main extends React.Component {
     };
 
     // decides which pages have the MorseCode animation and which do not
-    // you can also only toggle darkMode on the resume page
+    // you can also only toggle darkMode on the resources pages
     let showMorseCode = <MorseCode />;
     let showDarkMode = null;
-    if (this.props.pathname === '/resume') {
+    if (this.props.pathname === '/resume' || this.props.pathname === '/resources') {
       showMorseCode = null;
       // check if darkmode is already enabled or not
       if (!this.props.darkMode) {
@@ -90,6 +91,7 @@ export default class Main extends React.Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/thanks" component={Thanks} />
           <Route exact path="/resume" render={() => <Resume darkMode={this.props.darkMode}/>} />
+          <Route exact path="/resources" render={() => <Resources darkMode={this.props.darkMode}/>} />
           <Route component={NotFound} />
         </Switch>
       </div>

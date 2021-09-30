@@ -52,6 +52,13 @@ export default class Social extends React.Component {
           </svg>
         );
         break;
+      case 'instagram':
+        icon = (
+          <svg width="19" height="19" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 3a5 5 0 00-5 5v8a5 5 0 005 5h8a5 5 0 005-5V8a5 5 0 00-5-5H8zm10 2a1 1 0 110 2 1 1 0 010-2zm-6 2a5 5 0 11-.001 10.001A5 5 0 0112 7zm0 2a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3z" fill="white"/>
+          </svg>
+        );
+        break;
       default:
         // if the icon prop does not match or is undefined, do nothing
     }
