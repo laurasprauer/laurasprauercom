@@ -37,8 +37,7 @@ export default class Resume extends React.Component {
         <div className={styles.wrapper}>
           <h1>Laura Sprauer</h1>
           <h2>
-            Resume
-            <DownloadPDF darkMode={this.props.darkMode} pdf="/pdf/laura-sprauer-resume.pdf"/>
+            <DownloadPDF text="Resume" darkMode={this.props.darkMode} pdf="/pdf/laura-sprauer-resume.pdf"/>
           </h2>
 
           <div className={styles.timelineContainer}>

@@ -93,7 +93,20 @@ export default class Main extends React.Component {
           <Route exact path="/thanks" component={Thanks} />
           <Route exact path="/resume" render={() => <Resume darkMode={this.props.darkMode}/>} />
           <Route exact path="/resources" render={() => <Resources darkMode={this.props.darkMode}/>} />
-          <Route exact path="/momentum-2021" render={() => <Conference darkMode={this.props.darkMode} pdf="/pdf/25-Years-of-JavaScript-Momentum-2021.pdf"/>} />
+          <Route
+            exact
+            path="/momentum-2021"
+            render={() => (
+              <Conference
+                darkMode={this.props.darkMode}
+                pdf="/pdf/25-Years-of-JavaScript-Momentum-2021.pdf"
+                blogLink="https://www.ample.co/"
+                title="Momentum 2021"
+                subTitleBold="25 Years of JavaScript"
+                subTitleThin="- Why History Matters and What We Can Learn From It"
+              />
+            )}
+          />
           <Route component={NotFound} />
         </Switch>
       </div>
