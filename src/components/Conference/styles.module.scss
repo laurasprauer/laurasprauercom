@@ -62,7 +62,6 @@
 }
 
 .options {
-  border-top: 4px solid $black;
   display: flex;
   margin-bottom: 200px;
   margin-top: 40px;
@@ -139,7 +138,15 @@
 }
 
 .darkMode {
+  h1, h3 {
+    color: $white;
+  }
+
   .blog {
+    h2 {
+      color: $white;
+    }
+
     > h2 > div {
       background-color: $black;
       border: 2px solid $white;
@@ -152,15 +159,30 @@
     .text {
       color: $black;
     }
+
+    &:hover {
+      > h2 > div {
+        background-color: $white;
+      }
+    
+      svg {
+        fill: $black;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 35px !important;
   }
 
-  &:hover {
-    > h2 > div {
-      background-color: $white;
-    }
-  
-    svg {
-      fill: $black;
+  .options {
+    display: block;
+
+    a {
+      display: flex;
+      margin: 0;
     }
   }
 }

@@ -62,7 +62,7 @@ export default class PdfViewer extends React.Component {
           </button>
           <p>{this.state.page} / {this.state.pages}</p>
           <button disabled={this.state.page === this.state.pages} onClick={this.nextPage} type="button">
-            {arrow} Next
+            Next {arrow}
           </button>
         </div>
       );

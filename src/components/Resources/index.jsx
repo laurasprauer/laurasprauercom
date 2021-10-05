@@ -27,7 +27,7 @@ function Resources({
         <div className={styles.resources}>
           <Link to="/momentum-2021">
             <div>JavaScript History</div>
-            <div>momentum 2021 talk &amp; blog post {arrow}</div>
+            <div>momentum 2021 talk &amp; article {arrow}</div>
           </Link>
           <Link to="/resume">
             <div>Resume</div>

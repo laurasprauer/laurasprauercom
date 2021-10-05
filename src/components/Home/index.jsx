@@ -12,7 +12,7 @@ function Home() {
     <div className={styles.container}>
       <div className={styles.block}>
         <Name />
-        <h2>full-time front end engineer, part-time artist</h2>
+        <h2>Senior Front End Developer</h2>
         <div className={styles.social}>
           <Social
             icon="github"
