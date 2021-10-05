@@ -42,8 +42,7 @@ export default class Main extends React.Component {
   }
 
   mixpanelEvent = () => {
-    console.log(window.location.hostname);
-    if (process.env.REACT_APP_ENV === 'production') {
+    if (window.location.hostname === 'laurasprauer.com' && process.env.REACT_APP_ENV === 'production') {
       mixpanel.track('Site Visit', {
         url: `${this.props.pathname}`,
       });
