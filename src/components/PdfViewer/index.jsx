@@ -71,7 +71,7 @@ export default class PdfViewer extends React.Component {
     return (
       <div id="pdf-viewer">
         <Document
-          file={`public/${this.props.pdf}`}
+          file={`${this.props.pdf}`}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
           <Page pageNumber={this.state.page} width={this.state.width}/>
