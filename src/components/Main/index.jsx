@@ -12,6 +12,8 @@ import About from '../About';
 import Contact from '../Contact';
 import Thanks from '../Thanks';
 import Resume from '../Resume';
+import Resources from '../Resources';
+import Conference from '../Conference';
 import NotFound from '../NotFound';
 import MorseCode from '../MorseCode';
 
@@ -49,7 +51,7 @@ export default class Main extends React.Component {
       return PURPLE;
     } if (this.props.pathname === '/thanks') { // thanks page
       return PINK;
-    } if (this.props.pathname === '/resume') { // resume page
+    } if (this.props.pathname === '/resume' || this.props.pathname === '/resources' || this.props.pathname === '/momentum-2021') { // resources pages
       // check for darkMode
       if (this.props.darkMode) {
         return BLACK;
@@ -67,10 +69,10 @@ export default class Main extends React.Component {
     };
 
     // decides which pages have the MorseCode animation and which do not
-    // you can also only toggle darkMode on the resume page
+    // you can also only toggle darkMode on the resources pages
     let showMorseCode = <MorseCode />;
     let showDarkMode = null;
-    if (this.props.pathname === '/resume') {
+    if (this.props.pathname === '/resume' || this.props.pathname === '/resources' || this.props.pathname === '/momentum-2021') {
       showMorseCode = null;
       // check if darkmode is already enabled or not
       if (!this.props.darkMode) {
@@ -90,6 +92,21 @@ export default class Main extends React.Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/thanks" component={Thanks} />
           <Route exact path="/resume" render={() => <Resume darkMode={this.props.darkMode}/>} />
+          <Route exact path="/resources" render={() => <Resources darkMode={this.props.darkMode}/>} />
+          <Route
+            exact
+            path="/momentum-2021"
+            render={() => (
+              <Conference
+                darkMode={this.props.darkMode}
+                pdf="/pdf/25-Years-of-JavaScript-Momentum-2021.pdf"
+                blogLink="https://www.ample.co/"
+                title="Momentum 2021"
+                subTitleBold="25 Years of JavaScript"
+                subTitleThin="- Why History Matters and What We Can Learn From It"
+              />
+            )}
+          />
           <Route component={NotFound} />
         </Switch>
       </div>

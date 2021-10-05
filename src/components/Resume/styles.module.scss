@@ -30,7 +30,7 @@
     color: $black;
     font-size: 50px;
     margin-top: 80px;
-    padding: 50px 0 0;
+    padding: 80px 0 0;
     transition: color 0.3s;
   }
 
@@ -51,8 +51,8 @@
     width: calc(100vw);
 
     @media (min-width: 914px) {
-      margin-left: calc(100vw / 2 * -1 + 417px);
-      width: calc(100vw - 15px);
+      margin-left: calc(100vw / 2 * -1 + 410px);
+      width: calc(100vw);
     }
   }
 

@@ -3,7 +3,7 @@
   "env": {
     "browser": true,
   },
-  "parser": 'babel-eslint',
+  "parser": "babel-eslint",
   "rules": {
     "jsx-a11y/anchor-is-valid": [ "error", {
       "components": [ "Link" ],

@@ -1,0 +1,130 @@
+@import './src/variables';
+
+.link {
+  box-shadow: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.container {
+  box-shadow: none !important;
+  position: relative;
+
+  h2 {
+    color: $black;
+    display: inline-block;
+    margin: -5px 30 5px 0;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  > div {
+    background-color: $white;
+    border: 2px solid $black;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-block;
+    display: inline-block;
+    height: 30px;
+    left: 0;
+    margin-left: 10px;
+
+    position: relative;
+    top: -4px;
+
+    transition: background-color 0.3s, width 0.3s;
+    width: 30px;
+  }
+
+  svg {
+    fill: $black;
+    height: 14px;
+    left: 0;
+    position: relative;
+    top: 1px;
+    transition: fill 0.3s, left 0.3s;
+  }
+
+  .line {
+    background-color: $black;
+    border-radius: 2px;
+    height: 2px;
+    left: 8px;
+    position: relative;
+    top: 1px;
+    transition: background-color 0.3s;
+    width: 10px;
+  }
+
+  .text {
+    color: $white;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: bold;
+    left: 25px;
+    opacity: 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: 1px;
+  }
+
+  &:hover {
+    > div {
+      background-color: $black;
+      width: 65px;
+    }
+
+    svg {
+      fill: $white;
+      left: -17px;
+    }
+
+    .line {
+      background-color: $white;
+    }
+
+    .text {
+      animation-duration: 0.4s;
+      animation-iteration-count: 1;
+      animation-name: fade-in-delay;
+      opacity: 1;
+    }
+  }
+}
+
+.darkMode {
+  &.container {
+    > div {
+      background-color: $black;
+      border: 2px solid $white;
+    }
+
+    svg {
+      fill: $white;
+    }
+
+    .line {
+      background-color: $white;
+
+    }
+
+    .text {
+      color: $black;
+    }
+
+    &:hover {
+      > div {
+        background-color: $white;
+      }
+
+      svg {
+        fill: $black;
+      }
+
+      .line {
+        background-color: $black;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import './src/variables';
+
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  p {
+    font-size: 13px;
+  }
+
+  > button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-family: $fontLato;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+
+    svg {
+      fill: $black;
+      height: 15px;
+      position: relative;
+      top: 3px;
+      width: 15px;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:first-child {
+      margin: 0 0 0 -8px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:last-child {
+      margin: 0 -8px 0 0;
+    }
+  }
+}
+

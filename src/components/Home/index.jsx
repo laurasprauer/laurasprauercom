@@ -12,7 +12,7 @@ function Home() {
     <div className={styles.container}>
       <div className={styles.block}>
         <Name />
-        <h2>Front End Engineer</h2>
+        <h2>Senior Front End Developer</h2>
         <div className={styles.social}>
           <Social
             icon="github"
@@ -21,6 +21,10 @@ function Home() {
           <Social
             icon="linkedin"
             link="https://www.linkedin.com/in/laurasprauer/"
+          />
+          <Social
+            icon="instagram"
+            link="https://www.instagram.com/sprauer.art/"
           />
         </div>
       </div>

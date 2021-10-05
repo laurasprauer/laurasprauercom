@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 import Job from '../Job';
-import DownloadResume from '../DownloadResume';
+import DownloadPDF from '../DownloadPDF';
 
 export default class Resume extends React.Component {
   constructor(props) {
@@ -37,12 +37,20 @@ export default class Resume extends React.Component {
         <div className={styles.wrapper}>
           <h1>Laura Sprauer</h1>
           <h2>
-            Resume
-            <DownloadResume darkMode={this.props.darkMode} />
+            <DownloadPDF text="Resume" darkMode={this.props.darkMode} pdf="/pdf/laura-sprauer-resume.pdf"/>
           </h2>
 
           <div className={styles.timelineContainer}>
             <div id="timeline-content" className={styles.timelineContent}>
+              <Job
+                darkMode={this.props.darkMode}
+                jobTitle="Senior Developer"
+                companyName="Ample"
+                companyLink="https://www.ample.co/"
+                jobDescription="As a Senior Developer at Ample, I convert UX and UI designs to complex websites for brands utilizing the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>JAMStack</a> methodology. Technologies used include: <a href='https://www.gatsbyjs.com/' target='_blank' rel='noopener noreferrer'>Gatsby</a>, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>Next.js</a>, <a href='https://stenciljs.com/' target='_blank' rel='noopener noreferrer'>Stencil</a>, <a href='https://www.netlify.com/' target='_blank' rel='noopener noreferrer'>Netlify</a>, <a href='https://www.contentful.com/ target='_blank' rel='noopener noreferrer'>Contentful</a>, and more."
+                start="2021"
+                end="Present"
+              />
               <Job
                 darkMode={this.props.darkMode}
                 jobTitle="Lead Front End Engineer"
@@ -50,7 +58,7 @@ export default class Resume extends React.Component {
                 companyLink="https://www.quotient.com/"
                 jobDescription="I was promoted to Lead Front End Engineer in the spring of 2020, about 2 years after the Quotient Technology acquisition of Ahalogy. In addition to my previous responsibilities as a JavaScript Developer on the Ahalogy Muse Product team - I’m now the leader of the Cincinnati Product Media front end codebases, and a mentor for new employees. While still maintaining our older <a href='https://emberjs.com/' target='_blank' rel='noopener noreferrer'>Ember</a> codebases, now I’m also contributing to other Quotient products - many of which utilize the <a href='https://angular.io/' target='_blank' rel='noopener noreferrer'>Angular</a> Javascript framework."
                 start="2020"
-                end="Present"
+                end="2021"
               />
               <Job
                 darkMode={this.props.darkMode}
@@ -107,6 +115,10 @@ export default class Resume extends React.Component {
             <div className={styles.skillsTitle}>Known Technologies</div>
             <div id="known-technologies" className={styles.skillsDescription}>
               <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>,&ensp;
+              <a href="https://jamstack.org/" target="_blank" rel="noopener noreferrer">JAMStack</a>,&ensp;
+              <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>,&ensp;
+              <a href="https://stenciljs.com/" target="_blank" rel="noopener noreferrer">Stencil</a>,&ensp;
+              <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a>,&ensp;
               <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">Redux</a>,&ensp;
               <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular</a>,&ensp;
               <a href="https://emberjs.com/" target="_blank" rel="noopener noreferrer">Ember</a>,&ensp;
@@ -119,6 +131,7 @@ export default class Resume extends React.Component {
               Linters,&ensp;
               <a href="https://jquery.com/" target="_blank" rel="noopener noreferrer">JQuery</a>,&ensp;
               <a href="https://wordpress.com/" target="_blank" rel="noopener noreferrer">Wordpress</a>,&ensp;
+              <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">Contentful</a>,&ensp;
               <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">Firebase</a>,&ensp;
               <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">AWS</a>,&ensp;
               <a href="https://www.heroku.com/" target="_blank" rel="noopener noreferrer">Heroku</a>,&ensp;
