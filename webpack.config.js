@@ -1,7 +1,7 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 // Constant with our paths
@@ -30,13 +30,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),
     }),
-    new MiniCssExtractPlugin({ filename: "style.css" }),
+    new MiniCssExtractPlugin({ filename: 'style.css' }),
     new StyleLintPlugin({
       configFile: '.stylelintrc.json',
       context: 'src',
       syntax: 'scss',
       files: '**/*.scss',
-    })
+    }),
   ],
   module: {
     rules: [
@@ -48,35 +48,35 @@ module.exports = {
             loader: 'css-loader',
             options: {
               import: false,
-              modules: true
-            }
-          }
+              modules: true,
+            },
+          },
         ],
-        include: /\.module\.css$/
+        include: /\.module\.css$/,
       },
       {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
         ],
-        exclude: /\.module\.css$/
+        exclude: /\.module\.css$/,
       },
       {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               import: false,
               modules: true,
               camelCase: true,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
-            }
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
           },
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -96,7 +96,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
     ],
   },
