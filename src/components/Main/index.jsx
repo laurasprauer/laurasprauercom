@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import mixpanel from 'mixpanel-browser';
 import $ from 'jquery';
 
 // import styles
@@ -34,6 +35,10 @@ export default class Main extends React.Component {
   componentDidUpdate() {
     // update the background color manually on change
     $('body').css('background-color', `${this.getBackgroundColor()}`);
+
+    mixpanel.track('Site Visit', {
+      url: `${this.props.pathname}`,
+    });
   }
 
   toggleDarkMode = () => {

@@ -3,6 +3,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const mixpanel = require('mixpanel-browser');
+
+mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN);
 
 // Constant with our paths
 const paths = {
