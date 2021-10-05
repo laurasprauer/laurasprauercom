@@ -36,9 +36,11 @@ export default class Main extends React.Component {
     // update the background color manually on change
     $('body').css('background-color', `${this.getBackgroundColor()}`);
 
-    mixpanel.track('Site Visit', {
-      url: `${this.props.pathname}`,
-    });
+    if (process.env.REACT_APP_ENV === 'production') {
+      mixpanel.track('Site Visit', {
+        url: `${this.props.pathname}`,
+      });
+    }
   }
 
   toggleDarkMode = () => {
