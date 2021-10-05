@@ -38,7 +38,7 @@ module.exports = {
       syntax: 'scss',
       files: '**/*.scss',
     }),
-    new Dotenv(),
+    ...(process.env.REACT_APP_ENV === 'development' ? [] : [new Dotenv()]),
   ],
   module: {
     rules: [
