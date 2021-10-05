@@ -15,10 +15,10 @@
   "author": "Laura Sprauer",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --env production",
     "jslint": "./node_modules/.bin/eslint --ext .js --ext .jsx src",
     "jslint-fix": "./node_modules/.bin/eslint --ext .js --ext .jsx src --fix",
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline --env development",
     "stylelint": "./node_modules/.bin/stylelint 'src/**/*.scss'",
     "stylelint-fix": "./node_modules/.bin/stylelint 'src/**/*.scss' --fix"
   },
