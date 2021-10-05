@@ -26,7 +26,7 @@ const PINK = '#f142f4';
 const BLACK = '#343434';
 const WHITE = '#ffffff';
 
-mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN, { debug: true });
+mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN);
 export default class Main extends React.Component {
   componentDidMount() {
     // update the background color manually on start
@@ -42,7 +42,7 @@ export default class Main extends React.Component {
   }
 
   mixpanelEvent = () => {
-    console.log(process.env.REACT_APP_ENV);
+    console.log(window.location.hostname);
     if (process.env.REACT_APP_ENV === 'production') {
       mixpanel.track('Site Visit', {
         url: `${this.props.pathname}`,
