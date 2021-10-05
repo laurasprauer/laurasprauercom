@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const webpack = require('webpack');
 
 // Constant with our paths
 const paths = {
@@ -40,12 +39,7 @@ module.exports = (env) => (
         syntax: 'scss',
         files: '**/*.scss',
       }),
-      ...(env.development ? [new webpack.DefinePlugin({
-        'process.env': {
-          REACT_APP_ENV: JSON.stringify(process.env.REACT_APP_ENV),
-          REACT_APP_MIXPANEL_TOKEN: JSON.stringify(process.env.REACT_APP_MIXPANEL_TOKEN),
-        },
-      })] : [new Dotenv()]),
+      ...(env.development ? [] : [new Dotenv()]),
     ],
     module: {
       rules: [
