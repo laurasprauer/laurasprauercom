@@ -47,5 +47,15 @@
       margin: 0 -8px 0 0;
     }
   }
+
+  &.darkMode {
+    button {
+      color: $white;
+
+      svg {
+        fill: $white;
+      }
+    }
+  }
 }
 

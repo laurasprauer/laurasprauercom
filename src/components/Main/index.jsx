@@ -32,12 +32,17 @@ export default class Main extends React.Component {
     $('body').css('background-color', `${this.getBackgroundColor()}`);
 
     mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN, { debug: true });
+    this.mixpanelEvent();
   }
 
   componentDidUpdate() {
     // update the background color manually on change
     $('body').css('background-color', `${this.getBackgroundColor()}`);
 
+    this.mixpanelEvent();
+  }
+
+  mixpanelEvent = () => {
     if (process.env.REACT_APP_ENV === 'production') {
       mixpanel.track('Site Visit', {
         url: `${this.props.pathname}`,

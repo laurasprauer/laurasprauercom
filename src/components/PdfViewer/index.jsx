@@ -56,7 +56,7 @@ export default class PdfViewer extends React.Component {
     let showNav = false;
     if (this.state.pages) {
       showNav = (
-        <div className={styles.nav}>
+        <div className={`${styles.nav} ${this.props.darkMode ? styles.darkMode : ''}`}>
           <button disabled={this.state.page === 1} onClick={this.prevPage} type="button">
             {arrow} Previous
           </button>
@@ -84,4 +84,5 @@ export default class PdfViewer extends React.Component {
 
 PdfViewer.propTypes = {
   pdf: PropTypes.string.isRequired,
+  darkMode: PropTypes.bool.isRequired,
 };
