@@ -30,6 +30,8 @@ export default class Main extends React.Component {
   componentDidMount() {
     // update the background color manually on start
     $('body').css('background-color', `${this.getBackgroundColor()}`);
+
+    mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN, { debug: true });
   }
 
   componentDidUpdate() {
