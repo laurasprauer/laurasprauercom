@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import mixpanel from 'mixpanel-browser';
 import $ from 'jquery';
 
 // import styles
@@ -25,15 +26,27 @@ const PINK = '#f142f4';
 const BLACK = '#343434';
 const WHITE = '#ffffff';
 
+mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN);
 export default class Main extends React.Component {
   componentDidMount() {
     // update the background color manually on start
     $('body').css('background-color', `${this.getBackgroundColor()}`);
+    this.mixpanelEvent();
   }
 
   componentDidUpdate() {
     // update the background color manually on change
     $('body').css('background-color', `${this.getBackgroundColor()}`);
+
+    this.mixpanelEvent();
+  }
+
+  mixpanelEvent = () => {
+    if (window.location.hostname === 'laurasprauer.com' && process.env.REACT_APP_ENV === 'production') {
+      mixpanel.track('Site Visit', {
+        url: `${this.props.pathname}`,
+      });
+    }
   }
 
   toggleDarkMode = () => {
