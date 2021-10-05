@@ -39,7 +39,7 @@ module.exports = (env) => (
         syntax: 'scss',
         files: '**/*.scss',
       }),
-      ...(env.development ? [] : [new Dotenv()]),
+      new Dotenv(),
     ],
     module: {
       rules: [

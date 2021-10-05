@@ -15,7 +15,7 @@
   "author": "Laura Sprauer",
   "main": "index.js",
   "scripts": {
-    "build": "node ./scripts/create-env.js && webpack --env production",
+    "build": "webpack --env production",
     "jslint": "./node_modules/.bin/eslint --ext .js --ext .jsx src",
     "jslint-fix": "./node_modules/.bin/eslint --ext .js --ext .jsx src --fix",
     "start": "webpack-dev-server --hot --inline --env development",
