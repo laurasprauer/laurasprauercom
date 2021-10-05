@@ -47,7 +47,7 @@ export default class Resume extends React.Component {
                 jobTitle="Senior Developer"
                 companyName="Ample"
                 companyLink="https://www.ample.co/"
-                jobDescription="As a Senior Developer at Ample, I convert UX and UI designs to complex websites for brands utilizing the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>JAMStack</a> methodology. Technologies used include: <a href='https://www.gatsbyjs.com/' target='_blank' rel='noopener noreferrer'>Gatsby</a>, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>Next.js</a>, <a href='https://stenciljs.com/' target='_blank' rel='noopener noreferrer'>Stencil</a>, <a href='https://www.netlify.com/' target='_blank' rel='noopener noreferrer'>Netlify</a>, <a href='https://www.contentful.com/ target='_blank' rel='noopener noreferrer'>Contentful</a>, and more."
+                jobDescription="As a Senior Developer at Ample, I convert UX and UI designs to complex websites for brands utilizing the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>Jamstack</a> methodology. Technologies used include: <a href='https://www.gatsbyjs.com/' target='_blank' rel='noopener noreferrer'>Gatsby</a>, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>Next.js</a>, <a href='https://stenciljs.com/' target='_blank' rel='noopener noreferrer'>Stencil</a>, <a href='https://www.netlify.com/' target='_blank' rel='noopener noreferrer'>Netlify</a>, <a href='https://www.contentful.com/ target='_blank' rel='noopener noreferrer'>Contentful</a>, and more."
                 start="2021"
                 end="Present"
               />
@@ -115,7 +115,7 @@ export default class Resume extends React.Component {
             <div className={styles.skillsTitle}>Known Technologies</div>
             <div id="known-technologies" className={styles.skillsDescription}>
               <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>,&ensp;
-              <a href="https://jamstack.org/" target="_blank" rel="noopener noreferrer">JAMStack</a>,&ensp;
+              <a href="https://jamstack.org/" target="_blank" rel="noopener noreferrer">Jamstack</a>,&ensp;
               <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>,&ensp;
               <a href="https://stenciljs.com/" target="_blank" rel="noopener noreferrer">Stencil</a>,&ensp;
               <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a>,&ensp;

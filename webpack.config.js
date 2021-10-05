@@ -3,8 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const webpack = require('webpack');
-const dotenv = require('dotenv');
+const Dotenv = require('dotenv-webpack');
 
 // Constant with our paths
 const paths = {
@@ -39,9 +38,7 @@ module.exports = {
       syntax: 'scss',
       files: '**/*.scss',
     }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(dotenv.config().parsed), // it will automatically pick up key values from .env file
-    }),
+    new Dotenv(),
   ],
   module: {
     rules: [
