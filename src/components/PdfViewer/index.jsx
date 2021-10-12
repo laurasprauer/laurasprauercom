@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Document, Page } from 'react-pdf';
+import getPublicResourceLink from '../../utils';
 
 // import styles
 import styles from './styles.module.scss';
@@ -18,7 +19,9 @@ export default class PdfViewer extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.updateWindowDimensions, false);
-    this.updateWindowDimensions();
+    setTimeout(() => {
+      this.updateWindowDimensions();
+    }, 500);
   }
 
   onDocumentLoadSuccess = ({ numPages }) => {
@@ -55,8 +58,14 @@ export default class PdfViewer extends React.Component {
 
     let showNav = false;
     if (this.state.pages) {
+      // add darkMode class if darkMode is true
+      let navClasses = `${styles.nav}`;
+      if (this.props.darkMode) {
+        navClasses = `${styles.nav} ${styles.darkMode}`;
+      }
+
       showNav = (
-        <div className={`${styles.nav} ${this.props.darkMode ? styles.darkMode : ''}`}>
+        <div className={navClasses}>
           <button disabled={this.state.page === 1} onClick={this.prevPage} type="button">
             {arrow} Previous
           </button>
@@ -71,7 +80,7 @@ export default class PdfViewer extends React.Component {
     return (
       <div id="pdf-viewer">
         <Document
-          file={`${this.props.pdf}`}
+          file={getPublicResourceLink(`${this.props.pdf}`)}
           onLoadSuccess={this.onDocumentLoadSuccess}
         >
           <Page pageNumber={this.state.page} width={this.state.width}/>

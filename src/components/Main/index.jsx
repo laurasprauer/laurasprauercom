@@ -113,7 +113,7 @@ export default class Main extends React.Component {
               <Conference
                 darkMode={this.props.darkMode}
                 pdf="/pdf/25-Years-of-JavaScript-Momentum-2021.pdf"
-                blogLink="https://www.ample.co/"
+                blogLink="https://www.ample.co/blog/javascript-history"
                 title="Momentum 2021"
                 subTitleBold="25 Years of JavaScript"
                 subTitleThin="- Why History Matters and What We Can Learn From It"
