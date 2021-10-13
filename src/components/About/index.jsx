@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import getPublicResourceLink from '../../utils';
 
 // import styles
 import styles from './styles.module.scss';
@@ -7,7 +8,7 @@ import styles from './styles.module.scss';
 function About() {
   const date = new Date();
   const exp = date.getFullYear() - 2013;
-  const imageSrc = `/images/laura-img-${Math.floor(Math.random() * 3) + 1}.jpg`;
+  const imageSrc = getPublicResourceLink(`/images/laura-img-${Math.floor(Math.random() * 4) + 1}.jpg`);
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

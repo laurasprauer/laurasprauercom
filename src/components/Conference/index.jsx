@@ -50,7 +50,7 @@ function Conference({
       <div className={styles.wrapper}>
         <h1>{title}</h1>
         <h3>{subTitleBold} <span>{subTitleThin}</span></h3>
-        <PdfViewer pdf={pdf}/>
+        <PdfViewer pdf={pdf} darkMode={darkMode}/>
         <div className={styles.options}>
           <DownloadPDF darkMode={darkMode} pdf={pdf} text="Download"/>
           {showBlogLink}
