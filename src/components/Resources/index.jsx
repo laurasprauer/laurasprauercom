@@ -25,13 +25,17 @@ function Resources({
       <div className={styles.wrapper}>
         <h1>Resources</h1>
         <div className={styles.resources}>
-          <Link to="/momentum-2021">
-            <div>JavaScript History</div>
-            <div>momentum 2021 talk &amp; article {arrow}</div>
-          </Link>
           <Link to="/resume">
             <div>Resume</div>
             <div>expierence &amp; skills {arrow}</div>
+          </Link>
+          <a href="https://www.ample.co/blog/what-is-jamstack-our-developers-explain-what-a-jamstack-website-is" target="_blank" rel="noreferrer">
+            <div>What is Jamstack?</div>
+            <div>interview with ample devs{arrow}</div>
+          </a>
+          <Link to="/momentum-2021">
+            <div>JavaScript History</div>
+            <div>momentum 2021 talk &amp; article {arrow}</div>
           </Link>
           <a href="https://www.instagram.com/sprauer.art/" target="_blank" rel="noreferrer">
             <div>@sprauer.art</div>
