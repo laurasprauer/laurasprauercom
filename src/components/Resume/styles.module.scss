@@ -1,4 +1,4 @@
-@import "./src/variables";
+@import './src/variables';
 
 .container {
   animation-duration: 0.8s;
@@ -8,6 +8,7 @@
   left: 0;
   opacity: 1;
   overflow: auto;
+  overflow-x: hidden;
   position: absolute;
   top: 0;
   width: 100%;
@@ -58,7 +59,7 @@
 
   .skillsTitle {
     color: $white;
-    font-family: "Saira Condensed", sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-size: 26px;
     font-weight: bold;
     margin: 0 auto;
