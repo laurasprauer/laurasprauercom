@@ -50,7 +50,7 @@ export default class Resume extends React.Component {
                 jobTitle="Lead Front End Engineer"
                 companyName="Joot"
                 companyLink="https://joot.io/"
-                jobDescription="As Lead frontend Engineer at Joot, I was in charge of managing the front end code base of a brand new SEC compliance product. I revamped the clunky frontend codebase to utilize modern code practice, reskinned the web application with cohesive branding and an easy-to-use user interface, and redesigned and rebuilt the marketing website using the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>Jamstack</a> methodology."
+                jobDescription="As Lead frontend Engineer at Joot, I was in charge of managing the front end codebase of a brand-new SEC compliance product. I revamped the clunky frontend codebase to utilize modern code practices, reskinned the web application with cohesive branding and an easy-to-use user interface, and redesigned and rebuilt the marketing website using the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>Jamstack</a> methodology."
                 start="2022"
                 end="Present"
               />
