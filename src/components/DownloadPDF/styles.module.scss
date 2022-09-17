@@ -1,4 +1,4 @@
-@import './src/variables';
+@import "./src/variables";
 
 .link {
   box-shadow: none;
@@ -60,7 +60,7 @@
 
   .text {
     color: $white;
-    font-family: 'Saira Condensed', sans-serif;
+    font-family: "Saira Condensed", sans-serif;
     font-weight: bold;
     left: 25px;
     opacity: 0;
@@ -95,6 +95,10 @@
 
 .darkMode {
   &.container {
+    h2 {
+      color: $white;
+    }
+
     > div {
       background-color: $black;
       border: 2px solid $white;
@@ -106,7 +110,6 @@
 
     .line {
       background-color: $white;
-
     }
 
     .text {

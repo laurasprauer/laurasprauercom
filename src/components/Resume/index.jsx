@@ -36,27 +36,39 @@ export default class Resume extends React.Component {
       <div className={containerClasses}>
         <div className={styles.wrapper}>
           <h1>Laura Sprauer</h1>
-          <h2>
-            <DownloadPDF text="Resume" darkMode={this.props.darkMode} pdf="/pdf/laura-sprauer-resume.pdf"/>
-          </h2>
+
+          <DownloadPDF
+            text="Resume"
+            darkMode={this.props.darkMode}
+            pdf="/pdf/laura-sprauer-resume.pdf"
+          />
 
           <div className={styles.timelineContainer}>
             <div id="timeline-content" className={styles.timelineContent}>
               <Job
                 darkMode={this.props.darkMode}
+                jobTitle="Lead Front End Engineer"
+                companyName="Joot"
+                companyLink="https://joot.io/"
+                jobDescription="As Lead frontend Engineer at Joot, I was in charge of managing the front end code base of a brand new SEC compliance product. I revamped the clunky frontend codebase to utilize modern code practice, reskinned the web application with cohesive branding and an easy-to-use user interface, and redesigned and rebuilt the marketing website using the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>Jamstack</a> methodology."
+                start="2022"
+                end="Present"
+              />
+              <Job
+                darkMode={this.props.darkMode}
                 jobTitle="Senior Developer"
                 companyName="Ample"
                 companyLink="https://www.ample.co/"
-                jobDescription="As a Senior Developer at Ample, I convert UX and UI designs to complex websites for brands utilizing the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>Jamstack</a> methodology. Technologies used include: <a href='https://www.gatsbyjs.com/' target='_blank' rel='noopener noreferrer'>Gatsby</a>, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>Next.js</a>, <a href='https://stenciljs.com/' target='_blank' rel='noopener noreferrer'>Stencil</a>, <a href='https://www.netlify.com/' target='_blank' rel='noopener noreferrer'>Netlify</a>, <a href='https://www.contentful.com/ target='_blank' rel='noopener noreferrer'>Contentful</a>, and more."
+                jobDescription="As a Senior Developer at Ample, I converted UX and UI designs to complex websites for brands utilizing the <a href='https://jamstack.org/' target='_blank' rel='noopener noreferrer'>Jamstack</a> methodology. Technologies used include: <a href='https://www.gatsbyjs.com/' target='_blank' rel='noopener noreferrer'>Gatsby</a>, <a href='https://graphql.org/' target='_blank' rel='noopener noreferrer'>GraphQL</a>, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, <a href='https://nextjs.org/' target='_blank' rel='noopener noreferrer'>Next.js</a>, <a href='https://stenciljs.com/' target='_blank' rel='noopener noreferrer'>Stencil</a>, <a href='https://www.netlify.com/' target='_blank' rel='noopener noreferrer'>Netlify</a>, <a href='https://www.contentful.com/ target='_blank' rel='noopener noreferrer'>Contentful</a>, and more."
                 start="2021"
-                end="Present"
+                end="2022"
               />
               <Job
                 darkMode={this.props.darkMode}
                 jobTitle="Lead Front End Engineer"
                 companyName="Quotient"
                 companyLink="https://www.quotient.com/"
-                jobDescription="I was promoted to Lead Front End Engineer in the spring of 2020, about 2 years after the Quotient Technology acquisition of Ahalogy. In addition to my previous responsibilities as a JavaScript Developer on the Ahalogy Muse Product team - I’m now the leader of the Cincinnati Product Media front end codebases, and a mentor for new employees. While still maintaining our older <a href='https://emberjs.com/' target='_blank' rel='noopener noreferrer'>Ember</a> codebases, now I’m also contributing to other Quotient products - many of which utilize the <a href='https://angular.io/' target='_blank' rel='noopener noreferrer'>Angular</a> Javascript framework."
+                jobDescription="I was promoted to Lead Front End Engineer in the spring of 2020, about 2 years after the Quotient Technology acquisition of Ahalogy. In addition to my previous responsibilities as a JavaScript Developer on the Ahalogy Muse Product team - I also lead the Cincinnati Product Media front end codebases, was a mentor for new employees, and contributed to many other Quotient products."
                 start="2020"
                 end="2021"
               />
@@ -106,46 +118,233 @@ export default class Resume extends React.Component {
                 end="2013"
               />
             </div>
-            <div className={styles.timelineLine} style={{ height: this.state.timelineHeight }}>
-              <div className={styles.line}/>
+            <div
+              className={styles.timelineLine}
+              style={{ height: this.state.timelineHeight }}
+            >
+              <div className={styles.line} />
             </div>
           </div>
 
           <div className={styles.skills}>
             <div className={styles.skillsTitle}>Known Technologies</div>
             <div id="known-technologies" className={styles.skillsDescription}>
-              <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>,&ensp;
-              <a href="https://jamstack.org/" target="_blank" rel="noopener noreferrer">Jamstack</a>,&ensp;
-              <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a>,&ensp;
-              <a href="https://stenciljs.com/" target="_blank" rel="noopener noreferrer">Stencil</a>,&ensp;
-              <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener noreferrer">Gatsby</a>,&ensp;
-              <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer">Redux</a>,&ensp;
-              <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular</a>,&ensp;
-              <a href="https://emberjs.com/" target="_blank" rel="noopener noreferrer">Ember</a>,&ensp;
-              Javascript,&ensp;CSS/SCSS,&ensp;HTML,&ensp;SVG,&ensp;Web Animation,&ensp;
-              <a href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer">Webpack</a>,&ensp;
-              JSON,&ensp;
-              <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">Node.js</a>,&ensp;
-              GIT,&ensp;
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>,&ensp;
-              Linters,&ensp;
-              <a href="https://jquery.com/" target="_blank" rel="noopener noreferrer">JQuery</a>,&ensp;
-              <a href="https://wordpress.com/" target="_blank" rel="noopener noreferrer">Wordpress</a>,&ensp;
-              <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">Contentful</a>,&ensp;
-              <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer">Firebase</a>,&ensp;
-              <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">AWS</a>,&ensp;
-              <a href="https://www.heroku.com/" target="_blank" rel="noopener noreferrer">Heroku</a>,&ensp;
-              <a href="https://www.serverless.com/" target="_blank" rel="noopener noreferrer">Serverless</a>,&ensp;
-              <a href="https://www.atlassian.com/software/jira" target="_blank" rel="noopener noreferrer">JIRA</a>,&ensp;
-              Kanban,&ensp;Agile Methodology,&ensp;
-              <a href="https://www.php.net/" target="_blank" rel="noopener noreferrer">PHP</a>,&ensp;
-              <a href="https://coldfusion.adobe.com/" target="_blank" rel="noopener noreferrer">ColdFusion</a>,&ensp;
-              <a href="https://www.murasoftware.com/" target="_blank" rel="noopener noreferrer">Mura CMS</a>,&ensp;
-              Email Development,&ensp;
-              <a href="https://www.sketch.com/" target="_blank" rel="noopener noreferrer">Sketch</a>,&ensp;
-              <a href="https://www.adobe.com/products/illustrator.html" target="_blank" rel="noopener noreferrer">Adobe Illustrator</a>,&ensp;
-              <a href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener noreferrer">Adobe Photoshop</a>,&ensp;
-              <a href="https://www.invisionapp.com/" target="_blank" rel="noopener noreferrer">Invision</a>
+              <a
+                href="https://reactjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React
+              </a>
+              ,&ensp;
+              <a
+                href="https://graphql.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GraphQL
+              </a>
+              ,&ensp;
+              <a
+                href="https://jamstack.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Jamstack
+              </a>
+              ,&ensp;
+              <a
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Next.js
+              </a>
+              ,&ensp;
+              <a
+                href="https://stenciljs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Stencil
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.gatsbyjs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gatsby
+              </a>
+              ,&ensp;
+              <a
+                href="https://redux.js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Redux
+              </a>
+              ,&ensp;
+              <a
+                href="https://angular.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Angular
+              </a>
+              ,&ensp;
+              <a
+                href="https://emberjs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ember
+              </a>
+              ,&ensp; Javascript,&ensp;CSS/SCSS,&ensp;HTML,&ensp;SVG,&ensp;Web
+              Animation,&ensp;
+              <a
+                href="https://webpack.js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Webpack
+              </a>
+              ,&ensp; JSON,&ensp;
+              <a
+                href="https://nodejs.org/en/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Node.js
+              </a>
+              ,&ensp; GIT,&ensp;
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </a>
+              ,&ensp; Linters,&ensp;
+              <a
+                href="https://jquery.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                JQuery
+              </a>
+              ,&ensp;
+              <a
+                href="https://wordpress.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Wordpress
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.contentful.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contentful
+              </a>
+              ,&ensp;
+              <a
+                href="https://firebase.google.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Firebase
+              </a>
+              ,&ensp;
+              <a
+                href="https://aws.amazon.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                AWS
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.heroku.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Heroku
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.serverless.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Serverless
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.atlassian.com/software/jira"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                JIRA
+              </a>
+              ,&ensp; Kanban,&ensp;Agile Methodology,&ensp;
+              <a
+                href="https://www.php.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PHP
+              </a>
+              ,&ensp;
+              <a
+                href="https://coldfusion.adobe.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ColdFusion
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.murasoftware.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Mura CMS
+              </a>
+              ,&ensp; Email Development,&ensp;
+              <a
+                href="https://www.sketch.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sketch
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.adobe.com/products/illustrator.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Adobe Illustrator
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.adobe.com/products/photoshop.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Adobe Photoshop
+              </a>
+              ,&ensp;
+              <a
+                href="https://www.invisionapp.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Invision
+              </a>
             </div>
           </div>
         </div>

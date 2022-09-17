@@ -1,4 +1,4 @@
-@import './src/variables';
+@import "./src/variables";
 
 .container {
   animation-duration: 0.8s;
@@ -58,7 +58,7 @@
 
   .skillsTitle {
     color: $white;
-    font-family: 'Saira Condensed', sans-serif;
+    font-family: "Saira Condensed", sans-serif;
     font-size: 26px;
     font-weight: bold;
     margin: 0 auto;
@@ -86,7 +86,7 @@
       transition: box-shadow 0.3s, color 0.3s, opacity 0.3;
 
       &:hover {
-        box-shadow: inset 0 -16px 0 0 $purple;
+        box-shadow: inset 0 -22px 0 0 $purple;
         opacity: 1;
       }
     }

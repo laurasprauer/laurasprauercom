@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 // import styles
 import styles from './styles.module.scss';
 
-function Resources({
-  darkMode,
-}) {
+function Resources({ darkMode }) {
   // add darkMode class if darkMode is true
   let containerClasses = `${styles.container}`;
   if (darkMode) {
@@ -15,8 +13,14 @@ function Resources({
   }
 
   const arrow = (
-    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 17.898C9 18.972 10.2649 19.546 11.0731 18.8388L17.3838 13.3169C18.1806 12.6197 18.1806 11.3801 17.3838 10.6829L11.0731 5.16108C10.2649 4.45388 9 5.02785 9 6.1018V17.898Z"/>
+    <svg
+      width="24px"
+      height="24px"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M9 17.898C9 18.972 10.2649 19.546 11.0731 18.8388L17.3838 13.3169C18.1806 12.6197 18.1806 11.3801 17.3838 10.6829L11.0731 5.16108C10.2649 4.45388 9 5.02785 9 6.1018V17.898Z" />
     </svg>
   );
 
@@ -29,15 +33,31 @@ function Resources({
             <div>Resume</div>
             <div>expierence &amp; skills {arrow}</div>
           </Link>
-          <a href="https://www.ample.co/blog/what-is-jamstack-our-developers-explain-what-a-jamstack-website-is" target="_blank" rel="noreferrer">
+          <a
+            href="https://joot.io/blog/insights-from-a-joot-engineer-navigating-the-intricacies-of-startup-life"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div>Insights from a Joot Engineer</div>
+            <div>navigating startup life {arrow}</div>
+          </a>
+          <a
+            href="https://www.ample.co/blog/what-is-jamstack-our-developers-explain-what-a-jamstack-website-is"
+            target="_blank"
+            rel="noreferrer"
+          >
             <div>What is Jamstack?</div>
-            <div>interview with ample devs{arrow}</div>
+            <div>interview with ample devs {arrow}</div>
           </a>
           <Link to="/momentum-2021">
             <div>JavaScript History</div>
             <div>momentum 2021 talk &amp; article {arrow}</div>
           </Link>
-          <a href="https://www.instagram.com/sprauer.art/" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/sprauer.art/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <div>@sprauer.art</div>
             <div>till death do we art {arrow}</div>
           </a>

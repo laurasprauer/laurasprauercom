@@ -1,4 +1,4 @@
-@import './src/variables';
+@import "./src/variables";
 
 .container {
   animation-duration: 0.8s;
@@ -23,7 +23,6 @@
   animation-name: fade-in-delay;
   margin: 75px auto;
   position: relative;
-  text-align: center;
   top: 40px;
   transition: width 0.3s;
   width: 80%;
@@ -44,7 +43,7 @@
   align-items: center;
   display: block;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 50px;
   max-width: 500px;
   position: relative;
   width: 100%;
@@ -61,6 +60,7 @@
     margin-bottom: 15px;
     width: 160px;
     z-index: 2;
+    background-color: $black;
   }
 
   .heyThere {
