@@ -63,7 +63,7 @@ module.exports = {
       resolve: `gatsby-alias-imports`,
       options: {
         aliases: {
-          '@components': `./src/components`,
+          '@components': `./src/Components`,
         },
       },
     },
