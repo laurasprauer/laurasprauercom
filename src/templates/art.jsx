@@ -5,9 +5,11 @@ import Container from '@components/container';
 class ArtTemplate extends React.Component {
   constructor(props) {
     super(props);
+    const isBrowser = typeof window !== 'undefined';
+
     this.state = {
       darkmode:
-        localStorage && localStorage.getItem('LS-darkmode')
+        isBrowser && localStorage.getItem('LS-darkmode')
           ? localStorage.getItem('LS-darkmode') === 'true'
             ? true
             : false
@@ -16,7 +18,8 @@ class ArtTemplate extends React.Component {
   }
 
   toggleDarkmode = () => {
-    if (localStorage) {
+    const isBrowser = typeof window !== 'undefined';
+    if (isBrowser) {
       const current = localStorage.getItem('LS-darkmode')
         ? localStorage.getItem('LS-darkmode') === 'true'
           ? true
