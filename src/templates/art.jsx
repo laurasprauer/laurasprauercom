@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Container from '../components/container';
+import Container from '../components/container/index';
 
 class ArtTemplate extends React.Component {
   constructor(props) {

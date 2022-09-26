@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SVG from '../svg';
+import SVG from '../svg/index';
 
 import * as styles from './styles.module.scss';
 

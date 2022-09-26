@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SVG from '../svg';
-import Link from '../link';
+import SVG from '../svg/index';
+import Link from '../link/index';
 
 import * as styles from './styles.module.scss';
 
