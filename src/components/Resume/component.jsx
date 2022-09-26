@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import DownloadPDF from '../downloadPDF/index';
-import Job from '../job/index';
-import Link from '../link/index';
+import DownloadPDF from '@components/downloadPDF';
+import Job from '@components/job';
+import Link from '@components/link';
 import * as styles from './styles.module.scss';
 
 export const Resume = ({ darkmode, data }) => {

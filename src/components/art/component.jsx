@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import Magnifier from 'react-magnifier';
 
-import Link from '../link/index';
-import SVG from '../svg/index';
+import Link from '@components/link';
+import SVG from '@components/svg';
 
 import * as styles from './styles.module.scss';
 

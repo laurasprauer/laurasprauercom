@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '../link/index';
-import Social from '../social/index';
-import Name from '../name/index';
+import Link from '@components/link';
+import Social from '@components/social';
+import Name from '@components/name';
 
 import * as styles from './styles.module.scss';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../components/container/index';
+import Container from '@components/container';
 
 class FlexibleTemplate extends React.Component {
   constructor(props) {

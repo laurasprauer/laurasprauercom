@@ -1,5 +1,18 @@
 const path = require('path');
 
+exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        path: require.resolve('path-browserify'),
+      },
+      fallback: {
+        url: require.resolve('url/'),
+      },
+    },
+  });
+};
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 

@@ -59,5 +59,13 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
+    {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+          '@components': `./src/components`,
+        },
+      },
+    },
   ],
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PdfViewer from '../pdfViewer/index';
-import DownloadPDF from '../downloadPDF/index';
+import PdfViewer from '@components/pdfViewer';
+import DownloadPDF from '@components/downloadPDF';
 
 import * as styles from './styles.module.scss';
 
