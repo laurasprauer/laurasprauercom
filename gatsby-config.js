@@ -43,11 +43,12 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
     'gatsby-plugin-gatsby-cloud',
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //     icon: 'src/assets/images/icon.png',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/assets/images/favicon.png',
+      },
+    },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
