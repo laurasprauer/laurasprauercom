@@ -1,197 +1,147 @@
-@import './src/variables';
-
-.container {
-  animation-duration: 0.8s;
-  animation-iteration-count: 1;
-  animation-name: fade-in;
-  display: block;
-  flex-direction: column;
-  height: 100%;
-  left: 0;
-  opacity: 1;
-  overflow: auto;
-  padding-bottom: 75px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-.wrapper {
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-name: fade-in-delay;
-  margin: 75px auto;
-  position: relative;
-  top: 40px;
-  transition: width 0.3s;
-  width: 80%;
-}
-
-.content {
-  background-color: $white;
-  padding: 40px;
-  position: relative;
-  z-index: 2;
-
-  p {
-    margin-bottom: 20px;
-  }
-}
-
-.aboutHeader {
-  align-items: center;
-  display: block;
-  justify-content: center;
-  margin: 0 auto 50px;
-  max-width: 500px;
-  position: relative;
-  width: 100%;
-
-  img {
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-name: fade-in-delay;
-    background-color: $black;
-    border: 5px solid $black;
-    border-radius: 100%;
-    display: block;
-    height: 160px;
-    margin: 0 auto 15px;
-    margin-bottom: 15px;
-    width: 160px;
-    z-index: 2;
+@keyframes text-slide-out-full {
+  0% {
+    padding: 0;
+    width: 0;
   }
 
-  .heyThere {
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-name: text-slide-out-full;
-    background-color: $black;
-    margin-left: 0;
-    margin-top: 0;
-    max-width: 350px;
-    padding: 0 30px;
-    text-align: center;
+  50% {
+    padding: 0;
+    width: 0;
+  }
+
+  100% {
+    padding: 0 30px 0 70px;
     width: 100%;
-    z-index: 1;
+  }
+}
+
+@keyframes text-fade-in {
+  0% {
+    opacity: 0;
   }
 
-  h1 {
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-name: text-fade-in-2;
-    color: $white;
-    display: block;
-    font-size: 40px;
+  75% {
+    opacity: 0;
   }
 
-  @media (min-width: 560px) {
+  100% {
+    opacity: 1;
+  }
+}
+
+.social {
+  display: flex;
+  margin-top: 40px;
+}
+
+.about {
+  .aboutHeader {
     display: flex;
-
-    .heyThere {
-      animation-name: text-slide-out-120;
-      width: calc(100% - 120px);
-    }
-
-    img {
-      margin-bottom: 0;
-    }
-
-    .heyThere {
-      margin-left: -40px;
-    }
-
-    h1 {
-      animation-name: text-fade-in-1;
-    }
-  }
-
-  @media (min-width: 750px) {
-    .heyThere {
-      animation-name: text-slide-out-90;
-      width: calc(100% - 90px);
-    }
-
-    img {
-      height: 120px;
-      width: 120px;
-    }
-
-    h1 {
-      animation-name: text-fade-in-2;
-      font-size: 28px;
-    }
-  }
-
-  @media (min-width: 940px) {
-    .heyThere {
-      animation-name: text-slide-out-120;
-      width: calc(100% - 120px);
-    }
-
-    img {
+    align-items: center;
+    justify-content: center;
+    .imgContainer {
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-name: fade-in-delay;
+      background-color: var(--color-black);
+      border: 5px solid var(--color-black);
+      border-radius: 50%;
+      display: block;
       height: 160px;
       width: 160px;
+      overflow: hidden;
+      z-index: 4;
+      flex-shrink: 0;
+
+      img {
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-name: fade-in-delay;
+      }
+
+      @include media($small-lowest, down) {
+        height: 130px;
+        width: 130px;
+      }
+
+      @include media(420px, down) {
+        height: 100px;
+        width: 100px;
+      }
     }
 
-    h1 {
-      animation-name: text-fade-in-1;
-      font-size: 35px;
-    }
-  }
-
-  @media (min-width: 1000px) {
     .heyThere {
-      animation-name: text-slide-out-120;
-      width: calc(100% - 120px);
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+      animation-name: text-slide-out-full;
+      background-color: var(--color-black);
+      max-width: 450px;
+      padding: 0 30px 0 70px;
+      margin-left: -50px;
+      text-align: center;
+      width: 100%;
+      z-index: 3;
     }
 
     h1 {
-      animation-name: text-fade-in-1;
-      font-size: 45px;
+      animation-duration: 1.5s;
+      animation-iteration-count: 1;
+      animation-name: text-fade-in;
+      color: var(--color-white);
+      display: block;
+      font-size: 60px;
+      line-height: 70px;
+
+      @include media($small-lowest, down) {
+        font-size: 40px;
+        line-height: 50px;
+      }
+
+      @include media(420px, down) {
+        font-size: 34px;
+        line-height: 44px;
+      }
     }
   }
 
-  @media (min-width: 1100px) {
-    .heyThere {
-      width: calc(100% - 120px);
-    }
-
-    h1 {
-      font-size: 55px;
-    }
-  }
-}
-
-.blackBox {
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-name: slide-up-left;
-  border: 5px solid $black;
-  height: 100%;
-  left: -20px;
-  position: absolute;
-  top: -20px;
-  width: 100%;
-  z-index: 1;
-}
-
-.whiteBox {
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-name: slide-down-right;
-  border: 5px solid $white;
-  height: 100%;
-  left: 20px;
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  z-index: 1;
-}
-
-@media (min-width: 750px) {
   .wrapper {
-    width: 50%;
+    max-width: 900px;
+    margin: 60px auto 0 auto;
+
+    h2 {
+      font-family: var(--font-saira);
+      font-size: 30px;
+      line-height: 36px;
+      margin: 40px 0 15px 0;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  &.darkmode {
+    .aboutHeader {
+      .imgContainer {
+        background-color: var(--color-white);
+        border: 5px solid var(--color-white);
+      }
+
+      .heyThere {
+        background-color: var(--color-white);
+      }
+
+      h1 {
+        color: var(--color-black);
+      }
+    }
+
+    .wrapper {
+      h2,
+      p {
+        color: var(--color-white);
+      }
+    }
   }
 }

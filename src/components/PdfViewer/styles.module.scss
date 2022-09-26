@@ -1,65 +1,82 @@
-@import './src/variables';
-
-.nav {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-
-  p {
-    font-size: 13px;
+.container {
+  .pdfWrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  > button {
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    font-family: $fontLato;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+  .nav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 
-    svg {
-      fill: $black;
-      height: 15px;
-      position: relative;
-      top: 3px;
-      width: 15px;
+    p {
+      font-size: 13px;
     }
 
-    &:disabled {
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &:first-child {
-      margin: 0 0 0 -8px;
+    > button {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      font-family: var(--font-lato);
+      opacity: 0.8;
+      transition: opacity var(--transition);
 
       svg {
-        transform: rotate(180deg);
+        fill: var(--color-black);
+        height: 15px;
+        position: relative;
+        top: 3px;
+        width: 15px;
       }
-    }
 
-    &:last-child {
-      margin: 0 -8px 0 0;
+      &:disabled {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      @include hover {
+        opacity: 1;
+      }
+
+      &:first-child {
+        margin: 0 0 0 -8px;
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      &:last-child {
+        margin: 0 -8px 0 0;
+      }
     }
   }
 
   &.darkMode {
-    button {
-      color: $white;
+    .nav {
+      button {
+        color: var(--color-white);
 
-      svg {
-        fill: $white;
+        svg {
+          fill: var(--color-white);
+        }
       }
-    }
-    
-    p {
-      color: $white;
+
+      p {
+        color: var(--color-white);
+      }
     }
   }
 }
-

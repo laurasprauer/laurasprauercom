@@ -1,0 +1,147 @@
+.container {
+  top: -5px;
+  position: relative;
+  z-index: 3;
+
+  ul {
+    left: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.links {
+  position: relative;
+
+  > a {
+    background-color: var(--color-black);
+    box-shadow: none;
+    color: var(--color-white);
+    display: inline-block;
+    font-family: var(--font-saira);
+    font-size: 20px;
+    font-weight: normal;
+    height: 40px;
+    margin: 0;
+    padding: 5px 16px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none;
+    top: 0;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    transition: background-color var(--transition), color var(--transition),
+      width var(--transition);
+    width: 120px;
+
+    svg {
+      height: 20px;
+      opacity: 0;
+      position: absolute;
+      right: 10px;
+      top: 29px;
+      transform: rotate(-90deg);
+      transform-origin: 0 0;
+      transition: opacity var(--transition);
+      width: 20px;
+
+      path,
+      circle {
+        fill: var(--color-white);
+        transition: fill var(--transition);
+      }
+    }
+
+    @include hover {
+      box-shadow: none;
+      background-color: var(--color-purple);
+      color: var(--color-white);
+      width: 150px;
+
+      svg {
+        opacity: 1;
+
+        path {
+          fill: var(--color-white);
+        }
+      }
+    }
+  }
+}
+
+.selected {
+  > a {
+    background-color: var(--color-teal);
+    color: var(--color-black);
+    width: 150px;
+
+    svg {
+      opacity: 1;
+
+      path,
+      circle {
+        fill: var(--color-black);
+      }
+    }
+  }
+}
+
+.item1 {
+  left: 50px;
+}
+
+.item2 {
+  left: 100px;
+}
+
+.item3 {
+  left: 150px;
+}
+
+.item4 {
+  left: 200px;
+}
+
+.darkmode {
+  .links {
+    position: relative;
+
+    > a {
+      background-color: var(--color-white);
+      color: var(--color-black);
+
+      svg {
+        path {
+          fill: var(--color-black);
+        }
+      }
+
+      @include hover {
+        background-color: var(--color-teal);
+        color: var(--color-black);
+
+        svg {
+          path {
+            fill: var(--color-black);
+          }
+        }
+      }
+    }
+  }
+
+  .selected {
+    > a {
+      background-color: var(--color-purple);
+      color: var(--color-white);
+
+      svg {
+        path {
+          fill: var(--color-white);
+        }
+      }
+    }
+  }
+}

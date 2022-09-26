@@ -1,0 +1,167 @@
+.art {
+  > div {
+    display: flex;
+    justify-content: center;
+
+    > div {
+      &:first-child {
+        width: 40%;
+      }
+      &:last-child {
+        width: 60%;
+      }
+    }
+    @include media($small, down) {
+      flex-wrap: wrap;
+      > div {
+        &:first-child {
+          width: 100%;
+        }
+        &:last-child {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .content {
+    margin-left: 50px;
+    margin-top: 35px;
+    @include media($small, down) {
+      margin-left: 0;
+    }
+
+    h1 {
+      font-size: 50px;
+      line-height: 60px;
+    }
+  }
+  .info {
+    color: var(--color-dark-gray);
+    font-size: 14px;
+    line-height: 24px;
+    span {
+      height: 5px;
+      width: 5px;
+      border-radius: 50%;
+      background-color: var(--color-dark-gray);
+      display: inline-block;
+      margin: 0 5px;
+      position: relative;
+      top: -3px;
+    }
+  }
+
+  .breadcrumb {
+    margin-bottom: 20px;
+    display: inline-block;
+    svg {
+      height: 15px;
+      width: 15px;
+      transform: rotate(180deg);
+      position: relative;
+      top: 1.5px;
+      path {
+        fill: var(--color-black);
+      }
+    }
+  }
+}
+
+.carousel {
+  width: 100%;
+  max-height: 520px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  .image {
+    background-color: var(--color-light-gray);
+    height: 500px;
+    display: none;
+    padding: 20px;
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto !important;
+      height: 100% !important;
+    }
+    img {
+      height: auto;
+      width: auto;
+      max-height: 460px;
+      box-shadow: 1px 1px 8px rgba(0, 42, 58, 0.3);
+    }
+    &.active {
+      display: block;
+    }
+  }
+
+  @include media($x-small-highest, down) {
+    max-height: 420px;
+    .image {
+      height: 400px;
+      img {
+        max-height: 360px;
+      }
+    }
+  }
+}
+
+.click {
+  margin-top: 10px;
+  display: inline-block;
+  margin-right: 10px;
+  height: 8px;
+  width: 50px;
+  background-color: var(--color-black);
+  cursor: pointer;
+  transition: background-color var(--transition);
+  &.active {
+    background-color: var(--color-purple);
+  }
+  @include hover {
+    background-color: var(--color-teal);
+  }
+}
+
+.darkmode {
+  .info {
+    color: var(--color-light-gray);
+    span {
+      background-color: var(--color-light-gray);
+    }
+  }
+
+  .content {
+    color: var(--color-white);
+    h1,
+    h2,
+    h3,
+    p {
+      color: var(--color-white);
+    }
+  }
+
+  .breadcrumb {
+    svg {
+      path {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  .carousel {
+    .image {
+      background-color: var(--color-dark-gray);
+    }
+  }
+
+  .click {
+    background-color: var(--color-white);
+    &.active {
+      background-color: var(--color-teal);
+    }
+    @include hover {
+      background-color: var(--color-purple);
+    }
+  }
+}

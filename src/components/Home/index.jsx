@@ -1,35 +1,5 @@
-import React from 'react';
+import component from './component';
 
-// import styles
-import styles from './styles.module.scss';
+export default component;
 
-// import components
-import Name from '../Name';
-import Social from '../Social';
-
-function Home() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.block}>
-        <Name />
-        <h2>Senior Front End Developer</h2>
-        <div className={styles.social}>
-          <Social
-            icon="github"
-            link="https://github.com/laurasprauer"
-          />
-          <Social
-            icon="linkedin"
-            link="https://www.linkedin.com/in/laurasprauer/"
-          />
-          <Social
-            icon="instagram"
-            link="https://www.instagram.com/sprauer.art/"
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default Home;
+export { component };

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`External Link renders correctly 1`] = `
+<a
+  className="
+    undefined
+    
+    
+  "
+  href="https://joot.io/"
+  rel=""
+  target="_self"
+>
+  I'm an external link
+</a>
+`;
+
+exports[`Internal Link renders correctly 1`] = `
+<a
+  className="
+    undefined
+    
+    
+  "
+  href="/about"
+  target="_self"
+>
+  I'm an internal link
+</a>
+`;

@@ -1,18 +1,144 @@
-@import './src/variables';
+// DOT
+.dotNoOutline {
+  margin: 0 2px;
+  .circleStroke {
+    fill: var(--color-black);
+    fill-opacity: 1;
+    stroke-opacity: 0;
+    opacity: 1;
+    stroke: var(--color-black);
+    transition: opacity var(--transition);
+  }
+}
 
+.dotSolid {
+  margin: 0 2px;
+
+  .circleFill {
+    opacity: 0;
+  }
+
+  .circleStroke {
+    fill: var(--color-black);
+    fill-opacity: 1;
+    opacity: 1;
+    stroke: var(--color-black);
+    transition: opacity var(--transition);
+  }
+}
+
+.dotOutline {
+  margin: 0 2px;
+
+  .circleStroke {
+    fill: var(--color-white);
+    fill-opacity: 0;
+    opacity: 1;
+    stroke: var(--color-black);
+    transition: opacity var(--transition);
+  }
+}
+
+// DASH
+.dashNoOutline {
+  margin: 0 2px;
+  .dashStroke {
+    fill: var(--color-black);
+    fill-opacity: 1;
+    stroke-opacity: 0;
+    opacity: 1;
+    stroke: var(--color-black);
+    transition: opacity var(--transition);
+  }
+}
+
+.dashSolid {
+  margin: 0 2px;
+
+  .dashStroke {
+    fill: var(--color-black);
+    fill-opacity: 1;
+    opacity: 1;
+    stroke: var(--color-black);
+    transition: opacity var(--transition);
+  }
+}
+
+.dashOutline {
+  margin: 0 2px;
+
+  .dashStroke {
+    fill: var(--color-white);
+    fill-opacity: 0;
+    opacity: 1;
+    stroke: var(--color-black);
+    transition: opacity var(--transition);
+  }
+}
+
+// ANIMATE
+.letter {
+  padding: 5px;
+  position: absolute;
+  > div {
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-name: fade-in-delay;
+  }
+}
+
+// COMPONENT
 .container {
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-name: fade-in-delay;
+  pointer-events: none;
   display: block;
   height: 100%;
   opacity: 1;
   overflow: hidden;
-  position: relative;
+  position: fixed;
   width: 100%;
 }
 
-.letter {
-  padding: 5px;
-  position: absolute;
+// DARKMODE
+.darkmode {
+  .dotNoOutline {
+    .circleStroke {
+      fill: var(--color-white);
+      stroke: var(--color-white);
+    }
+  }
+
+  .dotSolid {
+    .circleStroke {
+      fill: var(--color-white);
+      stroke: var(--color-white);
+    }
+  }
+
+  .dotOutline {
+    .circleStroke {
+      fill: var(--color-black);
+      stroke: var(--color-white);
+    }
+  }
+
+  .dashNoOutline {
+    .dashStroke {
+      fill: var(--color-white);
+      stroke: var(--color-white);
+    }
+  }
+
+  .dashSolid {
+    .dashStroke {
+      fill: var(--color-white);
+      stroke: var(--color-white);
+    }
+  }
+
+  .dashOutline {
+    .dashStroke {
+      fill: var(--color-black);
+      stroke: var(--color-white);
+    }
+  }
 }

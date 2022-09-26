@@ -1,86 +1,152 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransition, transit } from 'react-css-transition';
+import MorseCodeLetter from './morseCodeLetter';
+import * as styles from './styles.module.scss';
 
-// import styles
-import styles from './styles.module.scss';
+export const MorseCodeAnimate = ({
+  windowHeight,
+  windowWidth,
+  total,
+  letter,
+  order,
+  theme,
+}) => {
+  const [letterState, setLetterState] = useState({});
 
-// import components
-import MorseCodeLetter from './MorseCodeLetter';
+  // init letterState
+  useEffect(() => {
+    setLetterState(setInitialState());
+  }, [windowHeight, windowWidth]);
 
-CSSTransition.childContextTypes = {};
+  useEffect(() => {
+    const item = document.getElementById(`${order}-${letter}`);
 
-export default class MorseCodeAnimate extends React.Component {
-  constructor(props) {
-    super(props);
+    if (letterState.direction && letterState.speed && letterState.defaultPos) {
+      // begin animation from center values
+      item.animate(
+        [
+          {
+            transform: `translate(${letterState.defaultPos}px, 0)`,
+          },
+          {
+            transform: `translate(${
+              letterState.direction === 'left'
+                ? `-${letterState.letterWidth}px`
+                : `${windowWidth}px`
+            }, 0)`,
+          },
+        ],
+        {
+          delay: 500,
+          duration: letterState.speed,
+          iterations: 1,
+        }
+      );
 
-    const initialState = this.setInitialState(false);
+      //continue animation on infinity loop
+      item.animate(
+        [
+          {
+            transform: `translate(${
+              letterState.direction === 'left'
+                ? `${windowWidth}px`
+                : `-${letterState.letterWidth}px`
+            }, 0)`,
+          },
+          {
+            transform: `translate(${
+              letterState.direction === 'left'
+                ? `-${letterState.letterWidth}px`
+                : `${windowWidth}px`
+            }, 0)`,
+          },
+        ],
+        {
+          duration: Math.floor(Math.random() * 6000) + 4000,
+          iterations: Infinity,
+          delay: letterState.speed + 500,
+        }
+      );
+    }
+  }, [letterState]);
 
-    // we need to save the setInitialState function in state
-    // so we can call it from getDerivedStateFromProps
+  const defineLetterValues = () => {
+    // define the object for letterValues
+    const letterValues = {};
 
-    this.state = {
-      direction: initialState.direction,
-      defaultPos: initialState.defaultPos,
-      speed: initialState.speed,
-      size: initialState.size,
-      letterCode: initialState.letterCode,
-      letterWidth: initialState.letterWidth,
-      active: initialState.active,
-      setInitialState: this.setInitialState.bind(this),
-    };
-  }
+    // define the size of the dot and dash components, subtract 10 for padding
+    const size = windowHeight / total - 10;
 
-  componentDidMount() {
-    // set animation active to true once it has mounted
-    this.toggleDisplayLetter();
+    // save the size as a value to be returned
+    letterValues.size = size;
 
-    // when the tab is focused again, remount the animation
-    window.addEventListener('focus', this.resetLetter, false);
-  }
+    // get the dot and dash width properties needed to calc the total width
+    const dotWidth = windowHeight / total;
+    const dashWidth = size / 0.554545 + 10;
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (
-      nextProps.windowWidth !== prevState.windowWidth
-      || nextProps.windowHeight !== prevState.windowHeight
-    ) {
-      // reset the initialState size and letterWidth
-      const initialState = prevState.setInitialState(false);
-      return {
-        size: initialState.size,
-        letterWidth: initialState.letterWidth,
-      };
+    // define the the letterCode and letterWidth based on the passed letter prop
+    let letterCode = null;
+    let letterWidth = null;
+    switch (letter) {
+      case 'A':
+        letterCode = '.-';
+        letterWidth = dotWidth + dashWidth;
+        break;
+      case 'E':
+        letterCode = '.';
+        letterWidth = dotWidth;
+        break;
+      case 'L':
+        letterCode = '.-..';
+        letterWidth = dotWidth * 3 + dashWidth;
+        break;
+      case 'P':
+        letterCode = '.--.';
+        letterWidth = dotWidth * 2 + dashWidth * 2;
+        break;
+      case 'R':
+        letterCode = '.-.';
+        letterWidth = dotWidth * 2 + dashWidth;
+        break;
+      case 'S':
+        letterCode = '...';
+        letterWidth = dotWidth * 3;
+        break;
+      case 'U':
+        letterCode = '..-';
+        letterWidth = dotWidth * 2 + dashWidth;
+        break;
+      default:
+      // if the icon prop does not match or is undefined, do nothing
     }
 
-    return null;
-  }
+    // save the letterCode and letterWidth as values to be returned
+    letterValues.letterCode = letterCode;
+    letterValues.letterWidth = letterWidth;
 
-  componentDidUpdate(prevProps, prevState) {
-    // check if the letter should be reMounted
-    if (prevState.active && !this.state.active) {
-      this.toggleDisplayLetter();
-    }
-  }
+    return letterValues;
+  };
 
-  setInitialState = () => {
+  const setInitialState = () => {
     let initialState = {};
 
     // if order is an even number, direction is left, if odd it's right
     let direction = 'right';
-    if (this.props.order % 2 === 0) {
+    if (order % 2 === 0) {
       direction = 'left';
     }
 
     // define the value for the letterCode
-    const letterValues = this.defineLetterValues();
+    const letterValues = defineLetterValues();
 
     // get a random default starting position
-    const defaultPos = Math.floor(Math.random() * (this.props.windowWidth - 20)) + 1;
+    const defaultPos = Math.floor(Math.random() * (windowWidth - 20)) + 1;
 
     // figure out the distance the letter will travel on load
     // if the letter is moving right, distance traveled is the window width minus the default pos
-    const totalDistancePossible = this.props.windowWidth + letterValues.letterWidth;
-    let distanceToTravel = totalDistancePossible - defaultPos - letterValues.letterWidth;
+    const totalDistancePossible = windowWidth + letterValues.letterWidth;
+    let distanceToTravel =
+      totalDistancePossible - defaultPos - letterValues.letterWidth;
     if (direction === 'left') {
       // if the letter is moving left, distance traveled is the default pos plus the width of the letter
       distanceToTravel = defaultPos + letterValues.letterWidth;
@@ -88,7 +154,9 @@ export default class MorseCodeAnimate extends React.Component {
 
     // figure out the speed based on the percent of the distance being traveled
     const percentToTravel = distanceToTravel / totalDistancePossible;
-    const speed = Math.round((Math.floor(Math.random() * 6000) + 4000) * percentToTravel);
+    const speed = Math.round(
+      (Math.floor(Math.random() * 6000) + 4000) * percentToTravel
+    );
 
     initialState = {
       direction,
@@ -101,128 +169,42 @@ export default class MorseCodeAnimate extends React.Component {
     };
 
     return initialState;
-  }
+  };
 
-  toggleDisplayLetter = () => {
-    this.setState({
-      active: true,
-    });
-  }
+  // define the inline styles
+  const letterStyle = {
+    top: `${(windowHeight / total) * order}px`,
+    left: '0px',
+  };
 
-  resetLetter = () => {
-    this.setState((prevState) => ({
-      active: false,
-      defaultPos: ((prevState.direction === 'left') ? this.props.windowWidth : prevState.letterWidth * -1),
-      speed: (Math.floor(Math.random() * 6000) + 4000),
-    }));
-  }
-
-  defineLetterValues = () => {
-    // define the object for letterValues
-    const letterValues = {};
-
-    // define the size of the dot and dash components, subtract 10 for padding
-    const size = (this.props.windowHeight / this.props.total) - 10;
-
-    // save the size as a value to be returned
-    letterValues.size = size;
-
-    // get the dot and dash width properties needed to calc the total width
-    const dotWidth = this.props.windowHeight / this.props.total;
-    const dashWidth = (size / 0.554545) + 10;
-
-    // define the the letterCode and letterWidth based on the passed letter prop
-    let letterCode = null;
-    let letterWidth = null;
-    switch (this.props.letter) {
-      case 'A':
-        letterCode = '.-';
-        letterWidth = dotWidth + (dashWidth);
-        break;
-      case 'E':
-        letterCode = '.';
-        letterWidth = dotWidth;
-        break;
-      case 'L':
-        letterCode = '.-..';
-        letterWidth = (dotWidth * 3) + (dashWidth);
-        break;
-      case 'P':
-        letterCode = '.--.';
-        letterWidth = (dotWidth * 2) + (dashWidth * 2);
-        break;
-      case 'R':
-        letterCode = '.-.';
-        letterWidth = (dotWidth * 2) + dashWidth;
-        break;
-      case 'S':
-        letterCode = '...';
-        letterWidth = (dotWidth * 3);
-        break;
-      case 'U':
-        letterCode = '..-';
-        letterWidth = (dotWidth * 2) + dashWidth;
-        break;
-      default:
-        // if the icon prop does not match or is undefined, do nothing
-    }
-
-    // save the letterCode and letterWidth as values to be returned
-    letterValues.letterCode = letterCode;
-    letterValues.letterWidth = letterWidth;
-
-    return letterValues;
-  }
-
-  render() {
-    // define the inline styles
-    const letterStyle = {
-      top: `${(this.props.windowHeight / this.props.total) * this.props.order}px`,
-      left: '0px',
-    };
-
-    // now lets display the letter
-    // define what letter will be displayed
-    let displayLetter = null;
-
-    // find out where this letter is translating to (right or left?)
-    let transitionTo = `${this.props.windowWidth}px`;
-    if (this.state.direction === 'left') {
-      transitionTo = `-${this.state.letterWidth}px`;
-    }
-
-    displayLetter = (
-      <CSSTransition
-        defaultStyle={{ transform: `translate(${this.state.defaultPos}px, 0)` }}
-        enterStyle={{
-          transform: transit(`translate(${transitionTo}, 0)`, this.state.speed, 'linear'),
-        }}
-        activeStyle={{ transform: `translate(${transitionTo}, 0)` }}
-        active={this.state.active}
-        onTransitionComplete={this.resetLetter}
-      >
-        <MorseCodeLetter
-          key={`${this.props.order}-${this.props.letter}`}
-          size={this.state.size}
-          letterCode={this.state.letterCode}
-          letterWidth={this.state.letterWidth}
-          letter={this.props.letter}
-        />
-      </CSSTransition>
-    );
-
-    return (
-      <div className={styles.letter} style={letterStyle}>
-        {displayLetter}
+  return (
+    <div className={styles.letter} style={letterStyle}>
+      <div id={`${order}-${letter}`}>
+        {letterState.size && (
+          <MorseCodeLetter
+            key={`${order}-${letter}`}
+            size={letterState.size}
+            letterCode={letterState.letterCode}
+            letterWidth={letterState.letterWidth}
+            letter={letter}
+            theme={theme}
+          />
+        )}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 MorseCodeAnimate.propTypes = {
-  letter: PropTypes.string.isRequired,
-  order: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  windowWidth: PropTypes.number.isRequired,
-  windowHeight: PropTypes.number.isRequired,
+  darkmode: PropTypes.bool,
+  windowHeight: PropTypes.number,
+  windowWidth: PropTypes.number,
+  total: PropTypes.number,
+  order: PropTypes.number,
+  letter: PropTypes.string,
+  theme: PropTypes.string,
 };
+
+MorseCodeAnimate.defaultProps = {};
+
+export default MorseCodeAnimate;

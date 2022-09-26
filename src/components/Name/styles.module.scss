@@ -1,6 +1,5 @@
-@import './src/variables';
-
-.SVGRow1, .SVGRow2 {
+.SVGRow1,
+.SVGRow2 {
   svg {
     height: 100%;
     width: 100%;
@@ -10,15 +9,16 @@
 .letterContainer {
   path {
     fill-opacity: 1;
-    stroke: $white;
+    stroke: var(--color-white);
+    fill: var(--color-white);
     stroke-width: 0;
-    transition: all 0.3s;
+    transition: all var(--transition);
   }
 
-  &:hover {
+  @include hover {
     path {
       fill-opacity: 0;
-      stroke: $white;
+      stroke: var(--color-white);
       stroke-width: 4px;
     }
   }
@@ -35,12 +35,27 @@
   width: 100%;
 }
 
-@media (min-width: 650px) {
+@include media($small-lowest) {
   .SVGRow1 {
     max-width: none;
   }
 
   .SVGRow2 {
     max-width: none;
+  }
+}
+
+.darkmode {
+  .letterContainer {
+    path {
+      stroke: var(--color-black);
+      fill: var(--color-black);
+    }
+
+    @include hover {
+      path {
+        stroke: var(--color-black);
+      }
+    }
   }
 }
