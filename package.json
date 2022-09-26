@@ -25,7 +25,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "file-loader": "^6.2.0",
     "gatsby": "^4.0.0",
-    "gatsby-alias-imports": "^1.0.6",
     "gatsby-plugin-gatsby-cloud": "^4.13.0",
     "gatsby-plugin-image": "^2.0.0",
     "gatsby-plugin-manifest": "^4.13.0",

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '@components/link';
-import Image from '@components/image';
-import Social from '@components/social';
+import Link from '../link';
+import Image from '../image';
+import Social from '../social';
 
 import * as styles from './styles.module.scss';
 

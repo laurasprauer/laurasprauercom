@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '@components/link';
+import Link from '../link';
 
 import * as styles from './styles.module.scss';
 

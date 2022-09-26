@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '@components/link';
-import SVG from '@components/svg';
+import Link from '../link';
+import SVG from '../svg';
 import * as styles from './styles.module.scss';
 
 export const Developer = ({ darkmode, data }) => {

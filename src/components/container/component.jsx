@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Navigation from '@components/navigation';
-import Darkmode from '@components/darkmode';
-import Home from '@components/home';
-import Developer from '@components/developer';
-import Resume from '@components/resume';
-import About from '@components/about';
-import Conference from '@components/conference';
-import Contact from '@components/contact';
-import Artist from '@components/artist';
-import Art from '@components/art';
-import MorseCode from '@components/morseCode';
-import Link from '@components/link';
+import Navigation from '../navigation';
+import Darkmode from '../darkmode';
+import Home from '../home';
+import Developer from '../developer';
+import Resume from '../resume';
+import About from '../about';
+import Conference from '../conference';
+import Contact from '../contact';
+import Artist from '../artist';
+import Art from '../art';
+import MorseCode from '../morseCode';
+import Link from '../link';
 
 import * as styles from './styles.module.scss';
 
