@@ -5,6 +5,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     resolve: {
       alias: {
         path: require.resolve('path-browserify'),
+        '@components': path.resolve(__dirname, 'src/components/'),
       },
       fallback: {
         url: require.resolve('url/'),
