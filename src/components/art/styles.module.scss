@@ -83,6 +83,7 @@
     margin-top: -13px;
     left: 50%;
     margin-left: -31px;
+    transition: var(--transition) color;
   }
   .rightArrow,
   .leftArrow {
@@ -201,6 +202,29 @@
   }
 
   .carousel {
+    .loading {
+      color: var(--color-white);
+    }
+
+    .rightArrow,
+    .leftArrow {
+      background-color: var(--color-white);
+      svg {
+        path {
+          fill: var(--color-black);
+        }
+      }
+
+      @include hover {
+        background-color: var(--color-purple);
+        svg {
+          path {
+            fill: var(--color-white);
+          }
+        }
+      }
+    }
+
     .image {
       background-color: var(--color-dark-gray);
     }
