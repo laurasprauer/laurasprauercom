@@ -20,6 +20,8 @@ export const MorseCode = ({ darkmode, theme }) => {
         setWindowSize({
           width: window.innerWidth,
           height: window.innerHeight,
+          oldWidth: windowSize.width,
+          oldHeight: windowSize.height,
         });
       }
       // Add event listener
@@ -33,7 +35,7 @@ export const MorseCode = ({ darkmode, theme }) => {
 
   useEffect(() => {
     // force animation reload on window resize
-    if (windowSize.height) {
+    if (windowSize.width && windowSize.width !== windowSize.oldWidth) {
       setDisplayAnimation(false);
       setTimeout(() => {
         setDisplayAnimation(true);
