@@ -1,0 +1,112 @@
+.artist {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+
+    @include media($x-small-highest, down) {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    span {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background-color: var(--color-black);
+      display: inline-block;
+      margin: 0 20px;
+      @include media($small-highest, down) {
+        margin: 0 calc(50% - 5px);
+      }
+    }
+  }
+
+  .gallery {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-top: 50px;
+    > a {
+      width: calc((100% / 3) - 20px);
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      .image {
+        transition: transform var(--transition);
+        transform: scale(1);
+      }
+      @include hover {
+        .title {
+          color: var(--color-black);
+          background-color: var(--color-teal);
+        }
+        .image {
+          transform: scale(1.1);
+        }
+      }
+      .title {
+        transition: background-color var(--transition), color var(--transition);
+        color: var(--color-white);
+        background-color: var(--color-black);
+        font-family: var(--font-saira);
+        font-weight: bold;
+        text-transform: uppercase;
+        position: absolute;
+        width: 100%;
+        padding: 10px 20px;
+        bottom: 0;
+        font-size: 24px;
+        line-height: 34px;
+      }
+
+      @include media($small-highest, down) {
+        width: calc(50% - 20px);
+        .title {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+      @include media($x-small-highest, down) {
+        width: 100%;
+      }
+    }
+  }
+
+  &.darkmode {
+    p {
+      color: var(--color-white);
+    }
+    h1 {
+      color: var(--color-white);
+      span {
+        background-color: var(--color-white);
+      }
+    }
+
+    .gallery {
+      > a {
+        @include hover {
+          .title {
+            color: var(--color-white);
+            background-color: var(--color-purple);
+          }
+        }
+        .title {
+          color: var(--color-black);
+          background-color: var(--color-white);
+        }
+      }
+    }
+  }
+}

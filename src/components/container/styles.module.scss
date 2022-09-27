@@ -1,0 +1,72 @@
+.container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+
+  .wrapper {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fade-in-delay;
+    padding-top: 180px;
+    padding-bottom: 180px;
+    z-index: 2;
+    position: relative;
+    @include container;
+  }
+}
+
+.animationContainer {
+  height: calc(100vh);
+  width: calc(100vw);
+  background-color: var(--color-white);
+  transition: background-color var(--transition);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.fourOhFour {
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 20px;
+  }
+  h1,
+  h2 {
+    text-align: center;
+    color: var(--color-white);
+  }
+  p {
+    text-align: center;
+    margin: 20px auto 0 auto;
+    max-width: 800px;
+    color: var(--color-white);
+  }
+
+  > div {
+    background-color: var(--color-black);
+    margin-bottom: 40px;
+    padding: 60px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.darkmode {
+  &.animationContainer {
+    background-color: var(--color-black);
+  }
+
+  .fourOhFour {
+    h1,
+    h2,
+    p {
+      color: var(--color-black);
+    }
+
+    > div {
+      background-color: var(--color-white);
+    }
+  }
+}

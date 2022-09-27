@@ -1,0 +1,61 @@
+.SVGRow1,
+.SVGRow2 {
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.letterContainer {
+  path {
+    fill-opacity: 1;
+    stroke: var(--color-white);
+    fill: var(--color-white);
+    stroke-width: 0;
+    transition: all var(--transition);
+  }
+
+  @include hover {
+    path {
+      fill-opacity: 0;
+      stroke: var(--color-white);
+      stroke-width: 4px;
+    }
+  }
+}
+
+.SVGRow1 {
+  max-width: 200px;
+  width: 70%;
+}
+
+.SVGRow2 {
+  margin-top: 5px;
+  max-width: 280px;
+  width: 100%;
+}
+
+@include media($small-lowest) {
+  .SVGRow1 {
+    max-width: none;
+  }
+
+  .SVGRow2 {
+    max-width: none;
+  }
+}
+
+.darkmode {
+  .letterContainer {
+    path {
+      stroke: var(--color-black);
+      fill: var(--color-black);
+    }
+
+    @include hover {
+      path {
+        stroke: var(--color-black);
+      }
+    }
+  }
+}
