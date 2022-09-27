@@ -8414,6 +8414,13 @@ gatsby-plugin-manifest@^4.13.0:
     semver "^7.3.7"
     sharp "^0.30.7"
 
+gatsby-plugin-mixpanel@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mixpanel/-/gatsby-plugin-mixpanel-3.7.0.tgz#ae020c6020af3071998e047e3bf49ac407a28605"
+  integrity sha512-yrqOLaWPU37YxCZ6/P5+qkMuGLuttdFHMMT2nbrTaGhiaHkyRez5TMKdUN1ub/9bVoVpmDcxjH1Q+r1YRa8QAg==
+  dependencies:
+    mixpanel-browser "^2.41.0"
+
 gatsby-plugin-page-creator@^4.23.0:
   version "4.23.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-4.23.0.tgz#53e249f91305316f61ffd4a9fec751d83fd66e8f"
@@ -12494,7 +12501,7 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-mixpanel-browser@^2.45.0:
+mixpanel-browser@^2.41.0, mixpanel-browser@^2.45.0:
   version "2.45.0"
   resolved "https://registry.yarnpkg.com/mixpanel-browser/-/mixpanel-browser-2.45.0.tgz#a2973be5b66e6d2799ef95a1e55b8ad8eede57e8"
   integrity sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg==

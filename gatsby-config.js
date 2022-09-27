@@ -50,6 +50,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-mixpanel',
+      options: {
+        apiToken: process.env.APP_MIXPANEL_TOKEN,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         additionalData: `@use 'src/styles/global-styles.scss' as *;`,

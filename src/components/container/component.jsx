@@ -15,11 +15,9 @@ import MorseCode from '@components/morseCode';
 import Link from '@components/link';
 
 import { Helmet } from 'react-helmet';
-import mixpanel from 'mixpanel-browser';
+import { useMixpanel } from 'gatsby-plugin-mixpanel';
 
 import * as styles from './styles.module.scss';
-
-mixpanel.init(process.env.APP_MIXPANEL_TOKEN);
 
 export const Container = ({
   type,
@@ -29,6 +27,8 @@ export const Container = ({
   animationType,
   data,
 }) => {
+  const mixpanel = useMixpanel();
+
   useEffect(() => {
     mixpanelEvent();
   }, []);
