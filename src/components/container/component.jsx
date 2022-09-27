@@ -19,6 +19,8 @@ import mixpanel from 'mixpanel-browser';
 
 import * as styles from './styles.module.scss';
 
+mixpanel.init(process.env.APP_MIXPANEL_TOKEN);
+
 export const Container = ({
   type,
   slug,
