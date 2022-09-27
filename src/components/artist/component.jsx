@@ -34,6 +34,7 @@ export const Artist = ({ darkmode, data }) => {
                 <Image
                   src={{ childImageSharp: { ...art.thumbnail } }}
                   className={styles.image}
+                  alt={art.title}
                 />
                 <div className={styles.title}>{art.title}</div>
               </Link>

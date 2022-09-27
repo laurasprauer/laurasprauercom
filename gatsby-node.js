@@ -5,8 +5,9 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
     resolve: {
       alias: {
         path: require.resolve('path-browserify'),
-        '@components': path.resolve(__dirname, 'src/components/'),
+        '@components': path.resolve(__dirname, 'src/components'),
       },
+      extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
       fallback: {
         url: require.resolve('url/'),
       },

@@ -62,6 +62,11 @@ export const pageQuery = graphql`
           html
         }
       }
+      thumbnail {
+        file {
+          url
+        }
+      }
       gallery {
         gatsbyImageData
         file {

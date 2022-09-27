@@ -26,7 +26,7 @@ export const About = ({ darkmode, data }) => {
     <div className={`${styles.about} ${darkmode ? styles.darkmode : ''}`}>
       <div className={styles.aboutHeader}>
         <div className={styles.imgContainer}>
-          {image && <Image src={image} />}
+          {image && <Image src={image} alt="Laura Sprauer" />}
         </div>
         <div className={styles.heyThere}>
           <h1>Hey&nbsp;&nbsp;There</h1>

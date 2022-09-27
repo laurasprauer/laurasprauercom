@@ -11,6 +11,24 @@ import * as styles from './styles.module.scss';
 export const Art = ({ darkmode, data }) => {
   const [active, setActive] = useState(0);
 
+  const findAndSetActive = (direction) => {
+    const isBrowser = typeof window !== 'undefined';
+    // doing this the hard way
+    if (isBrowser) {
+      data.gallery.map((image, index) => {
+        const el = document.getElementById(`${data.title}-${index}`);
+        if (el.classList.contains(styles.active)) {
+          if (direction === 'left') {
+            setActive(index - 1 < 0 ? data.gallery.length - 1 : index - 1);
+          }
+          if (direction === 'right') {
+            setActive(index + 1 > data.gallery.length - 1 ? 0 : index + 1);
+          }
+        }
+      });
+    }
+  };
+
   return (
     <div className={`${styles.art} ${darkmode ? styles.darkmode : ''}`}>
       <div>
@@ -21,9 +39,21 @@ export const Art = ({ darkmode, data }) => {
           </Link>
           {data.gallery && (
             <div className={styles.carousel}>
+              {data.gallery.length > 1 && (
+                <div
+                  className={styles.leftArrow}
+                  onClick={() => {
+                    findAndSetActive('left');
+                  }}
+                >
+                  <SVG name="arrow" />
+                </div>
+              )}
+              <div className={styles.loading}>loading...</div>
               {data.gallery.map((image, index) => {
                 return (
                   <div
+                    id={`${data.title}-${index}`}
                     key={image.file.url}
                     className={`${styles.image} ${
                       active === index ? styles.active : ''
@@ -33,6 +63,16 @@ export const Art = ({ darkmode, data }) => {
                   </div>
                 );
               })}
+              {data.gallery.length > 1 && (
+                <div
+                  className={styles.rightArrow}
+                  onClick={() => {
+                    findAndSetActive('right');
+                  }}
+                >
+                  <SVG name="arrow" />
+                </div>
+              )}
             </div>
           )}
           {data.gallery &&

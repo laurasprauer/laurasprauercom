@@ -70,8 +70,59 @@
 .carousel {
   width: 100%;
   max-height: 520px;
-  overflow: hidden;
   margin-bottom: 10px;
+  position: relative;
+  .loading {
+    position: absolute;
+    color: var(--color-black);
+    opacity: 0.5;
+    height: 26px;
+    width: 62px;
+    text-align: center;
+    top: 50%;
+    margin-top: -13px;
+    left: 50%;
+    margin-left: -31px;
+  }
+  .rightArrow,
+  .leftArrow {
+    height: 30px;
+    width: 30px;
+    background-color: var(--color-black);
+    position: absolute;
+    padding: 6px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -15px;
+    transition: var(--transition) background-color;
+    cursor: pointer;
+    svg {
+      path {
+        fill: var(--color-white);
+        transition: var(--transition) fill;
+      }
+    }
+
+    @include hover {
+      background-color: var(--color-teal);
+      svg {
+        path {
+          fill: var(--color-black);
+        }
+      }
+    }
+  }
+
+  .leftArrow {
+    left: -15px;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+  .rightArrow {
+    right: -15px;
+  }
+
   .image {
     background-color: var(--color-light-gray);
     height: 500px;
