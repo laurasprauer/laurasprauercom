@@ -21,33 +21,40 @@ export const MorseCode = ({ darkmode, theme }) => {
     if (window && document) {
       // Handler to call on window resize
       function handleResize() {
-        // Set window width/height to state
-        setMyState({
-          width: window.innerWidth,
-          height: window.innerHeight,
-          oldWidth: myStateRef.current.width,
-          oldHeight: myStateRef.current.height,
-        });
+        const heightUpdated =
+          getDifference(window.innerHeight, myStateRef.current.height) > 60;
+        const widthUpdated = window.innerWidth !== myStateRef.current.width;
+
+        if (heightUpdated || widthUpdated) {
+          // Set window width/height to state
+          setMyState({
+            width: window.innerWidth,
+            height: window.innerHeight,
+            oldWidth: myStateRef.current.width,
+            oldHeight: myStateRef.current.height,
+          });
+        }
       }
+
       // Add event listener
       window.addEventListener('resize', handleResize);
-      // Call handler right away so state gets updated with initial window size
-      handleResize();
-      setDisplayAnimation(true);
+
+      // state gets updated on init
+      setMyState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        oldWidth: 0,
+        oldHeight: 0,
+      });
+
       // Remove event listener on cleanup
       return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
 
   useEffect(() => {
-    const heightUpdated =
-      windowSize.height &&
-      getDifference(windowSize.height, windowSize.oldHeight) > 50;
-    const widthUpdated =
-      windowSize.width && windowSize.width !== windowSize.oldWidth;
-
     // force animation reload on window resize
-    if (heightUpdated || widthUpdated) {
+    if (windowSize.height && windowSize.width) {
       setDisplayAnimation(false);
       setTimeout(() => {
         setDisplayAnimation(true);
