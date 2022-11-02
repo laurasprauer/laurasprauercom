@@ -11,6 +11,7 @@ import Conference from '@components/conference';
 import Contact from '@components/contact';
 import Artist from '@components/artist';
 import Art from '@components/art';
+import Blog from '@components/blog';
 import MorseCode from '@components/morseCode';
 import Link from '@components/link';
 
@@ -81,6 +82,14 @@ export const Container = ({
     )}`;
     image = `${data.thumbnail.file.url}`;
   }
+  if (type === 'blog') {
+    title = `${data.title}`;
+    description = `${data.description.childMarkdownRemark.html.replace(
+      /(&lt;([^>]+)>)/gi,
+      ''
+    )}`;
+    image = `${data.shareImage.file.url}`;
+  }
   if (type === 'conference') {
     title = `${data.techTalkTitle}`;
     description = `${data.techTalkSubTitle}.`;
@@ -138,6 +147,7 @@ export const Container = ({
           {type === 'contact' && <Contact darkmode={darkmode} />}
           {type === 'artist' && <Artist darkmode={darkmode} />}
           {type === 'art' && <Art darkmode={darkmode} data={data} />}
+          {type === 'blog' && <Blog darkmode={darkmode} data={data} />}
 
           {type === '404' && (
             <div className={styles.fourOhFour}>
