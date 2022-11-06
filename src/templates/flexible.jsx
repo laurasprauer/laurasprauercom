@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '@components/container';
+import { withMixpanel } from 'gatsby-plugin-mixpanel';
 
 class FlexibleTemplate extends React.Component {
   constructor(props) {
@@ -14,6 +15,16 @@ class FlexibleTemplate extends React.Component {
             : false
           : false,
     };
+  }
+
+  componentDidMount() {
+    const { slug } = this.props.pageContext;
+    const { mixpanel } = this.props;
+    if (process.env.NODE_ENV === 'production') {
+      mixpanel.track('Site Visit', {
+        url: `${slug}`,
+      });
+    }
   }
 
   toggleDarkmode = () => {
@@ -50,4 +61,4 @@ class FlexibleTemplate extends React.Component {
   }
 }
 
-export default FlexibleTemplate;
+export default withMixpanel()(FlexibleTemplate);

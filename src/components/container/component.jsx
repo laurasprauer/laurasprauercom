@@ -16,7 +16,6 @@ import MorseCode from '@components/morseCode';
 import Link from '@components/link';
 
 import { Helmet } from 'react-helmet';
-import { useMixpanel } from 'gatsby-plugin-mixpanel';
 
 import * as styles from './styles.module.scss';
 
@@ -28,20 +27,6 @@ export const Container = ({
   animationType,
   data,
 }) => {
-  const mixpanel = useMixpanel();
-
-  useEffect(() => {
-    mixpanelEvent();
-  }, []);
-
-  const mixpanelEvent = () => {
-    if (process.env.NODE_ENV === 'production') {
-      mixpanel.track('Site Visit', {
-        url: `${slug}`,
-      });
-    }
-  };
-
   let title = 'Laura Sprauer - Developer - Artist';
   let description = 'Laura Sprauer - Developer - Artist';
   let image =

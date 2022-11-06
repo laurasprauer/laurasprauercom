@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '@components/container';
+import { withMixpanel } from 'gatsby-plugin-mixpanel';
 
 class BlogTemplate extends React.Component {
   constructor(props) {
@@ -15,6 +16,16 @@ class BlogTemplate extends React.Component {
             : false
           : false,
     };
+  }
+
+  componentDidMount() {
+    const { slug } = this.props.pageContext;
+    const { mixpanel } = this.props;
+    if (process.env.NODE_ENV === 'production') {
+      mixpanel.track('Site Visit', {
+        url: `${slug}`,
+      });
+    }
   }
 
   toggleDarkmode = () => {
@@ -86,4 +97,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default BlogTemplate;
+export default withMixpanel()(BlogTemplate);

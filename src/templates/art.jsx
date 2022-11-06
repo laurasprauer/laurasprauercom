@@ -17,6 +17,16 @@ class ArtTemplate extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { slug } = this.props.pageContext;
+    const { mixpanel } = this.props;
+    if (process.env.NODE_ENV === 'production') {
+      mixpanel.track('Site Visit', {
+        url: `${slug}`,
+      });
+    }
+  }
+
   toggleDarkmode = () => {
     const isBrowser = typeof window !== 'undefined';
     if (isBrowser) {
@@ -77,4 +87,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default ArtTemplate;
+export default withMixpanel()(ArtTemplate);
