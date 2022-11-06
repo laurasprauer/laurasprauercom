@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Container from '@components/container';
+import { withMixpanel } from 'gatsby-plugin-mixpanel';
 
 class ArtTemplate extends React.Component {
   constructor(props) {
