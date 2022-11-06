@@ -1,8 +1,9 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import Container from '@components/container';
 import { withMixpanel } from 'gatsby-plugin-mixpanel';
 
-class FlexibleTemplate extends React.Component {
+class BlogTemplate extends React.Component {
   constructor(props) {
     super(props);
     const isBrowser = typeof window !== 'undefined';
@@ -47,18 +48,53 @@ class FlexibleTemplate extends React.Component {
   };
 
   render() {
-    const { slug, type, animation, data } = this.props.pageContext;
+    const { slug, type } = this.props.pageContext;
+    const data = this.props.data.contentfulBlogPost;
     return (
       <Container
         slug={slug}
         type={type}
         darkmode={this.state.darkmode}
         toggleDarkmode={this.toggleDarkmode}
-        animationType={animation}
         data={data}
       />
     );
   }
 }
 
-export default withMixpanel()(FlexibleTemplate);
+export const pageQuery = graphql`
+  query Blog($title: String!) {
+    contentfulBlogPost(title: { eq: $title }) {
+      title
+      slug
+      date
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      featureImage {
+        file {
+          url
+        }
+      }
+      featureImageDarkmode {
+        file {
+          url
+        }
+      }
+      shareImage {
+        file {
+          url
+        }
+      }
+    }
+  }
+`;
+
+export default withMixpanel()(BlogTemplate);

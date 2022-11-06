@@ -11,11 +11,11 @@ import Conference from '@components/conference';
 import Contact from '@components/contact';
 import Artist from '@components/artist';
 import Art from '@components/art';
+import Blog from '@components/blog';
 import MorseCode from '@components/morseCode';
 import Link from '@components/link';
 
 import { Helmet } from 'react-helmet';
-import { useMixpanel } from 'gatsby-plugin-mixpanel';
 
 import * as styles from './styles.module.scss';
 
@@ -27,20 +27,6 @@ export const Container = ({
   animationType,
   data,
 }) => {
-  const mixpanel = useMixpanel();
-
-  useEffect(() => {
-    mixpanelEvent();
-  }, []);
-
-  const mixpanelEvent = () => {
-    if (process.env.NODE_ENV === 'production') {
-      mixpanel.track('Site Visit', {
-        url: `${slug}`,
-      });
-    }
-  };
-
   let title = 'Laura Sprauer - Developer - Artist';
   let description = 'Laura Sprauer - Developer - Artist';
   let image =
@@ -80,6 +66,14 @@ export const Container = ({
       ''
     )}`;
     image = `${data.thumbnail.file.url}`;
+  }
+  if (type === 'blog') {
+    title = `${data.title}`;
+    description = `${data.description.childMarkdownRemark.html.replace(
+      /(&lt;([^>]+)>)/gi,
+      ''
+    )}`;
+    image = `${data.shareImage.file.url}`;
   }
   if (type === 'conference') {
     title = `${data.techTalkTitle}`;
@@ -138,6 +132,7 @@ export const Container = ({
           {type === 'contact' && <Contact darkmode={darkmode} />}
           {type === 'artist' && <Artist darkmode={darkmode} />}
           {type === 'art' && <Art darkmode={darkmode} data={data} />}
+          {type === 'blog' && <Blog darkmode={darkmode} data={data} />}
 
           {type === '404' && (
             <div className={styles.fourOhFour}>

@@ -72,7 +72,8 @@ export const Job = ({
         <div className={styles.jobTitle}>{jobTitle}</div>
         <div className={styles.jobInfo}>
           {company}
-          &nbsp;&nbsp;|&nbsp;&nbsp;{start} - {end}
+          &nbsp;&nbsp;|&nbsp;&nbsp;{start}
+          {end !== start ? `- ${end}` : null}
         </div>
         <div
           className={styles.jobDescription}

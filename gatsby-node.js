@@ -42,6 +42,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             title
           }
         }
+
+        allContentfulBlogPost {
+          nodes {
+            title
+            slug
+          }
+        }
       }
     `
   );
@@ -56,9 +63,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const pageTemplate = path.resolve('./src/templates/flexible.jsx');
   const artTemplate = path.resolve('./src/templates/art.jsx');
+  const blogTemplate = path.resolve('./src/templates/blog.jsx');
 
   const allResources = result.data.allContentfulResource.nodes;
   const allArt = result.data.allContentfulArt.nodes;
+  const allBlogPosts = result.data.allContentfulBlogPost.nodes;
 
   if (allResources.length > 0) {
     allResources.forEach((resource) => {
@@ -86,6 +95,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           slug: slug,
           type: 'art',
           title: art.title,
+        },
+      });
+    });
+  }
+
+  if (allBlogPosts.length > 0) {
+    allBlogPosts.forEach((blog) => {
+      const slug = `/${blog.slug}`;
+      createPage({
+        path: slug,
+        component: blogTemplate,
+        context: {
+          slug: slug,
+          type: 'blog',
+          title: blog.title,
         },
       });
     });
