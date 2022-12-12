@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const allResources = result.data.allContentfulResource.nodes;
   const allArt = result.data.allContentfulArt.nodes;
-  const allBlogPosts = result.data.allContentfulBlogPost.nodes;
+
 
   if (allResources.length > 0) {
     allResources.forEach((resource) => {
