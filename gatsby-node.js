@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const pageTemplate = path.resolve('./src/templates/flexible.jsx');
   const artTemplate = path.resolve('./src/templates/art.jsx');
-  const blogTemplate = path.resolve('./src/templates/blog.jsx');
+ 
 
   const allResources = result.data.allContentfulResource.nodes;
   const allArt = result.data.allContentfulArt.nodes;
