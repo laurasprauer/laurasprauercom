@@ -100,20 +100,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   }
 
-  if (allBlogPosts.length > 0) {
-    allBlogPosts.forEach((blog) => {
-      const slug = `/${blog.slug}`;
-      createPage({
-        path: slug,
-        component: blogTemplate,
-        context: {
-          slug: slug,
-          type: 'blog',
-          title: blog.title,
-        },
-      });
-    });
-  }
+
+    
+    
+   
+      
+        
+       
+         
+         
+         
+      
+     
+   
+  
 
   createPage({
     path: '/',
