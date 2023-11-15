@@ -10,6 +10,7 @@ import About from '@components/about';
 import Conference from '@components/conference';
 import Contact from '@components/contact';
 import Artist from '@components/artist';
+import GiftSearch from '@components/giftSearch';
 import Art from '@components/art';
 import Blog from '@components/blog';
 import MorseCode from '@components/morseCode';
@@ -131,6 +132,9 @@ export const Container = ({
           )}
           {type === 'contact' && <Contact darkmode={darkmode} />}
           {type === 'artist' && <Artist darkmode={darkmode} />}
+          {type === 'gift-search' && (
+            <GiftSearch darkmode={darkmode} data={data} />
+          )}
           {type === 'art' && <Art darkmode={darkmode} data={data} />}
           {type === 'blog' && <Blog darkmode={darkmode} data={data} />}
 

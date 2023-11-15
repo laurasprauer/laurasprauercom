@@ -42,13 +42,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             title
           }
         }
-
-        
-         
-          
-
-
-
       }
     `
   );
@@ -63,11 +56,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const pageTemplate = path.resolve('./src/templates/flexible.jsx');
   const artTemplate = path.resolve('./src/templates/art.jsx');
- 
 
   const allResources = result.data.allContentfulResource.nodes;
   const allArt = result.data.allContentfulArt.nodes;
-
 
   if (allResources.length > 0) {
     allResources.forEach((resource) => {
@@ -99,21 +90,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       });
     });
   }
-
-
-    
-    
-   
-      
-        
-       
-         
-         
-         
-      
-     
-   
-  
 
   createPage({
     path: '/',
@@ -168,6 +144,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     context: {
       slug: '/about',
       type: 'about',
+    },
+  });
+
+  createPage({
+    path: '/gift-search',
+    component: pageTemplate,
+    context: {
+      slug: '/gift-search',
+      type: 'gift-search',
     },
   });
 };
