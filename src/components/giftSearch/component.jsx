@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 import SVG from '@components/svg';
 import PropTypes from 'prop-types';
 import * as styles from './styles.module.scss';
 
+const LOADING_MESSAGES_ARRAY = [
+  `Consulting the robots`,
+  `Twiddling thumbs`,
+  `Selecting wrapping paper`,
+  `Counting backwards from Infinity`,
+];
+
 const OCCASION_ARRAY = [
   'Anniversary',
   'Baby Shower',
   'Baptism',
-  'Bar Mitzvah / Bat Mitzvah',
   'Birthday',
   'Bridal Shower',
   'Christmas',
@@ -23,7 +29,6 @@ const OCCASION_ARRAY = [
   'Kwanzaa',
   "Mother's Day",
   "New Year's Day",
-  'Quinceañera',
   'Retirement',
   'Sympathy',
   'Thank You',
@@ -49,6 +54,17 @@ export const GiftSearch = ({ darkmode }) => {
   const [success, setSuccess] = useState(false);
   const [giftResultsArray, setGiftResultsArray] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState(0);
+
+  useEffect(() => {
+    if (loading && loadingMessage <= 3) {
+      setTimeout(() => {
+        setLoadingMessage(loadingMessage + 1);
+      }, 1500);
+    } else {
+      setLoadingMessage(0);
+    }
+  }, [loading, loadingMessage]);
 
   const saveAge = (e) => {
     setAge(e.target.value);
@@ -106,9 +122,7 @@ export const GiftSearch = ({ darkmode }) => {
       interests && interests.length > 0
         ? `, with the following interests: ${interests.join(', ')}.`
         : '.'
-    } - Keep the list to product names only with no descriptions.`;
-
-    console.log(prompt);
+    } - Keep the list to product names only with no descriptions, with each list item starting with a dash. Please only include products you would typically purchase from Amazon.`;
 
     try {
       const result = await openai.chat.completions.create({
@@ -132,7 +146,15 @@ export const GiftSearch = ({ darkmode }) => {
       <h1>Find the Perfect Gift</h1>
       <p>
         Finding the perfect gift doesn&apos;t have to be difficult. Try out the
-        below form and get gifts ideas from the Open AI ChatGPT API.
+        below form and get gifts ideas from the{' '}
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://platform.openai.com/docs/guides/text-generation"
+        >
+          Open AI ChatGPT API
+        </a>
+        .
       </p>
       <form>
         <div className={`${styles.age}`}>
@@ -193,7 +215,6 @@ export const GiftSearch = ({ darkmode }) => {
             defaultValue="Unspecified"
           >
             <option value="Unspecified">Unspecified</option>
-            <option value="Under $5">Under $5</option>
             <option value="Under $20">Under $20</option>
             <option value="Between $20 and $40">Between $20 and $40</option>
             <option value="Between $40 and $60">Between $40 and $60</option>
@@ -242,15 +263,40 @@ export const GiftSearch = ({ darkmode }) => {
 
         <div className={`${styles.submit}`}>
           <button type="submit" onClick={submit} disabled={loading}>
-            {loading ? 'Asking the Robots...' : 'Generate Gift Ideas'}
+            Generate Gift Ideas
           </button>
         </div>
+
+        {loading ? (
+          <p className={`${styles.loadingMessage}`}>
+            {LOADING_MESSAGES_ARRAY[loadingMessage]}
+          </p>
+        ) : null}
+
+        {error && !loading ? <p className={styles.error}>{error}</p> : null}
       </form>
 
-      <div>
-        {giftResultsArray && giftResultsArray.length > 0
+      <div className={styles.results}>
+        {!loading && giftResultsArray && giftResultsArray.length > 0
           ? giftResultsArray.map((gift, index) => {
-              return <h2 key={`gift-idea-${index}`}>{gift}</h2>;
+              if (gift !== '') {
+                return (
+                  <h2 key={`gift-idea-${index}`}>
+                    {gift}
+
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={`https://www.amazon.com/s?k=${gift.replace(
+                        /\s/g,
+                        '+'
+                      )}`}
+                    >
+                      View Amazon Products <SVG name="arrow" />
+                    </a>
+                  </h2>
+                );
+              }
             })
           : null}
       </div>

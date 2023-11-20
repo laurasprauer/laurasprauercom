@@ -243,6 +243,34 @@
       }
     }
   }
+
+  .loadingMessage {
+    font-weight: bold;
+    color: var(--color-peach);
+    letter-spacing: 0;
+    font-size: 22px;
+    line-height: 32px;
+    margin: -20px 0 20px 0;
+  }
+
+  .results {
+    a {
+      margin-left: 16px;
+      font-size: 16px;
+      text-transform: uppercase;
+      position: relative;
+      top: -2px;
+    }
+    svg {
+      height: 20px;
+      width: 20px;
+      position: relative;
+      top: 4px;
+      path {
+        fill: var(--color-black);
+      }
+    }
+  }
 }
 
 .darkmode {
