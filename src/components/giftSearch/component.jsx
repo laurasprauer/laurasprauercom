@@ -57,10 +57,10 @@ export const GiftSearch = ({ darkmode }) => {
   const [loadingMessage, setLoadingMessage] = useState(0);
 
   useEffect(() => {
-    if (loading && loadingMessage <= 3) {
+    if (loading && loadingMessage < 3) {
       setTimeout(() => {
         setLoadingMessage(loadingMessage + 1);
-      }, 1500);
+      }, 2000);
     } else if (!loading) {
       setLoadingMessage(0);
     }
