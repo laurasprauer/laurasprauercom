@@ -8,7 +8,7 @@ const LOADING_MESSAGES_ARRAY = [
   `Consulting the robots`,
   `Twiddling thumbs`,
   `Selecting wrapping paper`,
-  `Counting backwards from Infinity`,
+  `Counting backwards from infinity`,
 ];
 
 const OCCASION_ARRAY = [
@@ -61,7 +61,7 @@ export const GiftSearch = ({ darkmode }) => {
       setTimeout(() => {
         setLoadingMessage(loadingMessage + 1);
       }, 1500);
-    } else {
+    } else if (!loading) {
       setLoadingMessage(0);
     }
   }, [loading, loadingMessage]);
@@ -114,7 +114,7 @@ export const GiftSearch = ({ darkmode }) => {
     e.preventDefault();
     setLoading(true);
 
-    const prompt = `Give me 5 ${occasion} gift ideas${
+    const prompt = `Give me 8 ${occasion} gift ideas${
       cost !== 'Unspecified' ? ` ${cost}` : ''
     } in a bulleted list format for ${
       gender !== 'Unspecified' ? `a ${gender}` : 'someone'
@@ -122,18 +122,19 @@ export const GiftSearch = ({ darkmode }) => {
       interests && interests.length > 0
         ? `, with the following interests: ${interests.join(', ')}.`
         : '.'
-    } - Keep the list to product names only with no descriptions, with each list item starting with a dash. Please only include products you would typically purchase from Amazon.`;
+    } - Keep the list to product names only with no descriptions, with each list item starting with a dash. On even list items return products you would typically purchase from Amazon, and on odd numbers return products you would typically purchase from Etsy.`;
 
     try {
       const result = await openai.chat.completions.create({
         messages: [{ role: 'user', content: prompt }],
         model: 'gpt-3.5-turbo',
       });
-      setLoading(false);
-      setSuccess(true);
       const giftsArray = result.choices[0].message.content
         .replace(/(\r\n|\n|\r)/gm, '')
         .split('- ');
+      giftsArray.shift();
+      setLoading(false);
+      setSuccess(true);
       setGiftResultsArray(giftsArray);
     } catch (e) {
       setLoading(false);
@@ -279,24 +280,37 @@ export const GiftSearch = ({ darkmode }) => {
       <div className={styles.results}>
         {!loading && giftResultsArray && giftResultsArray.length > 0
           ? giftResultsArray.map((gift, index) => {
-              if (gift !== '') {
-                return (
-                  <h2 key={`gift-idea-${index}`}>
-                    {gift}
+              return (
+                <h2 key={`gift-idea-${index}`}>
+                  {gift}
 
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href={`https://www.amazon.com/s?k=${gift.replace(
-                        /\s/g,
-                        '+'
-                      )}`}
-                    >
-                      View Amazon Products <SVG name="arrow" />
-                    </a>
-                  </h2>
-                );
-              }
+                  <div>
+                    {index % 2 == 0 ? (
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={`https://www.amazon.com/s?k=${gift.replace(
+                          /\s/g,
+                          '+'
+                        )}`}
+                      >
+                        View Amazon Products <SVG name="arrow" />
+                      </a>
+                    ) : (
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={`https://www.etsy.com/search?q=${gift.replace(
+                          /\s/g,
+                          '%20'
+                        )}&ref=search_bar`}
+                      >
+                        View Etsy Products <SVG name="arrow" />
+                      </a>
+                    )}
+                  </div>
+                </h2>
+              );
             })
           : null}
       </div>
