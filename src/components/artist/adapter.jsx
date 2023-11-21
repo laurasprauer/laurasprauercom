@@ -5,18 +5,16 @@ import Artist from './component';
 
 /* prettier-ignore */
 const ArtistResourcesAdapter  = (props) => {
-  const data = useStaticQuery(graphql`
-    query ArtistResources {
-      data: allContentfulArt(sort: {fields: date, order: DESC}) {
-        nodes {
-          title
-          thumbnail {
-            gatsbyImageData
-          }
-        }
+  const data = useStaticQuery(graphql`query ArtistResources {
+  data: allContentfulArt(sort: {date: DESC}) {
+    nodes {
+      title
+      thumbnail {
+        gatsbyImageData
       }
     }
-  `);
+  }
+}`);
 
   return <Artist data={data.data.nodes} {...props}/>;
 };

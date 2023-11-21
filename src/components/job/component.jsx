@@ -50,12 +50,12 @@ export const Job = ({
   const minJobHeight = `${YEAR_HEIGHT * years + 100}px`;
 
   let company = (
-    <Link className={styles.companyName} to={companyLink} target="_blank">
+    <Link to={companyLink} target="_blank">
       {companyName}
     </Link>
   );
   if (!companyLink || companyLink === 'null') {
-    company = <span className={styles.companyName}>{companyName}</span>;
+    company = <span>{companyName}</span>;
   }
 
   return (

@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import dig from 'object-dig';
 
 import * as styles from './styles.module.scss';
 
 const Image = ({ alt, className, src, ...props }) => {
   const classes = `${styles.image} ${className ? className : ''}`;
 
-  const gatsbyImageData = dig(src, 'childImageSharp', 'gatsbyImageData');
+  const gatsbyImageData = src?.childImageSharp?.gatsbyImageData || null;
   if (gatsbyImageData) {
     const gImage = getImage(src);
-    const width = dig(gatsbyImageData, 'width');
-    const height = dig(gatsbyImageData, 'height');
+    const width = gatsbyImageData.width;
+    const height = gatsbyImageData.height;
 
     return (
       <GatsbyImage

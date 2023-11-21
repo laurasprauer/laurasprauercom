@@ -129,9 +129,11 @@ export const GiftSearch = ({ darkmode }) => {
         messages: [{ role: 'user', content: prompt }],
         model: 'gpt-3.5-turbo',
       });
-      const giftsArray = result.choices[0].message.content
+
+      const giftsArray = result?.choices[0]?.message?.content
         .replace(/(\r\n|\n|\r)/gm, '')
         .split('- ');
+
       giftsArray.shift();
       setLoading(false);
       setSuccess(true);

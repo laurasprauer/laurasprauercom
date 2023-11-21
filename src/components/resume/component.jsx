@@ -32,7 +32,7 @@ export const Resume = ({ darkmode, data }) => {
   }
 
   return (
-    <div className={`${styles.resume} ${darkmode ? styles.darkmode : ''}`}>
+    <div className={`${darkmode ? styles.darkmode : ''}`}>
       <div className={styles.wrapper}>
         <h1>Laura Sprauer</h1>
 
