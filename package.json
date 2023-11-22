@@ -74,7 +74,7 @@
     "clean": "gatsby clean",
     "test:update": "yarn test --updateSnapshot",
     "test": "jest --silent",
-    "eslint": "eslint --cache \"src/**/*.{js,jsx}\"",
+    "eslint": "NODE_ENV=test eslint --cache \"src/**/*.{js,jsx}\"",
     "eslint:fix": "eslint --fix \"src/**/*.{js,jsx}\"",
     "prepare": "husky install"
   }
