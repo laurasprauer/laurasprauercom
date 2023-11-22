@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import OpenAI from 'openai';
 import SVG from '@components/svg';
 import PropTypes from 'prop-types';
 import * as styles from './styles.module.scss';
@@ -38,11 +37,6 @@ const OCCASION_ARRAY = [
 ];
 
 export const GiftSearch = ({ darkmode }) => {
-  const openai = new OpenAI({
-    apiKey: process.env.GATSBY_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true,
-  });
-
   const [age, setAge] = useState(30);
   const [gender, setGender] = useState('Unspecified');
   const [occasion, setOccasion] = useState('Christmas');
@@ -125,9 +119,20 @@ export const GiftSearch = ({ darkmode }) => {
     } - Keep the list to product names only with no descriptions, with each list item starting with a dash. On even list items return products you would typically purchase from Amazon, and on odd numbers return products you would typically purchase from Etsy.`;
 
     try {
-      const result = await openai.chat.completions.create({
+      const body = {
         messages: [{ role: 'user', content: prompt }],
         model: 'gpt-3.5-turbo',
+      };
+
+      const result = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.GATSBY_OPENAI_API_KEY}`,
+        },
+        body: JSON.stringify(body),
+      }).then((response) => {
+        return response.json();
       });
 
       const giftsArray = result?.choices[0]?.message?.content

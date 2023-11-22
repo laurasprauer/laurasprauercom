@@ -1,12 +1,6 @@
 const path = require('path');
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
-  // const config = getConfig();
-  // if (config.externals && config.externals[0]) {
-  //   config.externals[0]['node:fs'] = require.resolve('crypto-browserify');
-  // }
-  // actions.replaceWebpackConfig(config);
-
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -16,7 +10,6 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
       extensions: ['.js', '.json', '.jsx', '.tsx', '.ts'],
       fallback: {
         url: require.resolve('url/'),
-        fs: false,
       },
     },
   });
