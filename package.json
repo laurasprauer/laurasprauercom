@@ -69,8 +69,8 @@
     "contentful"
   ],
   "scripts": {
-    "start": "gatsby clean && gatsby develop -H 0.0.0.0",
-    "build": "gatsby clean && gatsby build",
+    "start": "gatsby develop -H 0.0.0.0",
+    "build": "gatsby build",
     "clean": "gatsby clean",
     "test:update": "yarn test --updateSnapshot",
     "test": "jest --silent",
