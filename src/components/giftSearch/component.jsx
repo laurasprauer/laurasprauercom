@@ -153,7 +153,7 @@ export const GiftSearch = ({ darkmode }) => {
     <div className={`${styles.giftSearch} ${darkmode ? styles.darkmode : ''}`}>
       <div className={`${styles.header}`}>
         <svg viewBox="0 0 255 221">
-          <g fill="none" fillRule="evenodd" stroke="#343434" stroke-width="5">
+          <g fill="none" fillRule="evenodd" stroke="#343434" strokeWidth="5">
             <path
               fill="#23E9A2"
               strokeLinejoin="round"

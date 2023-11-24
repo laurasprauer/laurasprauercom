@@ -26,7 +26,7 @@
     width: 100%;
   }
 
-  &:hover {
+  @include hover {
     background-color: var(--color-white);
     border: 2px solid var(--color-black);
 
@@ -47,7 +47,7 @@
     width: 100%;
   }
 
-  &:hover {
+  @include hover {
     background-color: var(--color-black);
     border: 2px solid var(--color-white);
 

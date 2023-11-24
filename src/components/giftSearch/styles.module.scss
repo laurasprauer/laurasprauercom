@@ -200,7 +200,7 @@
           }
         }
 
-        &:hover {
+        @include hover {
           background-color: var(--color-white);
           svg > path {
             fill: var(--color-black);
@@ -375,7 +375,7 @@
   }
   a {
     box-shadow: inset 0 -2px 0 0 var(--color-purple);
-    &:hover {
+    @include hover {
       box-shadow: inset 0 -16px 0 0 var(--color-purple);
     }
   }
