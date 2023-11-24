@@ -51,6 +51,13 @@ export const Container = ({
     description =
       "If you're interested in connecting I'm available for new opportunities, speaking engagments, or networking over coffee.";
   }
+  if (type === 'gift-search') {
+    title = 'Find the Perfect Gift!';
+    description =
+      "Finding the perfect gift doesn't have to be difficult. Get gift ideas from Open AI's ChatGPT API. Built by developer Laura Sprauer for funzies.";
+    image =
+      'https://images.ctfassets.net/okczg0bbqwnf/3QJ7kohhTRf1NOLtIq7Qk2/ab77374648c8eee65849d4ffb73b5b3c/gift-search.png';
+  }
   if (type === 'artist') {
     title = 'Laura Sprauer - Artist';
     description =
