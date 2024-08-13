@@ -18,32 +18,30 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage, loaders }) => {
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  const result = await graphql(
-    `
-      {
-        allContentfulResource(filter: { techTalkSlug: { regex: "//" } }) {
-          nodes {
-            title
-            type
-            link
-            techTalkSlug
-            techTalkPdf {
-              file {
-                url
-              }
+  const result = await graphql(`
+    {
+      allContentfulResource(filter: { techTalkSlug: { regex: "//" } }) {
+        nodes {
+          title
+          type
+          link
+          techTalkSlug
+          techTalkPdf {
+            file {
+              url
             }
-            techTalkTitle
-            techTalkSubTitle
           }
-        }
-        allContentfulArt(sort: { date: DESC }) {
-          nodes {
-            title
-          }
+          techTalkTitle
+          techTalkSubTitle
         }
       }
-    `
-  );
+      allContentfulArt(sort: { date: DESC }) {
+        nodes {
+          title
+        }
+      }
+    }
+  `);
 
   if (result.errors) {
     reporter.panicOnBuild(
@@ -146,12 +144,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     },
   });
 
-  createPage({
-    path: '/gift-search',
-    component: pageTemplate,
-    context: {
-      slug: '/gift-search',
-      type: 'gift-search',
-    },
-  });
+  // disabled for now
+  // createPage({
+  //   path: '/gift-search',
+  //   component: pageTemplate,
+  //   context: {
+  //     slug: '/gift-search',
+  //     type: 'gift-search',
+  //   },
+  // });
 };
