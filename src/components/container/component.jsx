@@ -31,7 +31,7 @@ export const Container = ({
   let title = 'Laura Sprauer Burns - Developer';
   let description = 'Laura Sprauer Burns - Developer';
   let image =
-    'https://images.ctfassets.net/okczg0bbqwnf/3QkUBN4i8MRLojaKyJUjKn/b63d7633191b064855bc0d4d4c3b16fe/laura-sprauer-share-image.png';
+    'https://images.ctfassets.net/okczg0bbqwnf/2nEHqZ5gFWvlHhQspcuUjw/a050e2d03b8ab83faf68841071a539d6/sprauer-burns-share-img.png';
 
   if (type === 'developer') {
     title = 'Laura Sprauer Burns - Developer';
