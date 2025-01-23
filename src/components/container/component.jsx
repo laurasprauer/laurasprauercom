@@ -31,16 +31,11 @@ export const Container = ({
   useEffect(() => {
     const isBrowser = typeof window !== 'undefined';
     const url = isBrowser
-      ? window.location.href
+      ? window.location.origin
       : 'https://laurasprauerburns.com';
-    console.log(url);
-    console.log('hello?');
-    if (
-      url === 'https://laurasprauer.com' ||
-      url === 'https://laurasprauer.com/'
-    ) {
-      console.log('hit');
-      window.location.replace(`https://laurasprauerburns.com/${slug}`);
+    const pathname = isBrowser ? window.location.pathname : '/';
+    if (url === 'https://laurasprauer.com') {
+      window.location.replace(`https://laurasprauerburns.com/${pathname}`);
     }
   }, []);
 
@@ -106,7 +101,7 @@ export const Container = ({
 
   const isBrowser = typeof window !== 'undefined';
   const url = isBrowser
-    ? window.location.href
+    ? window.location.origin
     : 'https://laurasprauerburns.com';
 
   return (
