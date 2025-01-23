@@ -28,6 +28,22 @@ export const Container = ({
   animationType,
   data,
 }) => {
+  useEffect(() => {
+    const isBrowser = typeof window !== 'undefined';
+    const url = isBrowser
+      ? window.location.href
+      : 'https://laurasprauerburns.com';
+    console.log(url);
+    console.log('hello?');
+    if (
+      url === 'https://laurasprauer.com' ||
+      url === 'https://laurasprauer.com/'
+    ) {
+      console.log('hit');
+      window.location.replace(`https://laurasprauerburns.com/${slug}`);
+    }
+  }, []);
+
   let title = 'Laura Sprauer Burns - Developer';
   let description = 'Laura Sprauer Burns - Developer';
   let image =
@@ -92,10 +108,6 @@ export const Container = ({
   const url = isBrowser
     ? window.location.href
     : 'https://laurasprauerburns.com';
-
-  if (url === 'https://laurasprauer.com') {
-    window.location.replace(`https://laurasprauerburns.com/${slug}`);
-  }
 
   return (
     <div>
