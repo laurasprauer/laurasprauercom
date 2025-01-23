@@ -91,9 +91,9 @@ export const Container = ({
   const isBrowser = typeof window !== 'undefined';
   const url = isBrowser
     ? window.location.href
-    : 'https://laurasprauerburns.com/';
+    : 'https://laurasprauerburns.com';
 
-  if (url === 'https://laurasprauer.com/') {
+  if (url === 'https://laurasprauer.com') {
     window.location.replace(`https://laurasprauerburns.com/${slug}`);
   }
 
@@ -105,7 +105,7 @@ export const Container = ({
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
         <title>{title}</title>
-        <link rel="canonical" href={`${url}${slug}`} />
+        <link rel="canonical" href={`${url}/${slug}`} />
         <meta property="og:url" content={url} />
         <meta name="description" content={description} />
         <meta name="theme-color" content="#343434" />
