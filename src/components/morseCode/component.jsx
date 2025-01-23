@@ -66,7 +66,7 @@ export const MorseCode = ({ darkmode, theme }) => {
     return Math.abs(a - b);
   };
 
-  const fullName = [...'LAURASPRAUER'];
+  const fullName = [...'SPRAUERBURNS'];
 
   return (
     <div className={`${styles.container} ${darkmode ? styles.darkmode : ''}`}>

@@ -24,12 +24,14 @@ export const About = ({ darkmode, data }) => {
 
   return (
     <div className={`${styles.about} ${darkmode ? styles.darkmode : ''}`}>
-      <div className={styles.aboutHeader}>
-        <div className={styles.imgContainer}>
-          {image && <Image src={image} alt="Laura Sprauer" />}
-        </div>
-        <div className={styles.heyThere}>
-          <h1>Hey&nbsp;&nbsp;There</h1>
+      <div className={styles.wrapper}>
+        <div className={styles.aboutHeader}>
+          {/* <div className={styles.imgContainer}>
+          {image && <Image src={image} alt="Laura Sprauer Burns" />}
+        </div> */}
+          <div className={styles.heyThere}>
+            <h1>Hello&nbsp;&nbsp;World</h1>
+          </div>
         </div>
       </div>
 
@@ -77,45 +79,39 @@ export const About = ({ darkmode, data }) => {
         <h2>As an Artist</h2>
         <p>
           While I love programming and being in the tech industry, I missed the
-          painting, drawing, and art history classes of my undergraduate days.⁠
-          I started documenting my growth as an artist on my{' '}
+          painting, drawing, and art history classes of my undergraduate days.
+          You can view some of my art musings on my{' '}
           <Link
-            to="https://www.instagram.com/sprauer.art/"
+            to="https://bsky.app/profile/laura-burns.bsky.social"
             target="_blank"
             darkmode={darkmode}
           >
-            instagram
-          </Link>
-          , which has encouraged me to share my sketches, paintings, and
-          thrifted or antique art finds.{' '}
-        </p>
-        <p>
-          I&apos;m still discovering my preferred style, and haven&apos;t
-          attempted to actively sell my pieces quite yet. Feel free to browse my{' '}
+            bluesky
+          </Link>{' '}
+          account, or browse my{' '}
           <Link to="/artist" darkmode={darkmode}>
             gallery
-          </Link>{' '}
-          or follow me on{' '}
-          <Link
-            to="https://www.instagram.com/sprauer.art/"
-            target="_blank"
-            darkmode={darkmode}
-          >
-            instagram
           </Link>
-          . All support is appreciated.
+          .
         </p>
 
         <h2>As a Human</h2>
         <p>
           During the day I build slick user interfaces for a more beautiful and
-          easy to use web - during the evenings you can find me walking my dog,
-          spending quality time with friends and family, and deep diving into
-          all things arts and crafts.{' '}
+          easy to use web - during the evenings you can find me spending quality
+          time with my husband and daughter, watering my plants, and deep diving
+          into all things arts and crafts.{' '}
         </p>
         <p>
-          Favorite hobbies include: Bonsai, Houseplants, Soccer, Sketching,
-          Painting, Crafting and Pokemon Go.
+          View my archived{' '}
+          <Link
+            to="https://jakeandlaura2023.com/"
+            target="_blank"
+            darkmode={darkmode}
+          >
+            2023 wedding website
+          </Link>
+          !
         </p>
         <div className={styles.social}>
           <Social
@@ -129,8 +125,8 @@ export const About = ({ darkmode, data }) => {
             darkmode={darkmode}
           />
           <Social
-            icon="instagram"
-            link="https://www.instagram.com/sprauer.art/"
+            icon="bluesky"
+            link="https://bsky.app/profile/laura-burns.bsky.social"
             darkmode={darkmode}
           />
         </div>

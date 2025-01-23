@@ -92,6 +92,10 @@ export const MorseCodeAnimate = ({
         letterCode = '.-';
         letterWidth = dotWidth + dashWidth;
         break;
+      case 'B':
+        letterCode = '-...';
+        letterWidth = dotWidth * 3 + dashWidth;
+        break;
       case 'E':
         letterCode = '.';
         letterWidth = dotWidth;
@@ -99,6 +103,10 @@ export const MorseCodeAnimate = ({
       case 'L':
         letterCode = '.-..';
         letterWidth = dotWidth * 3 + dashWidth;
+        break;
+      case 'N':
+        letterCode = '-.';
+        letterWidth = dotWidth + dashWidth;
         break;
       case 'P':
         letterCode = '.--.';

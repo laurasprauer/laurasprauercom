@@ -14,17 +14,11 @@ export const Home = ({ darkmode }) => {
         <Name darkmode={darkmode} />
       </div>
       <div className={styles.content}>
-        <h1>Developer - Artist - Human</h1>
+        <h1>Developer & Human</h1>
         <p>
           You had me at hello world --{' '}
           <Link darkmode={darkmode} to="/developer">
             Dev Resources
-          </Link>
-        </p>
-        <p>
-          Till death do we art --{' '}
-          <Link darkmode={darkmode} to="/artist">
-            Art Gallery
           </Link>
         </p>
         <p>
@@ -45,8 +39,8 @@ export const Home = ({ darkmode }) => {
             darkmode={darkmode}
           />
           <Social
-            icon="instagram"
-            link="https://www.instagram.com/sprauer.art/"
+            icon="bluesky"
+            link="https://bsky.app/profile/laura-burns.bsky.social"
             darkmode={darkmode}
           />
         </div>

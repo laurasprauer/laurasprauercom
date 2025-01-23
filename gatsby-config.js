@@ -32,8 +32,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Laura Sprauer',
-    description: 'Laura Sprauer - Developer - Artist',
+    title: 'Laura Sprauer Burns',
+    description: 'Laura Sprauer Burns - Developer',
   },
   pathPrefix: '/laurasprauercom',
   plugins: [

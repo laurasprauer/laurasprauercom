@@ -21,10 +21,10 @@ export const Navigation = ({ pathname, darkmode }) => {
     developerClasses = `${styles.links} ${styles.selected}`;
   }
 
-  // ARTIST
-  let artistClasses = `${styles.links}`;
-  if (pathname === '/artist') {
-    artistClasses = `${styles.links} ${styles.selected}`;
+  // ABOUT
+  let aboutClasses = `${styles.links}`;
+  if (pathname === '/about') {
+    aboutClasses = `${styles.links} ${styles.selected}`;
   }
 
   // CONTACT
@@ -45,7 +45,7 @@ export const Navigation = ({ pathname, darkmode }) => {
         <li className={homeClasses}>
           <Link className={styles.item1} to="/">
             HOME
-            <SVG name="LS-logo" />
+            <SVG name="home" />
           </Link>
         </li>
         <li className={developerClasses}>
@@ -54,10 +54,10 @@ export const Navigation = ({ pathname, darkmode }) => {
             <SVG name="code" />
           </Link>
         </li>
-        <li className={artistClasses}>
-          <Link className={styles.item3} to="/artist">
-            ARTIST
-            <SVG name="paint" />
+        <li className={aboutClasses}>
+          <Link className={styles.item3} to="/about">
+            ABOUT
+            <SVG name="about" />
           </Link>
         </li>
         <li className={contactClasses}>

@@ -3,7 +3,7 @@ export default {
     pdfDownloadText: 'Resume',
     pdfDownload: {
       file: {
-        url: '//assets.ctfassets.net/okczg0bbqwnf/8YSb3ECFZROa4A9tXBPET/6d5e5c492f7e8a5e8a61ea36d30e5870/laura-sprauer-resume-2022.pdf',
+        url: '//assets.ctfassets.net/okczg0bbqwnf/8YSb3ECFZROa4A9tXBPET/6d5e5c492f7e8a5e8a61ea36d30e5870/laura-sprauer-resume-2024.pdf',
       },
     },
     content: [

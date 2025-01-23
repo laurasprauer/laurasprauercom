@@ -34,7 +34,7 @@ export const Resume = ({ darkmode, data }) => {
   return (
     <div className={`${darkmode ? styles.darkmode : ''}`}>
       <div className={styles.wrapper}>
-        <h1>Laura Sprauer</h1>
+        <h1>Laura Sprauer Burns</h1>
 
         <DownloadPDF
           text={data.pdfDownloadText}

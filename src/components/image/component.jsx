@@ -16,7 +16,7 @@ const Image = ({ alt, className, src, ...props }) => {
     return (
       <GatsbyImage
         className={classes}
-        alt={alt || 'Laura Sprauer'}
+        alt={alt || 'Laura Sprauer Burns'}
         image={gImage}
         width={width}
         height={height}
@@ -31,7 +31,7 @@ const Image = ({ alt, className, src, ...props }) => {
       <img
         className={classes}
         src={src}
-        alt={alt || 'Laura Sprauer'}
+        alt={alt || 'Laura Sprauer Burns'}
         {...props}
       />
     );

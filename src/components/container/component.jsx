@@ -28,26 +28,26 @@ export const Container = ({
   animationType,
   data,
 }) => {
-  let title = 'Laura Sprauer - Developer - Artist';
-  let description = 'Laura Sprauer - Developer - Artist';
+  let title = 'Laura Sprauer Burns - Developer';
+  let description = 'Laura Sprauer Burns - Developer';
   let image =
     'https://images.ctfassets.net/okczg0bbqwnf/3QkUBN4i8MRLojaKyJUjKn/b63d7633191b064855bc0d4d4c3b16fe/laura-sprauer-share-image.png';
 
   if (type === 'developer') {
-    title = 'Laura Sprauer - Developer';
+    title = 'Laura Sprauer Burns - Developer';
     description = 'You had me at hello world.';
   }
   if (type === 'resume') {
-    title = 'Laura Sprauer - Resume';
+    title = 'Laura Sprauer Burns - Resume';
     description = 'Review my expierence and skills.';
   }
   if (type === 'about') {
     title = 'Based on a true story';
     description =
-      "My name is Laura Sprauer, and I'm a Developer, Artist, and Human.";
+      "My name is Laura Sprauer Burns, and I'm a Developer, Artist, and Human.";
   }
   if (type === 'contact') {
-    title = "Laura Sprauer - Let's Talk";
+    title = "Laura Sprauer Burns - Let's Talk";
     description =
       "If you're interested in connecting I'm available for new opportunities, speaking engagments, or networking over coffee.";
   }
@@ -59,7 +59,7 @@ export const Container = ({
       'https://images.ctfassets.net/okczg0bbqwnf/3QJ7kohhTRf1NOLtIq7Qk2/ab77374648c8eee65849d4ffb73b5b3c/gift-search.png';
   }
   if (type === 'artist') {
-    title = 'Laura Sprauer - Artist';
+    title = 'Laura Sprauer Burns - Artist';
     description =
       "I'm an art hobbyist. This isn't my full-time job, it's a passion. I'm continuously trying to improve and discover my style. All support is appreciated. Feel free to browse all finished original artwork in my gallery below, or follow me on instagram to get updated on my progression as an artist or learn about my thrifted and antique art finds.";
   }
@@ -68,7 +68,7 @@ export const Container = ({
     description = "Looks like this page doesn't exist.";
   }
   if (type === 'art') {
-    title = `${data.title} By Laura Sprauer`;
+    title = `${data.title} By Laura Sprauer Burns`;
     description = `${data.description.childMarkdownRemark.html.replace(
       /(&lt;([^>]+)>)/gi,
       ''
@@ -89,7 +89,13 @@ export const Container = ({
   }
 
   const isBrowser = typeof window !== 'undefined';
-  const url = isBrowser ? window.location.href : 'https://laurasprauer.com';
+  const url = isBrowser
+    ? window.location.href
+    : 'https://laurasprauerburns.com/';
+
+  if (url === 'https://laurasprauer.com/') {
+    window.location.replace(`https://laurasprauerburns.com/${slug}`);
+  }
 
   return (
     <div>
@@ -99,7 +105,7 @@ export const Container = ({
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
         <title>{title}</title>
-        <link rel="canonical" href={`${url}/${slug}`} />
+        <link rel="canonical" href={`${url}${slug}`} />
         <meta property="og:url" content={url} />
         <meta name="description" content={description} />
         <meta name="theme-color" content="#343434" />
@@ -107,7 +113,7 @@ export const Container = ({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:site_name" content="Laura Sprauer" />
+        <meta property="og:site_name" content="Laura Sprauer Burns" />
         <meta property="og:image" content={image} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={image} />

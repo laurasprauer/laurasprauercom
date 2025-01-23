@@ -10,18 +10,13 @@ export const Artist = ({ darkmode, data }) => {
   return (
     <div className={`${styles.artist} ${darkmode ? styles.darkmode : ''}`}>
       <h1>
-        Laura Sprauer <span></span> Artist
+        Laura Sprauer Burns<span></span> Artist
       </h1>
       <p>
         I&apos;m an art hobbyist. This isn&apos;t my full-time job, it&apos;s a
         passion. I&apos;m continuously trying to improve and discover my style.
         All support is appreciated. Feel free to browse all finished original
-        artwork in my gallery below, or follow me on{' '}
-        <Link to="https://www.instagram.com/sprauer.art/" darkmode={darkmode}>
-          instagram
-        </Link>{' '}
-        to get updated on my progression as an artist or learn about my thrifted
-        and antique art finds.
+        artwork in my gallery below.
       </p>
       <div className={styles.gallery}>
         {data &&

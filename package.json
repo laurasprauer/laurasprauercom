@@ -12,7 +12,7 @@
     "url": "https://github.com/laurasprauer/laurasprauercom"
   },
   "license": "MIT",
-  "author": "Laura Sprauer",
+  "author": "Laura Sprauer Burns",
   "main": "n/a",
   "dependencies": {
     "@babel/preset-env": "7.23.3",

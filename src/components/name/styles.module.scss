@@ -1,5 +1,6 @@
 .SVGRow1,
-.SVGRow2 {
+.SVGRow2,
+.SVGRow3 {
   svg {
     height: 100%;
     width: 100%;
@@ -35,12 +36,21 @@
   width: 100%;
 }
 
+.SVGRow3 {
+  max-width: 200px;
+  width: 70%;
+}
+
 @include media($small-lowest) {
   .SVGRow1 {
     max-width: none;
   }
 
   .SVGRow2 {
+    max-width: none;
+  }
+
+  .SVGRow3 {
     max-width: none;
   }
 }
